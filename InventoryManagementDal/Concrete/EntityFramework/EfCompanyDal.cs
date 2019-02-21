@@ -18,15 +18,15 @@ namespace InventoryManagementDal.concrete.EntityFramework
             _contexDb.SaveChanges();
         }
 
-        public void Delete(int CompanyId)
+        public void Delete(int companyId)
         {
-            _contexDb.Company.Remove(_contexDb.Company.FirstOrDefault(s => s.CompanyId == CompanyId));
+            _contexDb.Company.Remove(_contexDb.Company.FirstOrDefault(s => s.CompanyId == companyId));
             _contexDb.SaveChanges();
         }
 
-        public Company Get(int CompanyId)
+        public Company Get(int companyId)
         {
-           return _contexDb.Company.FirstOrDefault(s => s.CompanyId == CompanyId);
+           return _contexDb.Company.FirstOrDefault(s => s.CompanyId == companyId);
         }
 
         public List<Company> GetAll()
