@@ -12,11 +12,11 @@ namespace InventoryManagementDal.Abstrack
 
         List<Company> GetAll();
 
-        Company Get(int CompanyId);
+        Company Get(int companyId);
 
         void Add(Company company);
 
-        void Delete(int CompanyId);
+        void Delete(int companyId);
 
         void Update(Company company);
 
