@@ -21,22 +21,26 @@ namespace InventoryManagementDal.concrete.EntityFramework
 
         public void Delete(int storeId)
         {
-            throw new NotImplementedException();
+            _contexDb.Store.Remove(_contexDb.Store.FirstOrDefault(s => s.StoreId == storeId));
         }
 
         public Store Get(int storeId)
         {
-            throw new NotImplementedException();
+          return  _contexDb.Store.FirstOrDefault(s => s.StoreId == storeId);
         }
 
         public List<Store> GetAll()
         {
-            throw new NotImplementedException();
+            return _contexDb.Store.ToList();
         }
 
         public void Update(Store store)
         {
-            throw new NotImplementedException();
+           Store storeUp = _contexDb.Store.FirstOrDefault(s => s.StoreId == store.StoreId);
+
+            storeUp.Name = store.Name;
+            storeUp.Address = store.Address;
+            _contexDb.SaveChanges();
         }
     }
 }

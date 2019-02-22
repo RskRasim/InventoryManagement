@@ -49,7 +49,7 @@ namespace InventoryManagementDal.concrete.EntityFramework
             productUp.MinPieces = product.MinPieces;
             productUp.StoreId = product.StoreId;
 
-            inventoryManagementDb.SaveChanges();
+            _contextDb.SaveChanges();
         }
     }
 }
