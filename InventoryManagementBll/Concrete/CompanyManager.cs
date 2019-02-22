@@ -11,36 +11,36 @@ namespace InventoryManagementBll.Concrete
 {
     public class CompanyManager : ICompanyService
     {
-        private IProductDal _productDal;
+        private ICompanyDal _companyDal;
 
-        public CompanyManager(IProductDal productDal)
+        public CompanyManager(ICompanyDal companyDal)
         {
-            _productDal = productDal;
+            _companyDal = companyDal;
         }
 
         public void Add(Company company)
         {
-            throw new NotImplementedException();
+            _companyDal.Add(company);
         }
 
         public void Delete(int companyId)
         {
-            throw new NotImplementedException();
+            _companyDal.Delete(companyId);
         }
 
         public Company Get(int companyId)
         {
-            throw new NotImplementedException();
+            return _companyDal.Get(companyId);
         }
 
         public List<Company> GetAll()
         {
-            throw new NotImplementedException();
+           return _companyDal.GetAll();
         }
 
         public void Update(Company company)
         {
-            throw new NotImplementedException();
+            _companyDal.Update(company);
         }
     }
 }

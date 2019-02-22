@@ -15,6 +15,5 @@ namespace InventoryManagementDal.Abstrack
         void Delete(int Id);
         void Update(Product product);
 
-
     }
 }

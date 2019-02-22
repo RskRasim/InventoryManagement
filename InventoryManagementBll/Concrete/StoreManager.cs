@@ -1,4 +1,5 @@
-﻿using InventoryManagementEntity;
+﻿using InventoryManagementDal.Abstrack;
+using InventoryManagementEntity;
 using InventoryManagementInterfaces;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace InventoryManagementBll.Concrete
 {
     public class StoreManager : IStoreService
     {
+        private IStoreDal _storeDal;
+
+        public StoreManager(IStoreDal storeDal)
+        {
+            _storeDal = storeDal;
+        }
+
         public void Add(Store store)
         {
-            throw new NotImplementedException();
+            _storeDal.Add(store);
         }
 
         public void Delete(int storeId)
         {
-            throw new NotImplementedException();
+            _storeDal.Delete(storeId);
         }
 
         public Store Get(int storeId)
         {
-            throw new NotImplementedException();
+            return _storeDal.Get(storeId);
         }
 
         public List<Store> GetAll()
         {
-            throw new NotImplementedException();
+           return _storeDal.GetAll();
         }
 
         public void Update(Store store)
         {
-            throw new NotImplementedException();
+            _storeDal.Update(store);
         }
     }
 }

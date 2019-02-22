@@ -1,4 +1,5 @@
-﻿using InventoryManagementEntity;
+﻿using InventoryManagementDal.Abstrack;
+using InventoryManagementEntity;
 using InventoryManagementInterfaces;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace InventoryManagementBll.Concrete
 {
     public class ProductManager : IProductService
     {
+        private IProductDal _productDal;
+
+        public ProductManager(IProductDal productDal)
+        {
+            _productDal = productDal;
+        }
+
         public void Add(Product product)
         {
-            throw new NotImplementedException();
+            _productDal.Add(product);
         }
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            _productDal.Delete(Id);
         }
 
         public Product Get(int productId)
         {
-            throw new NotImplementedException();
+          return  _productDal.Get(productId);
         }
 
         public List<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return _productDal.GetAll();
         }
 
         public void Update(Product product)
         {
-            throw new NotImplementedException();
+            _productDal.Update(product);
         }
     }
 }
