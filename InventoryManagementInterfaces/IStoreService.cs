@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementInterfaces
 {
-   public interface IProductService
+    public interface IStoreService
     {
 
-        List<Product> GetAll();
-        Product Get(int productId);
-        void Add(Product product);
-        void Delete(int Id);
-        void Update(Product product);
+        List<Store> GetAll();
+        Store Get(int storeId);
+        void Add(Store store);
+        void Delete(int storeId);
+        void Update(Store store);
+
 
     }
 }

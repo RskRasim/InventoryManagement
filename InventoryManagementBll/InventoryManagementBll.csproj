@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\CompanyManager.cs" />
+    <Compile Include="Concrete\ProductManager.cs" />
+    <Compile Include="Concrete\StoreManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,7 +59,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstrack\" />
-    <Folder Include="Concrete\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryManagementDal\InventoryManagementDal.csproj">
+      <Project>{7327A0A3-12EC-4D29-ACA8-E45FE92C5E8A}</Project>
+      <Name>InventoryManagementDal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryManagementEntity\InventoryManagementEntity.csproj">
+      <Project>{8983EE3F-6627-40A8-BE9B-096C98E9B711}</Project>
+      <Name>InventoryManagementEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InventoryManagementInterfaces\InventoryManagementInterfaces.csproj">
+      <Project>{05861C12-F219-4BC3-A989-D3AF0309E478}</Project>
+      <Name>InventoryManagementInterfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

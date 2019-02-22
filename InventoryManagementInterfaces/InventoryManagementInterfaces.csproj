@@ -43,8 +43,14 @@
   <ItemGroup>
     <Compile Include="ICompanyService.cs" />
     <Compile Include="IProductService.cs" />
-    <Compile Include="IStoreServices.cs" />
+    <Compile Include="IStoreService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InventoryManagementEntity\InventoryManagementEntity.csproj">
+      <Project>{8983EE3F-6627-40A8-BE9B-096C98E9B711}</Project>
+      <Name>InventoryManagementEntity</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
