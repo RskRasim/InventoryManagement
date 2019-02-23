@@ -1,11 +1,9 @@
 ﻿
 using InventoryManagementDal.Abstrack;
+using InventoryManagementDal.Concrete.EntityFramework;
 using InventoryManagementEntity;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InventoryManagementDal.concrete.EntityFramework
 {
@@ -15,29 +13,31 @@ namespace InventoryManagementDal.concrete.EntityFramework
 
         public void Add(Product product)
         {
-            _contextDb.Product.Add(product);
+            _contextDb.Products.Add(product);
             _contextDb.SaveChanges();
         }
 
+      
+
         public void Delete(int Id)
         {
-            _contextDb.Product.Remove(_contextDb.Product.FirstOrDefault(s => s.ProductId == Id));
+            _contextDb.Products.Remove(_contextDb.Products.FirstOrDefault(s => s.Id == Id));
             _contextDb.SaveChanges();
         }
 
         public Product Get(int productId)
         {
-           return _contextDb.Product.FirstOrDefault(s => s.ProductId == productId);
+           return _contextDb.Products.FirstOrDefault(s => s.Id == productId);
         }
 
         public List<Product> GetAll()
         {
-          return _contextDb.Product.ToList();
+          return _contextDb.Products.ToList();
         }
 
         public void Update(Product product)
         {
-           Product productUp = _contextDb.Product.FirstOrDefault(s => s.ProductId == product.ProductId);
+           Product productUp = _contextDb.Products.FirstOrDefault(s => s.Id == product.Id);
 
             productUp.ProductName = product.ProductName;
             productUp.ShelfNumber = product.ShelfNumber;
@@ -47,9 +47,12 @@ namespace InventoryManagementDal.concrete.EntityFramework
             productUp.Pieces = product.Pieces;
             productUp.MaxPieces = product.MaxPieces;
             productUp.MinPieces = product.MinPieces;
-            productUp.StoreId = product.StoreId;
+            productUp.Store = product.Store;
+            productUp.Price = product.Price;
+            productUp.TaxRate = product.TaxRate;
 
             _contextDb.SaveChanges();
         }
+   
     }
 }

@@ -1,4 +1,5 @@
 ﻿using InventoryManagementDal.Abstrack;
+using InventoryManagementDal.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace InventoryManagementDal.concrete.EntityFramework
         private InventoryManagementContext _contexDb = new InventoryManagementContext();
         public void Add(Store store)
         {
-            _contexDb.Store.Add(store);
+            _contexDb.Stores.Add(store);
             _contexDb.SaveChanges();
                 
                 
@@ -21,22 +22,22 @@ namespace InventoryManagementDal.concrete.EntityFramework
 
         public void Delete(int storeId)
         {
-            _contexDb.Store.Remove(_contexDb.Store.FirstOrDefault(s => s.StoreId == storeId));
+            _contexDb.Stores.Remove(_contexDb.Stores.FirstOrDefault(s => s.Id == storeId));
         }
 
         public Store Get(int storeId)
         {
-          return  _contexDb.Store.FirstOrDefault(s => s.StoreId == storeId);
+          return  _contexDb.Stores.FirstOrDefault(s => s.Id == storeId);
         }
 
         public List<Store> GetAll()
         {
-            return _contexDb.Store.ToList();
+            return _contexDb.Stores.ToList();
         }
 
         public void Update(Store store)
         {
-           Store storeUp = _contexDb.Store.FirstOrDefault(s => s.StoreId == store.StoreId);
+           Store storeUp = _contexDb.Stores.FirstOrDefault(s => s.Id == store.Id);
 
             storeUp.Name = store.Name;
             storeUp.Address = store.Address;

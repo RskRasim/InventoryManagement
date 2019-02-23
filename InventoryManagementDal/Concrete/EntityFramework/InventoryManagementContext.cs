@@ -1,16 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InventoryManagementEntity
+namespace InventoryManagementDal.Concrete.EntityFramework
 {
-    class InventoryManagementContext:DbContext
+    using System;
+    using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
+    using InventoryManagementEntity;
+
+    public partial class InventoryManagementContext : DbContext
     {
-        public DbSet<Company> Company {get;set;}
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Store> Store { get; set; }
+        public InventoryManagementContext()
+            : base("name=InventoryManagementContext")
+        {
+        }
+
+        public virtual DbSet<Company> Companies { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Store> Stores { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Company>()
+                .HasMany(e => e.Products)
+                .WithOptional(e => e.Company)
+                .HasForeignKey(e => e.CompanyId_CompanyId);
+
+            modelBuilder.Entity<Company>()
+                .HasMany(e => e.Stores)
+                .WithOptional(e => e.Company)
+                .HasForeignKey(e => e.CompanyId_CompanyId);
+
+            modelBuilder.Entity<Store>()
+                .HasMany(e => e.Products)
+                .WithOptional(e => e.Store)
+                .HasForeignKey(e => e.StoreId_StoreId);
+        }
     }
 }

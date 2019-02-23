@@ -1,0 +1,10 @@
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\bin\Debug\InventoryManagementInterfaces.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\bin\Debug\InventoryManagementInterfaces.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\bin\Debug\InventoryManagementEntity.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\bin\Debug\InventoryManagementEntity.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\bin\Debug\InventoryManagementEntity.dll.config
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\obj\Debug\InventoryManagementInterfaces.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\obj\Debug\InventoryManagementInterfaces.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\obj\Debug\InventoryManagementInterfaces.csproj.CopyComplete
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\obj\Debug\InventoryManagementInterfaces.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementInterfaces\obj\Debug\InventoryManagementInterfaces.pdb

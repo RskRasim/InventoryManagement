@@ -1,4 +1,5 @@
 ﻿using InventoryManagementDal.Abstrack;
+using InventoryManagementDal.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System;
 using System.Collections.Generic;
@@ -14,29 +15,29 @@ namespace InventoryManagementDal.concrete.EntityFramework
 
         public void Add(Company company)
         {
-            _contexDb.Company.Add(company);
+            _contexDb.Companies.Add(company);
             _contexDb.SaveChanges();
         }
 
         public void Delete(int companyId)
         {
-            _contexDb.Company.Remove(_contexDb.Company.FirstOrDefault(s => s.CompanyId == companyId));
+            _contexDb.Companies.Remove(_contexDb.Companies.FirstOrDefault(s => s.Id == companyId));
             _contexDb.SaveChanges();
         }
 
         public Company Get(int companyId)
         {
-           return _contexDb.Company.FirstOrDefault(s => s.CompanyId == companyId);
+           return _contexDb.Companies.FirstOrDefault(s => s.Id == companyId);
         }
 
         public List<Company> GetAll()
         {
-          return  _contexDb.Company.ToList();
+            return _contexDb.Companies.ToList();
         }
 
         public void Update(Company company)
         {
-          Company  UpCompany = _contexDb.Company.FirstOrDefault(s => s.CompanyId == company.CompanyId);
+          Company  UpCompany = _contexDb.Companies.FirstOrDefault(s => s.Id == company.Id);
 
             UpCompany.Name = company.Name;
             UpCompany.TaxNumber = company.TaxNumber;

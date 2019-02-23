@@ -10,3 +10,15 @@ C:\Users\ASUS\Documents\Visual Studio 2017\Projects\InventoryManagement\Inventor
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.csproj.CopyComplete
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.dll
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\bin\Debug\InventoryManagementEntity.dll.config
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\bin\Debug\InventoryManagementEntity.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\bin\Debug\InventoryManagementEntity.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.csproj.CopyComplete
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.pdb

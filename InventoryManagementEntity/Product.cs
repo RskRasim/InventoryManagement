@@ -1,25 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace InventoryManagementEntity
 {
-  public  class Product
-    {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
-        public int ProductId { get; set; }
+    public partial class Product
+    {
+        public int Id { get; set; }
+
         public string ProductCode { get; set; }
+
         public string ProductName { get; set; }
+
         public string Content { get; set; }
+
         public string BarcodeCode { get; set; }
+
         public string BarcodeCode2 { get; set; }
+
         public int ShelfNumber { get; set; }
+
         public int Pieces { get; set; }
+
         public int MaxPieces { get; set; }
+
         public int MinPieces { get; set; }
-        public Company CompanyId { get; set; }
-        public Store StoreId { get; set; }
+
+        public int Price { get; set; }
+
+        public int TaxRate { get; set; }
+
+        public int? CompanyId_CompanyId { get; set; }
+
+        public int? StoreId_StoreId { get; set; }
+
+        public virtual Company Company { get; set; }
+
+        public virtual Store Store { get; set; }
     }
 }

@@ -10,3 +10,23 @@ C:\Users\ASUS\Documents\Visual Studio 2017\Projects\InventoryManagement\Inventor
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\InventoryManagement\InventoryManagementBll\obj\Debug\InventoryManagementBll.csproj.CopyComplete
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\InventoryManagement\InventoryManagementBll\obj\Debug\InventoryManagementBll.dll
 C:\Users\ASUS\Documents\Visual Studio 2017\Projects\InventoryManagement\InventoryManagementBll\obj\Debug\InventoryManagementBll.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementBll.dll.config
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementBll.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementBll.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementDal.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementEntity.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementInterfaces.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementDal.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementDal.dll.config
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementEntity.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementEntity.dll.config
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\InventoryManagementInterfaces.pdb
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\obj\Debug\InventoryManagementBll.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\obj\Debug\InventoryManagementBll.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\obj\Debug\InventoryManagementBll.csproj.CopyComplete
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\obj\Debug\InventoryManagementBll.dll
+C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementBll\obj\Debug\InventoryManagementBll.pdb
