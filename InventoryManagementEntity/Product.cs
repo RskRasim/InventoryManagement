@@ -32,9 +32,9 @@ namespace InventoryManagementEntity
 
         public int TaxRate { get; set; }
 
-        public int? CompanyId_CompanyId { get; set; }
+        public int? CompanyId { get; set; }
 
-        public int? StoreId_StoreId { get; set; }
+        public int? StoreId { get; set; }
 
         public virtual Company Company { get; set; }
 

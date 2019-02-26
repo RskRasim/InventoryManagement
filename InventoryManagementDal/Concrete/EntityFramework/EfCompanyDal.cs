@@ -11,8 +11,12 @@ namespace InventoryManagementDal.concrete.EntityFramework
 {
     public class EfCompanyDal : ICompanyDal
     {
-        private InventoryManagementContext _contexDb = new InventoryManagementContext();
+        private InventoryManagementContext _contexDb;
+        public EfCompanyDal()
+        {
+            _contexDb = new InventoryManagementContext();
 
+        }
         public void Add(Company company)
         {
             _contexDb.Companies.Add(company);

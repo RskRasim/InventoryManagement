@@ -16,23 +16,29 @@ namespace InventoryManagementDal.Concrete.EntityFramework
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
+        public virtual DbSet<Staff> Staffs { get; set;}
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+       protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>()
                 .HasMany(e => e.Products)
                 .WithOptional(e => e.Company)
-                .HasForeignKey(e => e.CompanyId_CompanyId);
+                .HasForeignKey(e => e.CompanyId);
 
             modelBuilder.Entity<Company>()
                 .HasMany(e => e.Stores)
                 .WithOptional(e => e.Company)
-                .HasForeignKey(e => e.CompanyId_CompanyId);
+                .HasForeignKey(e => e.CompanyId);
+
+            modelBuilder.Entity<Company>()
+              .HasMany(e => e.Staffs)
+              .WithOptional(e => e.Company)
+              .HasForeignKey(e => e.CompanyId);
 
             modelBuilder.Entity<Store>()
                 .HasMany(e => e.Products)
                 .WithOptional(e => e.Store)
-                .HasForeignKey(e => e.StoreId_StoreId);
+                .HasForeignKey(e => e.StoreId);
         }
     }
 }
