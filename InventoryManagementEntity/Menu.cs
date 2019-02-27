@@ -11,5 +11,6 @@ namespace InventoryManagementEntity
         public int Id { get; set; }
         public String Name { get; set; }
         public String Lanquage { get; set; }
+        public Boolean IsActive { get; set; }
     }
 }
