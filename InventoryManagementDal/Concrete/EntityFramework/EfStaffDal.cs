@@ -21,17 +21,18 @@ namespace InventoryManagementDal.Concrete.EntityFramework
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            _contexDb.Staffs.Remove(_contexDb.Staffs.FirstOrDefault(s => s.Id == Id));
+            _contexDb.SaveChanges();
         }
 
         public Staff Get(int Id)
         {
-            throw new NotImplementedException();
+          return _contexDb.Staffs.FirstOrDefault(s => s.Id == Id);
         }
 
         public List<Staff> GetAll()
         {
-            throw new NotImplementedException();
+         return   _contexDb.Staffs.ToList();
         }
 
         public void Update(Staff staff)

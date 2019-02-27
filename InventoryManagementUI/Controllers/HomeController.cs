@@ -21,10 +21,12 @@ namespace InventoryManagementUI.Controllers
         // GET: Home
         public ActionResult Index()
         {
+          List<Staff> staffs= staffManager.GetAll();
 
-            return View();
+            return View(staffs);
         }
-        /*Test Staff*/
+        /*Project Test - Staff*/
+        [HttpPost]
         public ActionResult StaffAdd()
         {
             Staff staff = new Staff
@@ -40,7 +42,13 @@ namespace InventoryManagementUI.Controllers
                 
             };
             staffManager.Add(staff);
-            return View();
+            return RedirectToAction("Index");
+        }
+       [HttpGet]
+       public ActionResult StaffDelete(int Id)
+        {
+            staffManager.Delete(Id);
+            return RedirectToAction("Index");
         }
     }
 }

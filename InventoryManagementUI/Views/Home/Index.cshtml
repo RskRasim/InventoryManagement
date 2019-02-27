@@ -1,12 +1,27 @@
-﻿
+﻿@model IEnumerable<InventoryManagementEntity.Staff>
 @{
     ViewBag.Title = "Index";
 }
-
+<!--Project Test-->
 <h2>Index</h2>
-<ul></ul>
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Surname</td>
+            <td>@item.Department</td>
+            <td>@item.Task</td>
+            <td>@item.Company.Name</td>
+            <td>@Html.ActionLink("Sil", "StaffDelete", "Home", new { item.Id }, new { @class = "btn-delete" })</td>
+        </tr>
+    }
 
-<!--Test-->
+
+
+</table>
+
+
 @using (Html.BeginForm("StaffAdd", "Home", FormMethod.Post))
 {
     <input type="text" name="Name" value="" />
@@ -16,5 +31,6 @@
     <input type="text" name="Department" value="" />
     <input type="text" name="Task" value="" />
     <input type="password" name="Password" value="" />
-    <input type="submit" name="name" value="Kaydol" />
+
+    <input type="submit" name="Submmit" value="Kaydet" />
 }

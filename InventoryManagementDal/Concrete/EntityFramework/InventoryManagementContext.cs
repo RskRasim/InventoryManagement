@@ -17,6 +17,8 @@ namespace InventoryManagementDal.Concrete.EntityFramework
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<Staff> Staffs { get; set;}
+        public virtual DbSet<Menu> Menu { get; set; }
+
 
        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

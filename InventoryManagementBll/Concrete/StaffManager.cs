@@ -25,7 +25,7 @@ namespace InventoryManagementBll.Concrete
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            _staffDal.Delete(Id);
         }
 
         public Staff Get(int Id)
@@ -35,7 +35,7 @@ namespace InventoryManagementBll.Concrete
 
         public List<Staff> GetAll()
         {
-            throw new NotImplementedException();
+           return _staffDal.GetAll();
         }
 
         public void Update(Staff staff)
