@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementUI", "InventoryManagementUI\InventoryManagementUI.csproj", "{4DBDBC3A-27ED-44D6-BD99-4A131F30B34A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2E7C0651-B01A-4811-84EB-AB0F3056B053} = {2E7C0651-B01A-4811-84EB-AB0F3056B053}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementDal", "InventoryManagementDal\InventoryManagementDal.csproj", "{7327A0A3-12EC-4D29-ACA8-E45FE92C5E8A}"
 EndProject
@@ -12,6 +15,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementEntity", "InventoryManagementEntity\InventoryManagementEntity.csproj", "{8983EE3F-6627-40A8-BE9B-096C98E9B711}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementInterfaces", "InventoryManagementInterfaces\InventoryManagementInterfaces.csproj", "{05861C12-F219-4BC3-A989-D3AF0309E478}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryManagementWcfServiceIISHost", "InventoryManagementWcfServiceIISHost\InventoryManagementWcfServiceIISHost.csproj", "{2E7C0651-B01A-4811-84EB-AB0F3056B053}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +44,10 @@ Global
 		{05861C12-F219-4BC3-A989-D3AF0309E478}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05861C12-F219-4BC3-A989-D3AF0309E478}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05861C12-F219-4BC3-A989-D3AF0309E478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7C0651-B01A-4811-84EB-AB0F3056B053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7C0651-B01A-4811-84EB-AB0F3056B053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7C0651-B01A-4811-84EB-AB0F3056B053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7C0651-B01A-4811-84EB-AB0F3056B053}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
