@@ -51,12 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstrack\ICompanyDal.cs" />
-    <Compile Include="Abstrack\IMenu.cs" />
+    <Compile Include="Abstrack\IMenuDal.cs" />
     <Compile Include="Abstrack\IProductDal.cs" />
     <Compile Include="Abstrack\IStaffDal.cs" />
     <Compile Include="Abstrack\IStoreDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCompanyDal.cs" />
-    <Compile Include="Concrete\EntityFramework\EfMenu.cs" />
+    <Compile Include="Concrete\EntityFramework\EfMenuDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfStaffDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfStoreDal.cs" />

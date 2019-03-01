@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManagementDal.Abstrack
+namespace InventoryManagementInterfaces
 {
-    public interface IMenu
+   public interface IMenuService
     {
+
         List<Menu> GetAll();
 
         void Add(Menu menu);

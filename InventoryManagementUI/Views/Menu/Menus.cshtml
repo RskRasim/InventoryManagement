@@ -1,0 +1,17 @@
+﻿@model IEnumerable<InventoryManagementEntity.Menu>
+
+
+
+@foreach (var menu in Model)
+{
+   
+
+
+<li class="br-menu-item">
+    <a href="@menu.Name" class="br-menu-link">
+        <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
+        <span class="menu-item-label">@menu.Name</span>
+    </a>
+    <!-- br-menu-link-->
+    </li><!-- br-menu-item -->
+}

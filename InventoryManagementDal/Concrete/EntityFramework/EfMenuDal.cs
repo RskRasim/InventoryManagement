@@ -9,23 +9,23 @@ using System.Threading.Tasks;
 namespace InventoryManagementDal.Concrete.EntityFramework
 {
     
-    public class EfMenu : IMenu
+    public class EfMenuDal : IMenuDal
     {
         private InventoryManagementContext _contextDb = new InventoryManagementContext();
         public void Add(Menu menu)
         {
-            _contextDb.Menu.Add(menu);
+            _contextDb.Menus.Add(menu);
         }
 
         public void Delete(int Id)
         {
-            _contextDb.Menu.Remove(_contextDb.Menu.FirstOrDefault(s=> s.Id == Id));
+            _contextDb.Menus.Remove(_contextDb.Menus.FirstOrDefault(s=> s.Id == Id));
 
         }
 
         public List<Menu> GetAll()
         {
-            return _contextDb.Menu.ToList();
+            return _contextDb.Menus.ToList();
         }
     }
 }
