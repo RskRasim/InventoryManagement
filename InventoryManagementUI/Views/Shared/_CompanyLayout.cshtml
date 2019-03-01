@@ -21,37 +21,42 @@
     <link href="~/Content/lib/Ionicons/css/ionicons.css" rel="stylesheet">
     <link href="~/Content/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
     <link href="~/Content/lib/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
-  
+ 
+
+
+    <link href="~/Content/lib/highlightjs/dracula.css" rel="stylesheet">
+    <link href="~/Content/lib/datatables/jquery.dataTables.css" rel="stylesheet">
+    <link href="~/Content/lib/select2/css/select2.min.css" rel="stylesheet">
+
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="~/Content/css/bracket.css">
     <link rel="stylesheet" href="~/Content/css/bracket.dark.css">
 </head>
 <body>
     <!-- ########## START: LEFT PANEL ########## -->
-    <div class="br-logo"><a href="#"></div>
+    <div class="br-logo"><a href="#">InventoryManagement </a></div>
     <div class="br-sideleft overflow-y-auto">
         <label class="sidebar-label pd-x-10 mg-t-20">Navigation</label>
         <ul class="br-sideleft-menu">
 
-        @{Html.RenderAction("Menus", "Menu"); }
-           <!--  <li class="br-menu-item">
-         <a href="index.html" class="br-menu-link">
-             <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
-             <span class="menu-item-label">Dashboard</span>
-         </a><!-- br-menu-link
-     </li><!-- br-menu-item -->
-
+            @{Html.RenderAction("Menus", "Menu"); }
+            <!--  <li class="br-menu-item">
+                <a href="index.html" class="br-menu-link">
+                    <i class="menu-item-icon icon ion-ios-home-outline tx-24"></i>
+                    <span class="menu-item-label">Dashboard</span>
+                </a><!-- br-menu-link
+            </li><!-- br-menu-item -->
             <!--   <li class="br-menu-item">
-        <a href="#" class="br-menu-link with-sub">
-            <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
-            <span class="menu-item-label">Cards &amp; Widgets</span>
-        </a><!-- br-menu-link 
-            <ul class="br-menu-sub">
-                <li class="sub-item"><a href="card-dashboard.html" class="sub-link">Dashboard</a></li>
-                <li class="sub-item"><a href="card-social.html" class="sub-link">Blog &amp; Social Media</a></li>
-                <li class="sub-item"><a href="card-listing.html" class="sub-link">Shop &amp; Listing</a></li>
-            </ul>
-            </li>-->
+            <a href="#" class="br-menu-link with-sub">
+                <i class="menu-item-icon icon ion-ios-photos-outline tx-20"></i>
+                <span class="menu-item-label">Cards &amp; Widgets</span>
+            </a><!-- br-menu-link
+                <ul class="br-menu-sub">
+                    <li class="sub-item"><a href="card-dashboard.html" class="sub-link">Dashboard</a></li>
+                    <li class="sub-item"><a href="card-social.html" class="sub-link">Blog &amp; Social Media</a></li>
+                    <li class="sub-item"><a href="card-listing.html" class="sub-link">Shop &amp; Listing</a></li>
+                </ul>
+                </li>-->
 
         </ul><!--br-sideleft-menu -->
         <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Information Summary</label>
@@ -650,20 +655,15 @@
     <!-- ########## END: RIGHT PANEL ########## --->
     <!-- ########## START: MAIN PANEL ########## -->
     <div class="br-mainpanel">
-        <div class="br-pageheader">
-            <nav class="breadcrumb pd-0 mg-0 tx-12">
-                <a class="breadcrumb-item" href="index.html">Bracket</a>
-                <span class="breadcrumb-item active">Blank Page</span>
-            </nav>
-        </div><!-- br-pageheader -->
+      
         <div class="br-pagetitle">
-            <i class="icon icon ion-ios-book-outline"></i>
+           
             <div>
-               @RenderBody()
+              
             </div>
         </div><!-- d-flex -->
         <div class="br-pagebody">
-            <!-- start you own content here -->
+            @RenderBody()
         </div><!-- br-pagebody -->
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
@@ -675,7 +675,35 @@
     <script src="~/Content/lib/jquery-ui/jquery-ui.js"></script>
     <script src="~/Content/lib/jquery-switchbutton/jquery.switchButton.js"></script>
     <script src="~/Content/lib/peity/jquery.peity.js"></script>
+    <script src="~/Content/lib/highlightjs/highlight.pack.js"></script>
+    <script src="~/Content/lib/datatables/jquery.dataTables.js"></script>
+    <script src="~/Content/lib/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="~/Content/lib/select2/js/select2.min.js"></script>
     <script src="~/Content/js/bracket.js"></script>
+    <script>
+        $(function () {
+            'use strict';
+
+            $('#datatable1').DataTable({
+                responsive: true,
+                language: {
+                    searchPlaceholder: 'Search...',
+                    sSearch: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+
+            $('#datatable2').DataTable({
+                bLengthChange: false,
+                searching: false,
+                responsive: true
+            });
+
+            // Select2
+            $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+        });
+    </script>
 </body>
 </html>
 
