@@ -1,12 +1,13 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 26/12/2017 23:12
+    Creation date: 03/03/2019 15:34
     */
 
     @font-face {
   font-family: "Flaticon";
   src: url("./Flaticon.eot");
   src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff2") format("woff2"),
        url("./Flaticon.woff") format("woff"),
        url("./Flaticon.ttf") format("truetype"),
        url("./Flaticon.svg#Flaticon") format("svg");
@@ -36,20 +37,16 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-home:before { content: "\f100"; }
-.flaticon-businessman:before { content: "\f101"; }
-.flaticon-bank:before { content: "\f102"; }
-.flaticon-manager:before { content: "\f103"; }
-.flaticon-clerk-with-tie:before { content: "\f104"; }
-.flaticon-list-on-a-clipboard:before { content: "\f105"; }
-.flaticon-box-package-on-a-cart:before { content: "\f106"; }
-.flaticon-commerce:before { content: "\f107"; }
+    .flaticon-product:before { content: "\f100"; }
+.flaticon-staff:before { content: "\f101"; }
+.flaticon-menu-lines:before { content: "\f102"; }
+.flaticon-home:before { content: "\f103"; }
+.flaticon-envelope:before { content: "\f104"; }
+.flaticon-message:before { content: "\f105"; }
     
-    $font-Flaticon-home: "\f100";
-    $font-Flaticon-businessman: "\f101";
-    $font-Flaticon-bank: "\f102";
-    $font-Flaticon-manager: "\f103";
-    $font-Flaticon-clerk-with-tie: "\f104";
-    $font-Flaticon-list-on-a-clipboard: "\f105";
-    $font-Flaticon-box-package-on-a-cart: "\f106";
-    $font-Flaticon-commerce: "\f107";
+    $font-Flaticon-product: "\f100";
+    $font-Flaticon-staff: "\f101";
+    $font-Flaticon-menu-lines: "\f102";
+    $font-Flaticon-home: "\f103";
+    $font-Flaticon-envelope: "\f104";
+    $font-Flaticon-message: "\f105";
