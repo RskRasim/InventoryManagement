@@ -59,11 +59,20 @@
 </div>
 
 <div class="br-section-wrapper">
-    <h6 class="br-section-label">Staff DataTable</h6> <div class="w-25">@Html.ActionLink("Create New Staff","CreateStaff","Company",new {@class= "btn btn-success" })</div>
+    <h6 class="br-section-label">Staff DataTable</h6> <div class="w-25">@Html.ActionLink("Create New Staff", "CreateStaff", "Company", new { @class = "btn btn-success" })</div>
     <div class="table-wrapper">
         <table id="datatable1" class="table display responsive nowrap dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable1_info" style="width: 935px;">
             <thead>
-                <tr role="row"><th class="wd-15p sorting_asc" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 112px;" aria-sort="ascending" aria-label="First name: activate to sort column descending">Name</th><th class="wd-15p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 113px;" aria-label="Last name: activate to sort column ascending">Surname</th><th class="wd-20p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 175px;" aria-label="Position: activate to sort column ascending">Username</th><th class="wd-15p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 114px;" aria-label="Start date: activate to sort column ascending">Department</th><th class="wd-10p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 69px;" aria-label="Salary: activate to sort column ascending">Task</th><th class="wd-25p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 208px;" aria-label="E-mail: activate to sort column ascending">Phone</th></tr>
+                <tr role="row">
+                    <th class="wd-15p sorting_asc" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 112px;" aria-sort="ascending" aria-label="First name: activate to sort column descending">Name</th>
+                    <th class="wd-15p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 113px;" aria-label="Last name: activate to sort column ascending">Surname</th>
+                    <th class="wd-20p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 175px;" aria-label="Position: activate to sort column ascending">Username</th>
+                    <th class="wd-15p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 114px;" aria-label="Start date: activate to sort column ascending">Department</th>
+                    <th class="wd-10p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 69px;" aria-label="Salary: activate to sort column ascending">Task</th>
+                    <th class="wd-25p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 208px;" aria-label="E-mail: activate to sort column ascending">Phone</th>
+                    <th class="wd-25p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 208px;" aria-label="E-mail: activate to sort column ascending">Edit</th>
+                    <th class="wd-25p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 208px;" aria-label="E-mail: activate to sort column ascending">Delete</th>
+                </tr>
             </thead>
             <tbody>
                 @foreach (var staff in Model)
@@ -71,10 +80,12 @@
                     <tr role="row" class="odd">
                         <td class="sorting_1" tabindex="0">@staff.Name</td>
                         <td>@staff.Surname</td>
-                        <td> @staff.Username</td>
+                        <td>@staff.Username</td>
                         <td>@staff.Department</td>
                         <td>@staff.Task</td>
                         <td>@staff.Phone</td>
+                        <td>Edit</td>
+                        <td>Delete</td>
                     </tr>
                 }
 
@@ -83,7 +94,6 @@
         </table>
     </div>
 </div><!-- table-wrapper -->
-</div>
 <script>
 
 

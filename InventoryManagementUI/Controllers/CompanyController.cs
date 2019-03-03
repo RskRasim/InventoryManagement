@@ -12,14 +12,10 @@ namespace InventoryManagementUI.Controllers
     public class CompanyController : Controller
     {
         private StaffManager staffManager = new StaffManager(new EfStaffDal());
-
         private ProductManager productManager = new ProductManager(new EfProductDal());
 
-        public CompanyController(StaffManager staffManager, ProductManager productManager)
-        {
-            this.staffManager = staffManager;
-            this.productManager = productManager;
-        }
+       
+
 
 
         // GET: Company
