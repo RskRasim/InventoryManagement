@@ -8,10 +8,10 @@ namespace InventoryManagementEntity
 
     public partial class Product
     {
+       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
             ProductImgs = new HashSet<ProductImg>();
-
 
         }
         public int Id { get; set; }
@@ -51,7 +51,7 @@ namespace InventoryManagementEntity
         public virtual Company Company { get; set; }
 
         public virtual Store Store { get; set; }
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductImg> ProductImgs { get; set; }
     }
 }

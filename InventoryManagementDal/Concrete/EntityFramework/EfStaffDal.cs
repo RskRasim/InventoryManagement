@@ -32,7 +32,7 @@ namespace InventoryManagementDal.Concrete.EntityFramework
 
         public List<Staff> GetAll()
         {
-         return   _contexDb.Staffs.ToList();
+         return _contexDb.Staffs.ToList();
         }
 
         public void Update(Staff staff)

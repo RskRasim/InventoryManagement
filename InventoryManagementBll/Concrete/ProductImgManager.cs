@@ -11,37 +11,37 @@ namespace InventoryManagementBll.Concrete
 {
     public class ProductImgManager : IProductImgServices
     {
-       private IProductImgDal productDal;
+       private IProductImgDal productImgDal;
 
-        public ProductImgManager(IProductImgDal productDal)
+        public ProductImgManager(IProductImgDal productImgDal)
         {
-            this.productDal = productDal;
+            this.productImgDal = productImgDal;
         }
 
         public void Add(ProductImg productImg)
         {
-            productDal.Add(productImg);
+            productImgDal.Add(productImg);
         }
 
         public void Delete(int Id)
         {
-            productDal.Delete(Id);
+            productImgDal.Delete(Id);
 
         }
 
         public List<ProductImg> GetAll()
         {
-            return productDal.GetAll();
+            return productImgDal.GetAll();
         }
 
         public ProductImg Get(int Id)
         {
-           return productDal.Get(Id);
+           return productImgDal.Get(Id);
         }
 
         public void Update(ProductImg productImg)
         {
-            productDal.Update(productImg);
+            productImgDal.Update(productImg);
         }
     }
 }
