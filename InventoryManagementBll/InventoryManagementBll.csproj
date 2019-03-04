@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Concrete\CompanyManager.cs" />
     <Compile Include="Concrete\MenuManager.cs" />
+    <Compile Include="Concrete\ProductImgManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\StaffManager.cs" />
     <Compile Include="Concrete\StoreManager.cs" />

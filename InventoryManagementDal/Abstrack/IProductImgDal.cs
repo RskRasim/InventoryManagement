@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementDal.Abstrack
 {
-    public interface IProductDal
+    public interface IProductImgDal
     {
-        List<Product> GetAll();
-        Product Get(int productId);
-        void Add(Product product);
+        void Add(ProductImg productImg);
         void Delete(int Id);
-        void Update(Product product);
-     
+        void Update(ProductImg productImg);
+        List<ProductImg> GetAll();
+        ProductImg Get(int Id);
+
+
     }
 }

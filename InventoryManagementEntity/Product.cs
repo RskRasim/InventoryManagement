@@ -8,6 +8,12 @@ namespace InventoryManagementEntity
 
     public partial class Product
     {
+        public Product()
+        {
+            ProductImgs = new HashSet<ProductImg>();
+
+
+        }
         public int Id { get; set; }
 
         public string ProductCode { get; set; }
@@ -45,5 +51,7 @@ namespace InventoryManagementEntity
         public virtual Company Company { get; set; }
 
         public virtual Store Store { get; set; }
+
+        public virtual ICollection<ProductImg> ProductImgs { get; set; }
     }
 }
