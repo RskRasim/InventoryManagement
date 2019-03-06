@@ -34,6 +34,8 @@ namespace InventoryManagementEntity
 
         public Boolean IsActive { get; set; }
 
+        public string Email { get; set; }
+
         public virtual Company Company { get; set; }
     }
 }

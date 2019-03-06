@@ -310,6 +310,7 @@
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Shared\_CompanyLayout.cshtml" />
     <Content Include="Views\Menu\Menus.cshtml" />
+    <Content Include="Views\Company\CreateStaff.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
