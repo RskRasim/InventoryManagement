@@ -12,6 +12,12 @@ namespace InventoryManagementDal.Concrete.EntityFramework
     public class EfMenuDal : IMenuDal
     {
         private InventoryManagementContext _contextDb = new InventoryManagementContext();
+
+        public EfMenuDal(InventoryManagementContext contextDb)
+        {
+            _contextDb = contextDb;
+        }
+
         public void Add(Menu menu)
         {
             _contextDb.Menus.Add(menu);

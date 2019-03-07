@@ -23,15 +23,24 @@ namespace InventoryManagementUI.Controllers
             ViewBag.ProductCount = productManager.GetAll().Count();
             return View(staffManager.GetAll());
         }
+        //Staff Actions
+
+        public ActionResult Staff()
+        {
+            ViewBag.ProductCount = productManager.GetAll().Count();
+            return View(staffManager.GetAll());
+        }
+
+
 
         public ActionResult CreateStaff()
         {
             return View();
         }
 
-
+        
         [HttpPost]
-        public ActionResult CreateStaff( string Password)
+        public ActionResult CreateStaff(string Password)
         {
             Staff staff = new Staff
             {
@@ -47,7 +56,16 @@ namespace InventoryManagementUI.Controllers
 
             };
             staffManager.Add(staff);
-            return RedirectToAction("Index");
+            return RedirectToAction("Staff");
         }
+    
+        public ActionResult DeleteStaff(int Id)
+        {
+            staffManager.Delete(Id);
+            return RedirectToAction("Staff");
+        }
+
+
+        //Staff Actions End
     }
 }

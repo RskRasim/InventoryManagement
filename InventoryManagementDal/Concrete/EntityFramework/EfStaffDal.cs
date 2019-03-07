@@ -11,7 +11,11 @@ namespace InventoryManagementDal.Concrete.EntityFramework
     public class EfStaffDal : IStaffDal
     {
         private InventoryManagementContext _contexDb = new InventoryManagementContext();
-       
+
+        public EfStaffDal(InventoryManagementContext contexDb)
+        {
+            _contexDb = contexDb;
+        }
 
         public void Add(Staff staff)
         {

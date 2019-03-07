@@ -12,6 +12,12 @@ namespace InventoryManagementDal.concrete.EntityFramework
     class EfStoreDal : IStoreDal
     {
         private InventoryManagementContext _contexDb = new InventoryManagementContext();
+
+        public EfStoreDal(InventoryManagementContext contexDb)
+        {
+            _contexDb = contexDb;
+        }
+
         public void Add(Store store)
         {
             _contexDb.Stores.Add(store);
