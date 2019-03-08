@@ -13,7 +13,7 @@ namespace InventoryManagementUI.Controllers
         MenuManager menuManager = new MenuManager(new EfMenuDal());
 
         // GET: Menu
-       public PartialViewResult Menus()
+        public PartialViewResult Menus()
         {
             return PartialView(menuManager.GetAll());
         }

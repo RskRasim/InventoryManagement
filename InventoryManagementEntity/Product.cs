@@ -14,6 +14,7 @@ namespace InventoryManagementEntity
             ProductImgs = new HashSet<ProductImg>();
 
         }
+        [Key]
         public int Id { get; set; }
 
         public string ProductCode { get; set; }

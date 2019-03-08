@@ -15,7 +15,7 @@ namespace InventoryManagementEntity
             Stores = new HashSet<Store>();
             Staffs = new HashSet<Staff>();
         }
-
+        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }

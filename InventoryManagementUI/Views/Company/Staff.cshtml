@@ -30,7 +30,7 @@
                         <td>@staff.Department</td>
                         <td>@staff.Task</td>
                         <td>@staff.Phone</td>
-                        <td>@Html.ActionLink("Edit", "StaffEdit", "Company", new { staff.Id }, new { @class = "btn btn-teal" })</td>
+                        <td>@Html.ActionLink("Edit", "EditStaff", "Company", new { staff.Id }, new { @class = "btn btn-teal" })</td>
                         <td>@Html.ActionLink("Delete", "DeleteStaff", "Company", new { staff.Id }, new { @class = "btn btn-danger" })</td>
                     </tr>
                 }

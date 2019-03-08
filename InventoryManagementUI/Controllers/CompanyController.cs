@@ -38,7 +38,29 @@ namespace InventoryManagementUI.Controllers
             return View();
         }
 
-        
+
+        public ActionResult EditStaff(int Id)
+        {
+            return View(staffManager.Get(Id));
+        }
+        [HttpPost]
+        public ActionResult EditStaff()
+        {
+            Staff UpStaff = new Staff
+            {
+                Id =Convert.ToInt32(Request.Form["Id"]),
+                Name = Request.Form["Name"],
+                Surname = Request.Form["Surname"],
+                Username = Request.Form["Username"],
+                Department = Request.Form["Department"],
+                Task = Request.Form["Task"],
+                Phone = Request.Form["Phone"],
+                Email = Request.Form["Email"],
+                Password= Crypto.Hash(Request.Form["Password"], "sha256"),
+            };
+            staffManager.Update(UpStaff);
+            return RedirectToAction("Staff");
+        }
         [HttpPost]
         public ActionResult CreateStaff(string Password)
         {

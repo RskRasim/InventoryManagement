@@ -30,7 +30,7 @@ namespace InventoryManagementBll.Concrete
 
         public Staff Get(int Id)
         {
-            throw new NotImplementedException();
+          return  _staffDal.Get(Id);
         }
 
         public List<Staff> GetAll()
@@ -40,7 +40,7 @@ namespace InventoryManagementBll.Concrete
 
         public void Update(Staff staff)
         {
-            throw new NotImplementedException();
+            _staffDal.Update(staff);
         }
     }
 }

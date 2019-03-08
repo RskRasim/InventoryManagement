@@ -12,11 +12,10 @@ namespace InventoryManagementDal.Concrete.EntityFramework
     {
         private InventoryManagementContext _contextDb;
 
-        public EfProductImgDal(InventoryManagementContext contextDb)
+        public EfProductImgDal()
         {
-            _contextDb = contextDb;
+            _contextDb = new InventoryManagementContext();
         }
-
       
 
         public void Add(ProductImg productImg)

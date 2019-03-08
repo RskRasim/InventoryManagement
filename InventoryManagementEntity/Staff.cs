@@ -9,7 +9,7 @@ namespace InventoryManagementEntity
 {
    public class Staff
     {
-       
+        [Key]
         public int Id { get; set; }
         [MaxLength(30)]
         [Required(ErrorMessage = "Username is Mandatory")]
