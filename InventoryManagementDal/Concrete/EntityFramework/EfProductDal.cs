@@ -1,5 +1,4 @@
-﻿
-using InventoryManagementDal.Abstrack;
+﻿using InventoryManagementDal.Abstrack;
 using InventoryManagementDal.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System.Collections.Generic;
@@ -20,9 +19,8 @@ namespace InventoryManagementDal.concrete.EntityFramework
         {
             _contextDb.Products.Add(product);
             _contextDb.SaveChanges();
+            
         }
-
-      
 
         public void Delete(int Id)
         {

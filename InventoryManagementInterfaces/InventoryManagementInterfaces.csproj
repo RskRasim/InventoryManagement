@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="ICompanyService.cs" />
     <Compile Include="IMenuService.cs" />
-    <Compile Include="IProductImgServices.cs" />
+    <Compile Include="IProductImagesServices.cs" />
     <Compile Include="IProductService.cs" />
     <Compile Include="IStaffService.cs" />
     <Compile Include="IStoreService.cs" />

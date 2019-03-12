@@ -15,7 +15,7 @@
     <!-- Meta -->
     <meta name="description" content=".">
     <meta name="author" content="">
-    <title>@ViewBag.Title | InventoryManagement</title>
+    <title>@ViewBag.Title | Company Dashboard | InventoryManagement</title>
     <!-- vendor css -->
     <link href="~/Content/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="~/Content/lib/Ionicons/css/ionicons.css" rel="stylesheet">
@@ -38,7 +38,7 @@
 <body>
     <!-- ########## START: LEFT PANEL ########## -->
     <div class="br-logo"> <a href="#"><span>[</span>Inventory <i>Management</i><span>]</span></a></div>
-   
+
     <div class="br-sideleft overflow-y-auto">
         <label class="sidebar-label pd-x-10 mg-t-20">Navigation</label>
         <ul class="br-sideleft-menu">
@@ -501,9 +501,24 @@
         </div><!-- d-flex -->
         <div class="br-pagebody">
             @RenderBody()
+
+
+            <footer class="br-footer">
+                <div class="footer-left">
+                    <div style="color:azure">Copyright © 2019. Rasim Şenyüz.</div>
+
+                </div>
+                <div class="footer-right d-flex align-items-center">
+                    <span class="tx-uppercase mg-r-10">Share:</span>
+                    <a target="_blank" class="pd-x-5" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//themepixels.me/bracketplus/intro"><i class="fa fa-facebook tx-20"></i></a>
+                    <a target="_blank" class="pd-x-5" href="https://twitter.com/home?status=Bracket%20Plus,%20your%20best%20choice%20for%20premium%20quality%20admin%20template%20from%20Bootstrap.%20Get%20it%20now%20at%20http%3A//themepixels.me/bracketplus/intro"><i class="fa fa-twitter tx-20"></i></a>
+                </div>
+            </footer>
         </div><!-- br-pagebody -->
     </div><!-- br-mainpanel -->
     <!-- ########## END: MAIN PANEL ########## -->
+
+    
     <script src="~/Content/lib/jquery/jquery.js"></script>
     <script src="~/Content/lib/popper.js/popper.js"></script>
     <script src="~/Content/lib/bootstrap/bootstrap.js"></script>

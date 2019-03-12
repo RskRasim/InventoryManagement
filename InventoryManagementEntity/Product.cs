@@ -11,7 +11,7 @@ namespace InventoryManagementEntity
        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            ProductImgs = new HashSet<ProductImg>();
+            ProductImages = new HashSet<ProductImage>();
 
         }
         [Key]
@@ -35,9 +35,11 @@ namespace InventoryManagementEntity
 
         public int MinPieces { get; set; }
 
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         public int TaxRate { get; set; }
+
+        public DateTime InsertionDate { get; set; }
 
         public Boolean IsActive { get; set; }
 
@@ -53,6 +55,6 @@ namespace InventoryManagementEntity
 
         public virtual Store Store { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductImg> ProductImgs { get; set; }
+        public virtual ICollection<ProductImage> ProductImages { get; set; }
     }
 }

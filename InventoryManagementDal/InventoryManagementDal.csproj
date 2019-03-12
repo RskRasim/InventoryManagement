@@ -53,13 +53,13 @@
     <Compile Include="Abstrack\ICompanyDal.cs" />
     <Compile Include="Abstrack\IMenuDal.cs" />
     <Compile Include="Abstrack\IProductDal.cs" />
-    <Compile Include="Abstrack\IProductImgDal.cs" />
+    <Compile Include="Abstrack\IProductImagesDal.cs" />
     <Compile Include="Abstrack\IStaffDal.cs" />
     <Compile Include="Abstrack\IStoreDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCompanyDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfMenuDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />
-    <Compile Include="Concrete\EntityFramework\EfProductImgDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfProductImagesDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfStaffDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfStoreDal.cs" />
     <Compile Include="Concrete\EntityFramework\InventoryManagementContext.cs" />

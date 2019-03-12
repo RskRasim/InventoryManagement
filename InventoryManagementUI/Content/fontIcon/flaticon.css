@@ -28,7 +28,7 @@
         font-size: 27px;
         color:azure;
 font-style: normal;
-margin-left: 2px;
+margin-left: -1px;
 }
 
 .flaticon-Product:before { content: "\f100"; }

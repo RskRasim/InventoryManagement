@@ -8,11 +8,11 @@ using System.Web;
 
 namespace InventoryManagementEntity
 {
-   public class ProductImg
+   public class ProductImage
     {
         [Key]
         public int Id { get; set; }
-        public String Img { get; set; }
+        public String ImgFolder { get; set; }
         public int? ProductId { get; set; } 
 
         public  virtual Product Product { get; set; }

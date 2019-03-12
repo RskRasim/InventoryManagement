@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "AddProduct";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+
+
+<div class="row row-sm mg-b-20">
+    <div class="br-section-wrapper">
+
+        <h4>Add Product</h4>
+        @using (Html.BeginForm("AddProduct", "Company", FormMethod.Post,new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-layout form-layout-1">
+
+                <div class="row mg-b-25">
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" name="ProductCode" value="" placeholder="Enter ProductCode">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" required name="ProductName" value="" placeholder="Enter ProductName">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Content: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" name="Content" required value="" placeholder="Enter Content">
+                        </div>
+                    </div><!-- col-4 -->
+
+
+
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">BarcodeCode: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" required name="BarcodeCode" value="" placeholder="Enter BarcodeCode">
+                        </div>
+                    </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">BarcodeCode2: <span class="tx-danger">(Opsiyon)</span></label>
+                            <input class="form-control form-control-dark" type="text" name="BarcodeCode2" value="" placeholder="Enter BarcodeCode">
+                        </div>
+                    </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">ShelfNumber: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="tel" name="ShelfNumber" required value="" placeholder="Enter ShelfNumber">
+                        </div>
+                    </div><!-- col-4 -->
+
+
+
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Pieces: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" required name="Pieces" value="" placeholder="Enter Pieces">
+                        </div>
+                    </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">MaxPieces: <span class="tx-danger">(Opsiyon)</span></label>
+                            <input class="form-control form-control-dark" type="number" name="MaxPieces" value="" placeholder="Enter MaxPieces">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">MinPieces: <span class="tx-danger">(Opsiyon)</span></label>
+                            <input class="form-control form-control-dark" type="number" name="MinPieces" value="" placeholder="Enter MinPieces">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Price: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="number" name="Price" value="" placeholder="Enter Price">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">TaxRate: <span class="tx-danger">(Opsiyon)</span></label>
+                            <input class="form-control form-control-dark" type="number" name="TaxRate" value="" placeholder="Enter TaxRate">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                          
+                                
+                                <input type="file" name="Img" accept="png|jpg">
+                              
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4
+
+    <div class="col-lg-4">
+        <div class="form-group mg-b-10-force">
+            <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
+            <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" tabindex="-1" aria-hidden="true">
+                <option label="Choose country"></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+            </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" style="width: 272px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-377j-container"><span class="select2-selection__rendered" id="select2-377j-container"><span class="select2-selection__placeholder">Choose country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+        </div>
+    </div>  col-4 -->
+                </div><!-- row -->
+
+                <div class="form-layout-footer">
+                    <input type="submit" name="bt" class="btn btn-primary" value="Add" />
+                    <input type="reset" name="rsbt" class="btn btn-default" value="clear" />
+                </div><!-- form-layout-footer -->
+            </div>
+        }
+    </div>
+
+</div>

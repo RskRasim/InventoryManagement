@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementBll.Concrete
 {
-    public class ProductImgManager : IProductImgServices
+    public class ProductImagesManager : IProductImagesServices
     {
-       private IProductImgDal productImgDal;
+       private IProductImagesDal productImgDal;
 
-        public ProductImgManager(IProductImgDal productImgDal)
+        public ProductImagesManager(IProductImagesDal productImgDal)
         {
             this.productImgDal = productImgDal;
         }
 
-        public void Add(ProductImg productImg)
+        public void Add(ProductImage productImg)
         {
             productImgDal.Add(productImg);
         }
@@ -29,17 +29,17 @@ namespace InventoryManagementBll.Concrete
 
         }
 
-        public List<ProductImg> GetAll()
+        public List<ProductImage> GetAll()
         {
             return productImgDal.GetAll();
         }
 
-        public ProductImg Get(int Id)
+        public ProductImage Get(int Id)
         {
            return productImgDal.Get(Id);
         }
 
-        public void Update(ProductImg productImg)
+        public void Update(ProductImage productImg)
         {
             productImgDal.Update(productImg);
         }

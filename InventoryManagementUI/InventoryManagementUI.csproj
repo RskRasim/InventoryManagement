@@ -313,6 +313,8 @@
     <Content Include="Views\Company\CreateStaff.cshtml" />
     <Content Include="Views\Company\Staff.cshtml" />
     <Content Include="Views\Company\EditStaff.cshtml" />
+    <Content Include="Views\Company\Product.cshtml" />
+    <Content Include="Views\Company\AddProduct.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -322,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ProductImg\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\Staff\" />

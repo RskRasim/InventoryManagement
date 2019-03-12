@@ -17,7 +17,7 @@ namespace InventoryManagementDal.Concrete.EntityFramework
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
         public virtual DbSet<Staff> Staffs { get; set;}
-        public virtual DbSet<ProductImg> ProductImgs { get; set; }
+        public virtual DbSet<ProductImage> ProductImages { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
 
 
@@ -44,7 +44,7 @@ namespace InventoryManagementDal.Concrete.EntityFramework
                 .HasForeignKey(e => e.StoreId);
 
             modelBuilder.Entity<Product>()
-                .HasMany(e => e.ProductImgs)
+                .HasMany(e => e.ProductImages)
                 .WithOptional(e => e.Product)
                 .HasForeignKey(e => e.ProductId);
         }

@@ -15,6 +15,7 @@ namespace InventoryManagementUI.Controllers
     {
         private StaffManager staffManager = new StaffManager(new EfStaffDal());
         private ProductManager productManager = new ProductManager(new EfProductDal());
+        private ProductImagesManager producImgManager = new ProductImagesManager(new EfProductImagesDal());
 
 
         // GET: Company
@@ -23,7 +24,73 @@ namespace InventoryManagementUI.Controllers
             ViewBag.ProductCount = productManager.GetAll().Count();
             return View(staffManager.GetAll());
         }
-        //Staff Actions
+        /* ----- Product Actions Start ------*/ 
+        public ActionResult Product()
+        {
+            return View(productManager.GetAll());
+        }
+
+        public ActionResult AddProduct()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddProduct(HttpPostedFileBase Img, int ShelfNumber =0, int Pieces=0,int MaxPieces=0,int TaxRate=0, int MinPieces=0, decimal Price=0)
+        {
+
+            Product product = new Product
+            {
+                BarcodeCode = Request.Form["BarcodeCode"],
+                BarcodeCode2 = Request.Form["BarcodeCode2"],
+                ProductCode = Request.Form["ProductCode"],
+                ProductName = Request.Form["ProductName"],
+                Content = Request.Form["Content"],
+                ShelfNumber = ShelfNumber,
+                Pieces = Pieces,
+                Price = Price,
+                MaxPieces = MaxPieces,
+                MinPieces = MinPieces,
+                TaxRate = TaxRate,
+                InsertionDate = DateTime.Now,
+
+                //Oturuma Göre Düzenlenecek
+                CompanyId = 2,
+                StoreId = 1,
+                IsActive = true
+                
+
+            };
+
+            productManager.Add(product);
+
+            if (Img!=null)
+            {
+
+
+                Random random = new Random();
+                int prefix = random.Next();
+
+                string ImgName = +prefix + Img.FileName;
+
+                Img.SaveAs(HttpContext.Server.MapPath("~/Content/ProductImg/" + ImgName));
+                ProductImage productImg = new ProductImage
+                {
+                    ImgFolder = ImgName.ToString(),
+                    ProductId = product.Id
+                };
+
+                producImgManager.Add(productImg);
+
+            }
+
+
+            return RedirectToAction("Product");
+        }
+
+
+        /* ----- Product Actions End ------ */
+
+        /* ----- Staff Actions Start ----- */
 
         public ActionResult Staff()
         {
@@ -74,6 +141,7 @@ namespace InventoryManagementUI.Controllers
                 Task = Request.Form["Task"],
                 Email = Request.Form["Email"],
                 Password = Crypto.Hash(Password, "sha256"),
+                //Oturuma Göre Düzenlenecek
                 CompanyId = 2
 
             };
@@ -88,6 +156,6 @@ namespace InventoryManagementUI.Controllers
         }
 
 
-        //Staff Actions End
+        /* ------ Staff Actions End ----- */
     }
 }

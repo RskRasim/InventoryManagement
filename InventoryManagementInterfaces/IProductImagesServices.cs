@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 namespace InventoryManagementInterfaces
 {
     [ServiceContract]
-   public interface IProductImgServices
+   public interface IProductImagesServices
     {
         [OperationContract]
-        void Add(ProductImg productImg);
+        void Add(ProductImage productImg);
         [OperationContract]
         void Delete(int Id);
         [OperationContract]
-        void Update(ProductImg productImg);
+        void Update(ProductImage productImg);
         [OperationContract]
-        List<ProductImg> GetAll();
+        List<ProductImage> GetAll();
         [OperationContract]
-        ProductImg Get(int Id);
+        ProductImage Get(int Id);
     }
 }
