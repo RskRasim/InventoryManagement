@@ -13,10 +13,17 @@ namespace InventoryManagementUI.Controllers
 {
     public class CompanyController : Controller
     {
-        private StaffManager staffManager = new StaffManager(new EfStaffDal());
-        private ProductManager productManager = new ProductManager(new EfProductDal());
-        private ProductImagesManager producImgManager = new ProductImagesManager(new EfProductImagesDal());
+        private StaffManager staffManager;
+        private ProductManager productManager;
+        private ProductImagesManager producImgManager;
 
+        public CompanyController()
+        {
+            staffManager = new StaffManager(new EfStaffDal());
+            productManager = new ProductManager(new EfProductDal());
+            producImgManager = new ProductImagesManager(new EfProductImagesDal());
+
+        }
 
         // GET: Company
         public ActionResult Index()
