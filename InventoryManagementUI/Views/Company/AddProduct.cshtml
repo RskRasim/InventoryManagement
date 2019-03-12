@@ -10,7 +10,7 @@
     <div class="br-section-wrapper">
 
         <h4>Add Product</h4>
-        @using (Html.BeginForm("AddProduct", "Company", FormMethod.Post,new { enctype = "multipart/form-data" }))
+        @using (Html.BeginForm("AddProduct", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <div class="form-layout form-layout-1">
 
@@ -97,26 +97,30 @@
                     <!-- col-4 -->
                     <div class="col-lg-4">
                         <div class="form-group mg-b-10-force">
-                          
-                                
-                                <input type="file" name="Img" accept="png|jpg">
-                              
+
+
+                            <label class="form-control-label">Images: <span class="tx-danger">(Opsiyon)</span></label>
+                            <label class="custom-file">
+                                <input type="file" id="file2" name="Img" accept="image/x-png,image/gif,image/jpeg"  class="custom-file-input">
+                                <span class="custom-file-control custom-file-control-primary"></span>
+                            </label>
+
                         </div>
                     </div><!-- col-4 -->
                     <!-- col-4
 
-    <div class="col-lg-4">
-        <div class="form-group mg-b-10-force">
-            <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
-            <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" tabindex="-1" aria-hidden="true">
-                <option label="Choose country"></option>
-                <option value="USA">United States of America</option>
-                <option value="UK">United Kingdom</option>
-                <option value="China">China</option>
-                <option value="Japan">Japan</option>
-            </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" style="width: 272px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-377j-container"><span class="select2-selection__rendered" id="select2-377j-container"><span class="select2-selection__placeholder">Choose country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-        </div>
-    </div>  col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
+                            <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" tabindex="-1" aria-hidden="true">
+                                <option label="Choose country"></option>
+                                <option value="USA">United States of America</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="China">China</option>
+                                <option value="Japan">Japan</option>
+                            </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" style="width: 272px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-377j-container"><span class="select2-selection__rendered" id="select2-377j-container"><span class="select2-selection__placeholder">Choose country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                        </div>
+                    </div>  col-4 -->
                 </div><!-- row -->
 
                 <div class="form-layout-footer">
