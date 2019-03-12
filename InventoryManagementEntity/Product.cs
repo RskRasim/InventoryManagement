@@ -39,6 +39,9 @@ namespace InventoryManagementEntity
 
         public int TaxRate { get; set; }
 
+        public decimal Total { get; set;}
+
+        public decimal TotalProductValue { get; set; }
         public DateTime InsertionDate { get; set; }
 
         public Boolean IsActive { get; set; }

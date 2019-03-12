@@ -8,7 +8,7 @@
     <div class="col-sm-6 col-xl-3">
         <div class="bg-info rounded overflow-hidden">
             <div class="pd-x-20 pd-t-20 d-flex align-items-center">
-                <i></i>
+                <i><img src="~/Content/img/Icon/service.png" /></i>
                 <div class="mg-l-20">
                     <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Staffs</p>
                     <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">@Model.Count()</p>
@@ -21,7 +21,7 @@
     <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
         <div class="bg-purple rounded overflow-hidden">
             <div class="pd-x-20 pd-t-20 d-flex align-items-center">
-                <i class="flaticon-manager"></i>
+                <i><img src="~/Content/img/Icon/warehouse.png" width="64" height="64" /></i>
                 <div class="mg-l-20">
                     <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Products</p>
                     <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">@ViewBag.ProductCount</p>
@@ -30,27 +30,30 @@
             </div>
             <div id="ch3" class="ht-50 tr-y-1 rickshaw_graph"></div>
         </div>
+
     </div><!-- col-3 -->
     <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
         <div class="bg-teal rounded overflow-hidden">
             <div class="pd-x-20 pd-t-20 d-flex align-items-center">
-                <i class="ion ion-monitor tx-60 lh-0 tx-white op-7"></i>
+                <i> <img src="~/Content/img/Icon/change.png" width="64" height="64" /></i>
                 <div class="mg-l-20">
-                    <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">All Product</p>
-                    <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">54.45%</p>
+                    <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Total Product Value</p>
+                    <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">@ViewBag.ProductTotal ₺</p>
                     <span class="tx-11 tx-roboto tx-white-8"></span>
                 </div>
             </div>
             <div id="ch2" class="ht-50 tr-y-1 rickshaw_graph"></div>
         </div>
-    </div><!-- col-3 -->
+    </div>
+
+    <!-- col-3 -->
     <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
         <div class="bg-primary rounded overflow-hidden">
             <div class="pd-x-20 pd-t-20 d-flex align-items-center">
                 <i class="ion ion-clock tx-60 lh-0 tx-white op-7"></i>
                 <div class="mg-l-20">
-                    <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Sold product</p>
-                    <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">32.16%</p>
+                    <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Number Of Items in Stock</p>
+                    <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">@ViewBag.Nois</p>
                     <span class="tx-11 tx-roboto tx-white-8"></span>
                 </div>
             </div>

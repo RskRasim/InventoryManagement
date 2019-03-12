@@ -22,7 +22,10 @@ namespace InventoryManagementUI.Controllers
         public ActionResult Index()
         {
             ViewBag.ProductCount = productManager.GetAll().Count();
-            return View(staffManager.GetAll());
+            ViewBag.ProductTotal =(float)productManager.GetAll().Select(S => S.TotalProductValue).Sum();
+            ViewBag.Nois = productManager.GetAll().Select(s => s.Pieces).Sum();
+                
+           return View(staffManager.GetAll());
         }
         /* ----- Product Actions Start ------*/ 
         public ActionResult Product()
@@ -48,6 +51,8 @@ namespace InventoryManagementUI.Controllers
                 ShelfNumber = ShelfNumber,
                 Pieces = Pieces,
                 Price = Price,
+                Total = (Price * TaxRate / 100) + Price,
+                TotalProductValue = Pieces*Price,
                 MaxPieces = MaxPieces,
                 MinPieces = MinPieces,
                 TaxRate = TaxRate,

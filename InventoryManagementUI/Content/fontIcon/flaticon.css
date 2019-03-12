@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 03/03/2019 15:34
+  	Creation date: 12/03/2019 14:03
   	*/
 
 @font-face {
@@ -25,15 +25,34 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: 27px;
-        color:azure;
+        font-size: 30px;
 font-style: normal;
 margin-left: -1px;
 }
 
-.flaticon-Product:before { content: "\f100"; }
-.flaticon-Staff:before { content: "\f101"; }
-.flaticon-menu-lines:before { content: "\f102"; }
-.flaticon-Home:before { content: "\f103"; }
-.flaticon-Envelope:before { content: "\f104"; }
-.flaticon-Message:before { content: "\f105"; }
+.flaticon-Buy:before { content: "\f106"; }
+.flaticon-Product:before {
+    content: "\f100";
+}
+
+.flaticon-Staff:before {
+    content: "\f101";
+}
+
+.flaticon-Menu:before {
+    content: "\f102";
+}
+
+.flaticon-Home:before {
+    content: "\f103";
+}
+
+.flaticon-Mail:before {
+    content: "\f104";
+}
+
+.flaticon-MailOpen:before {
+    content: "\f105"
+}
+
+

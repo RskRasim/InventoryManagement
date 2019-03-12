@@ -104,6 +104,9 @@
     <Content Include="Content\fontIcon\flaticon.html" />
     <Content Include="Content\fontIcon\Flaticon.svg" />
     <Content Include="Content\img\bracketplus-social.png" />
+    <Content Include="Content\img\Icon\change.png" />
+    <Content Include="Content\img\Icon\service.png" />
+    <Content Include="Content\img\Icon\warehouse.png" />
     <Content Include="Content\img\img1.jpg" />
     <Content Include="Content\img\img10.jpg" />
     <Content Include="Content\img\img11.jpg" />
