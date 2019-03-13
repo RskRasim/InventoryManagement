@@ -94,11 +94,26 @@ namespace InventoryManagementUI.Controllers
                 producImgManager.Add(productImg);
 
             }
+            else
+            {
+                ProductImage productImg = new ProductImage
+                {
+                    ImgFolder = "noimage.jpg",
+                    ProductId = product.Id
+                };
+
+                producImgManager.Add(productImg);
+            }
 
 
             return RedirectToAction("Product");
         }
+        
+        public ActionResult DetailProduct(int Id)
+        {
 
+            return View(productManager.Get(Id));
+        }
 
         /* ----- Product Actions End ------ */
 
