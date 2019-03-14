@@ -1,6 +1,7 @@
 ﻿@model InventoryManagementEntity.Product
 @{
     ViewBag.Title = Model.ProductCode;
+    ViewBag.BarcodeCode = Model.BarcodeCode;
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
 
@@ -20,13 +21,8 @@
                         Barcode Code:  @Model.BarcodeCode<br>
                         Barcode Code2: @Model.BarcodeCode2<br />
                         <!-- Barcode -->
-                        <svg class="barcode"
-                             jsbarcode-format="upc"
-                             jsbarcode-value="@Model.BarcodeCode"
-                             jsbarcode-textmargin="0"
-                             jsbarcode-fontoptions="1"
-                             jsbarcode-color="#fff">
-                        </svg>
+                        <svg id="barcode"></svg>
+
                         <!-- End Barcode -->
                     </p>
                 </div>
@@ -100,3 +96,7 @@
 
     </div>
 </div>
+
+<script>
+ 
+</script>

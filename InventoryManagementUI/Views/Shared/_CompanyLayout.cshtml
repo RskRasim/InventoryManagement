@@ -540,7 +540,8 @@
     <script src="~/Content/js/BarcodeJs/JsBarcode.js"></script>
 
     <script>
-        JsBarcode(".barcode").init();
+
+       
         /*DetailProduct Page Print*/
         function printDiv(DivPrint) {
             var printContents = document.getElementById(DivPrint).innerHTML;
@@ -572,6 +573,8 @@
             $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
 
         });
+
+     JsBarcode("#barcode", "@ViewBag.BarcodeCode");
     </script>
 </body>
 </html>
