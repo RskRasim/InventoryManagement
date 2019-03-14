@@ -1,27 +1,39 @@
 ﻿@model InventoryManagementEntity.Product
-    @{
-        ViewBag.Title = "DetailProduct";
-        Layout = "~/Views/Shared/_CompanyLayout.cshtml";
-    }
+@{
+    ViewBag.Title = Model.ProductCode;
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
 
 <div class="br-pagebody">
-
-    <div class="card bd-gray-400">
+    <a href="javascript:printDiv('DivPrint');" class="btn btn-teal btn-block mg-b-10">
+        Print
+    </a>
+    <div class="card bd-gray-400" id="DivPrint">
         <div class="card-body pd-30 pd-md-60">
             <div class="d-md-flex justify-content-between flex-row-reverse">
-                <h1 class="mg-b-0 tx-uppercase tx-gray-400 tx-mont tx-bold"><img src="~/Content/ProductImg/@Model.ProductImages.Where(s=> s.ProductId == Model.Id).FirstOrDefault().ImgFolder" width="250" height="250"/></h1>
+                <h1 class="mg-b-0 tx-uppercase tx-gray-400 tx-mont tx-bold"><img src="~/Content/ProductImg/@Model.ProductImages.Where(s=> s.ProductId == Model.Id).FirstOrDefault().ImgFolder" width="250" height="250" /></h1>
+
                 <div class="mg-t-25 mg-md-t-0">
                     <h6 class="tx-primary">@Model.ProductName</h6>
                     <p class="lh-7">
                         Product Code:  @Model.ProductCode<br>
                         Barcode Code:  @Model.BarcodeCode<br>
-                        Barcode Code2: @Model.BarcodeCode2
+                        Barcode Code2: @Model.BarcodeCode2<br />
+                        <!-- Barcode -->
+                        <svg class="barcode"
+                             jsbarcode-format="upc"
+                             jsbarcode-value="@Model.BarcodeCode"
+                             jsbarcode-textmargin="0"
+                             jsbarcode-fontoptions="1"
+                             jsbarcode-color="#fff">
+                        </svg>
+                        <!-- End Barcode -->
                     </p>
                 </div>
             </div><!-- d-flex -->
 
             <div class="row mg-t-20">
-  
+
                 <div class="col-md">
                     <label class="tx-uppercase tx-13 tx-bold mg-b-20">Product Information</label>
                     <p class="d-flex justify-content-between mg-b-5">
@@ -57,9 +69,9 @@
 
             <div class="table-responsive mg-t-40">
                 <table class="table">
-                 
+
                     <tbody>
-                       
+
                         <tr>
                             <td colspan="2" rowspan="4" class="valign-middle">
                                 <div class="mg-r-20">
@@ -74,7 +86,7 @@
                             <td class="tx-right">TaxRate</td>
                             <td colspan="2" class="tx-right">@Model.TaxRate</td>
                         </tr>
-                      
+
                         <tr>
                             <td class="tx-right tx-uppercase tx-medium tx-white">Total Due</td>
                             <td colspan="2" class="tx-right"><h4 class="tx-primary tx-bold tx-lato">@Model.Total</h4></td>
@@ -83,7 +95,8 @@
                 </table>
             </div><!-- table-responsive -->
 
-       
-    </div><!-- card -->
 
+        </div><!-- card -->
+
+    </div>
 </div>
