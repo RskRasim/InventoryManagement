@@ -30,8 +30,10 @@
                         <td>@Product.ProductName</td>
 
                         <td>@Product.Pieces</td>
-                        <td>@Product.Price</td>
-                        <td>@Product.TaxRate</td>
+                       @{float Price = (float)Product.Price;}
+                        <td>@Price</td>
+                            
+                        <td>% @Product.TaxRate</td>
                         <td>@Html.ActionLink("Edit", "EditProduct", "Company", new { Product.Id }, new { @class = "btn btn-teal" })</td>
                         <td>@Html.ActionLink("Detail", "DetailProduct", "Company", new { Product.Id }, new { @class = "btn btn-info" })</td>
                     </tr>

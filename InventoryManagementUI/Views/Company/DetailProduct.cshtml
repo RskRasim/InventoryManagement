@@ -78,16 +78,18 @@
                                     </div>
                                 </td>
                                 <td class="tx-right">Price</td>
-                                <td colspan="2" class="tx-right">@Model.Price</td>
+                                @{float Price = (float)Model.Price;}
+                                <td colspan="2" class="tx-right">@Price</td>
                             </tr>
                             <tr>
                                 <td class="tx-right">TaxRate</td>
-                                <td colspan="2" class="tx-right">@Model.TaxRate</td>
+                                <td colspan="2" class="tx-right">% @Model.TaxRate</td>
                             </tr>
 
                             <tr>
+                                @{float Total = (float)Model.Total;}
                                 <td class="tx-right tx-uppercase tx-medium tx-white">Total Due</td>
-                                <td colspan="2" class="tx-right"><h4 class="tx-primary tx-bold tx-lato">@Model.Total</h4></td>
+                                <td colspan="2" class="tx-right"><h4 class="tx-primary tx-bold tx-lato">@Total</h4></td>
                             </tr>
 
                         </tbody>
