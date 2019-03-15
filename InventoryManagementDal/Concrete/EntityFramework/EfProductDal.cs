@@ -24,6 +24,10 @@ namespace InventoryManagementDal.concrete.EntityFramework
 
         public void Delete(int Id)
         {
+            /**************** ImageDelete *****************/
+            _contextDb.ProductImages.Remove(_contextDb.ProductImages.FirstOrDefault(s => s.ProductId == Id));
+            _contextDb.SaveChanges();
+            /**/
             _contextDb.Products.Remove(_contextDb.Products.FirstOrDefault(s => s.Id == Id));
             _contextDb.SaveChanges();
         }

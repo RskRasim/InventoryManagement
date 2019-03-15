@@ -9,94 +9,141 @@
     <a href="javascript:printDiv('DivPrint');" class="btn btn-teal btn-block mg-b-10">
         Print
     </a>
-    <div class="card bd-gray-400" id="DivPrint">
-        <div class="card-body pd-30 pd-md-60">
-            <div class="d-md-flex justify-content-between flex-row-reverse">
-                <h1 class="mg-b-0 tx-uppercase tx-gray-400 tx-mont tx-bold"><img src="~/Content/ProductImg/@Model.ProductImages.Where(s=> s.ProductId == Model.Id).FirstOrDefault().ImgFolder" width="250" height="250" /></h1>
+    <div class="card bd-gray-400">
+        <div id="DivPrint">
+            <div class="card-body pd-30 pd-md-60">
+                <div class="d-md-flex justify-content-between flex-row-reverse">
+                    <h1 class="mg-b-0 tx-uppercase tx-gray-400 tx-mont tx-bold"><img src="~/Content/ProductImg/@Model.ProductImages.Where(s=> s.ProductId == Model.Id).FirstOrDefault().ImgFolder" width="250" height="250" /></h1>
 
-                <div class="mg-t-25 mg-md-t-0">
-                    <h6 class="tx-primary">@Model.ProductName</h6>
-                    <p class="lh-7">
-                        Product Code:  @Model.ProductCode<br>
-                        Barcode Code:  @Model.BarcodeCode<br>
-                        Barcode Code2: @Model.BarcodeCode2<br />
-                        <!-- Barcode -->
-                        <svg id="barcode"></svg>
+                    <div class="mg-t-25 mg-md-t-0">
+                        <h6 class="tx-primary">@Model.ProductName</h6>
+                        <p class="lh-7">
+                            Product Code:  @Model.ProductCode<br>
+                            Barcode Code:  @Model.BarcodeCode<br>
+                            Barcode Code2: @Model.BarcodeCode2<br /><br />
+                            Barcode:<br />
+                            <!-- Barcode -->
+                            <svg id="barcode"></svg>
 
-                        <!-- End Barcode -->
-                    </p>
-                </div>
-            </div><!-- d-flex -->
+                            <!-- End Barcode -->
+                        </p>
+                    </div>
+                </div><!-- d-flex -->
 
-            <div class="row mg-t-20">
+                <div class="row mg-t-20">
 
-                <div class="col-md">
-                    <label class="tx-uppercase tx-13 tx-bold mg-b-20">Product Information</label>
-                    <p class="d-flex justify-content-between mg-b-5">
-                        <span>Pieces:</span>
-                        <span>@Model.Pieces</span>
-                    </p>
-                    <p class="d-flex justify-content-between mg-b-5">
-                        <span>MinPieces:</span>
-                        <span>@Model.MinPieces</span>
-                    </p>
-                    <p class="d-flex justify-content-between mg-b-5">
-                        <span>MaxPieces:</span>
-                        <span>@Model.MaxPieces</span>
-                    </p>
-                    <p class="d-flex justify-content-between mg-b-5">
-                        <span>ShelfNumber:</span>
-                        <span>@Model.ShelfNumber</span>
-                    </p>
-                    <p class="d-flex justify-content-between mg-b-5">
-                        <span>InsertionDate:</span>
-                        <span>@Model.InsertionDate.ToLongDateString()</span>
-                    </p>
-                    <p class="d-flex justify-content-between mg-b-5">
-                        <span>TotalProductValue:</span>
-                        <span>@Model.TotalProductValue</span>
-                    </p>
-                    <p class="d-flex justify-content-between mg-b-5">
-                        <span>Store:</span>
-                        <span>@Model.Store.Name</span>
-                    </p>
-                </div><!-- col -->
-            </div><!-- row -->
+                    <div class="col-md">
+                        <label class="tx-uppercase tx-13 tx-bold mg-b-20">Product Information</label>
+                        <p class="d-flex justify-content-between mg-b-5">
+                            <span>Pieces:</span>
+                            <span>@Model.Pieces</span>
+                        </p>
+                        <p class="d-flex justify-content-between mg-b-5">
+                            <span>MinPieces:</span>
+                            <span>@Model.MinPieces</span>
+                        </p>
+                        <p class="d-flex justify-content-between mg-b-5">
+                            <span>MaxPieces:</span>
+                            <span>@Model.MaxPieces</span>
+                        </p>
+                        <p class="d-flex justify-content-between mg-b-5">
+                            <span>ShelfNumber:</span>
+                            <span>@Model.ShelfNumber</span>
+                        </p>
+                        <p class="d-flex justify-content-between mg-b-5">
+                            <span>InsertionDate:</span>
+                            <span>@Model.InsertionDate.ToLongDateString()</span>
+                        </p>
+                        <p class="d-flex justify-content-between mg-b-5">
+                            <span>TotalProductValue:</span>
+                            <span>@Model.TotalProductValue</span>
+                        </p>
+                        <p class="d-flex justify-content-between mg-b-5">
+                            <span>Store:</span>
+                            <span>@Model.Store.Name</span>
+                        </p>
+                    </div><!-- col -->
+                </div><!-- row -->
 
-            <div class="table-responsive mg-t-40">
-                <table class="table">
+                <div class="table-responsive mg-t-40">
+                    <table class="table">
 
-                    <tbody>
+                        <tbody>
 
-                        <tr>
-                            <td colspan="2" rowspan="4" class="valign-middle">
-                                <div class="mg-r-20">
-                                    <label class="tx-uppercase tx-13 tx-bold mg-b-10">Content:</label>
-                                    <p class="tx-13">@Model.Content </p>
-                                </div>
-                            </td>
-                            <td class="tx-right">Price</td>
-                            <td colspan="2" class="tx-right">@Model.Price</td>
-                        </tr>
-                        <tr>
-                            <td class="tx-right">TaxRate</td>
-                            <td colspan="2" class="tx-right">@Model.TaxRate</td>
-                        </tr>
+                            <tr>
+                                <td colspan="2" rowspan="4" class="valign-middle">
+                                    <div class="mg-r-20">
+                                        <label class="tx-uppercase tx-13 tx-bold mg-b-10">Content:</label>
+                                        <p class="tx-13">@Model.Content </p>
+                                    </div>
+                                </td>
+                                <td class="tx-right">Price</td>
+                                <td colspan="2" class="tx-right">@Model.Price</td>
+                            </tr>
+                            <tr>
+                                <td class="tx-right">TaxRate</td>
+                                <td colspan="2" class="tx-right">@Model.TaxRate</td>
+                            </tr>
 
-                        <tr>
-                            <td class="tx-right tx-uppercase tx-medium tx-white">Total Due</td>
-                            <td colspan="2" class="tx-right"><h4 class="tx-primary tx-bold tx-lato">@Model.Total</h4></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div><!-- table-responsive -->
+                            <tr>
+                                <td class="tx-right tx-uppercase tx-medium tx-white">Total Due</td>
+                                <td colspan="2" class="tx-right"><h4 class="tx-primary tx-bold tx-lato">@Model.Total</h4></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div><!-- table-responsive -->
+            </div>
+            
+        </div><!-- divprint end -->
+     
 
 
-        </div><!-- card -->
-
-    </div>
+               <a href="#" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 mg-10 tx-mont tx-semibold" data-toggle="modal" data-target="#modaldemo2">Delete</a>
+           
 </div>
 
+<!-- SMALL MODAL -->
+<div id="modaldemo2" class="modal fade">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content bd-0 tx-14">
+            <div class="modal-header pd-x-20">
+                <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Delete</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body pd-20">
+                <p class="mg-b-5 tx-danger">Are you Sure Want to Delete this Product ? </p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                @Html.ActionLink("Delete", "DeleteProduct", "Company", new { Model.Id }, new { @class = "btn btn-danger btn-block" })
+                <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-semibold" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+
 <script>
- 
+    $(function () {
+
+        // showing modal with effect
+        $('.modal-effect').on('click', function () {
+            var effect = $(this).attr('data-effect');
+            $('#modaldemo2').addClass(effect, function () {
+                $('#modaldemo2').modal('show');
+            });
+            return false;
+        });
+
+        // hide modal with effect
+        $('#modaldemo2').on('hidden.bs.modal', function (e) {
+            $(this).removeClass(function (index, className) {
+                return (className.match(/(^|\s)effect-\S+/g) || []).join(' ');
+            });
+        });
+    });
 </script>
+
+

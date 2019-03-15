@@ -540,7 +540,6 @@
     <script src="~/Content/js/BarcodeJs/JsBarcode.js"></script>
 
     <script>
-
        
         /*DetailProduct Page Print*/
         function printDiv(DivPrint) {
@@ -573,8 +572,15 @@
             $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
 
         });
+       
 
-     JsBarcode("#barcode", "@ViewBag.BarcodeCode");
+        /*>>>>*/
+        JsBarcode("#barcode", "@ViewBag.BarcodeCode", {
+            lineColor: "#000",
+            background: "rgba(0, 0, 0, 0.0)",
+            width: 2
+        });
+       /* ########## DetailProduct Page Barcode End ##########*/
     </script>
 </body>
 </html>

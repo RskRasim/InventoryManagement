@@ -114,6 +114,11 @@ namespace InventoryManagementUI.Controllers
 
             return View(productManager.Get(Id));
         }
+        public ActionResult DeleteProduct(int Id)
+        {
+            productManager.Delete(Id);
+           return RedirectToAction("Product");
+        }
 
         /* ----- Product Actions End ------ */
 

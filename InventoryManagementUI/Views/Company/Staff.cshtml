@@ -3,9 +3,9 @@
     ViewBag.Title = "Staff";
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
-
+@Html.ActionLink("Create New Staff", "CreateStaff", "Company", new { @class = "btn btn-success btn-block mg-b-10" })
 <div class="br-section-wrapper">
-    <h6 class="br-section-label">Staff DataTable</h6> <div class="w-25">@Html.ActionLink("Create New Staff", "CreateStaff", "Company", new { @class = "btn btn-success" })</div>
+    <h6 class="br-section-label">Staff DataTable</h6>
     <div class="table-wrapper">
         <table id="datatable1" class="table display responsive nowrap dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable1_info" style="width: 935px;">
             <thead>
