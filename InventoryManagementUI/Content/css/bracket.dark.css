@@ -252,8 +252,8 @@ body {
 
 /***** CARDS ******/
 .card {
-  background-color: #1a2432;
-  border-color: rgba(255, 255, 255, 0.1);
+    background-color: #1a2432;
+    border-color: #C0C0C0;
 }
 
 .card-header,
@@ -1135,7 +1135,7 @@ body {
 .table thead tr td,
 .table tbody tr th,
 .table tbody tr td {
-  border-color: rgba(255, 255, 255, 0.08);
+    border-color: #C0C0C0;
 }
 .table thead tr th,
 .table thead tr td {

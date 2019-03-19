@@ -106,12 +106,58 @@
 
         </div>
 
-        <div class="input-group hidden-xs-down mg-10 transition">
+        <div class="input-group mg-10 transition">
 
-            <span style="color:azure; border:double 1px azure; padding:5px; font-family:'Times New Roman', Times, serif; font-size:medium;">  @DateTime.Today.ToLongDateString()</span>
+            <span style="color:azure; border:solid 0 azure; padding:5px; font-family:'Times New Roman', Times, serif; font-size:large;">  @DateTime.Today.ToLongDateString()</span>
 
 
-        </div><!-- input-group -->
+        </div>
+
+        <div class="br-header-right mg-r-20">
+
+
+            <!--dropdown-menu start-->
+            <div class="dropdown">
+                <a href="#" class="nav-link nav-link-profile wd-150" data-toggle="dropdown" aria-expanded="false">
+                    <!--Şirket Adı ve Yetkili Kişi Adı-->
+                    <span class="logged-name hidden-md-down">Katherine</span>
+                    <!--Şirket Logosu Gelicek-->
+                    <img src="~/Content/img/img1.jpg" class="wd-32 rounded-circle" alt="">
+
+                </a>
+                <div class="dropdown-menu dropdown-menu-header" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <div class="tx-center">
+                        <!--Şirket Logosu Gelicek-->
+                        <a href="#"><img src="~/Content/img/img1.jpg" class="wd-80 rounded-circle" alt=""></a>
+                        <!--Şirket Adı-->
+                        <h6 class="logged-fullname">Katherine P. Lumaad</h6>
+                        <p>youremail@domain.com</p>
+                    </div>
+                    <hr>
+                    <div class="tx-center">
+                        <!-- <span class="d-block mg-b-5 tx-10 tx-spacing-1 tx-uppercase tx-info tx-medium">Earnings After Taxes</span>
+                        <h3 class="profile-earning-amount">$13,230 <i class="icon ion-ios-arrow-thin-up tx-success"></i></h3>
+                        <span class="profile-earning-text">Based on list price.</span>-->
+                    </div>
+                    <hr>
+                    <ul class="list-unstyled user-profile-nav">
+                        <li>
+                            <a href="#">
+                                <i><img src="~/Content/img/resume.png" /></i>Edit Company Profile
+                            </a>
+                        </li>
+                        <li><a href="#">----</a></li>
+                        <li><a href="#">----</a></li>
+                        <li><a href="#">----</a></li>
+                        <li><a href="#">----</a></li>
+                        <li> <a href="~/Account/SignOut" class="btn btn-danger btn-block mg-r-20">SignOut</a></li>
+                    </ul>
+                </div><!-- dropdown-menu end -->
+            </div>
+
+        </div>
+
+        <!-- input-group -->
     </div><!-- br-header -->
     <!-- ########## END: HEAD PANEL ########## -->
     <!-- ########## START: RIGHT PANEL ########## -->
@@ -512,9 +558,17 @@
 
                 </div>
                 <div class="footer-right d-flex align-items-center">
-                    <span class="tx-uppercase mg-r-10">Share:</span>
-                    <a target="_blank" class="pd-x-5" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//themepixels.me/bracketplus/intro"><i class="fa fa-facebook tx-20"></i></a>
-                    <a target="_blank" class="pd-x-5" href="https://twitter.com/home?status=Bracket%20Plus,%20your%20best%20choice%20for%20premium%20quality%20admin%20template%20from%20Bootstrap.%20Get%20it%20now%20at%20http%3A//themepixels.me/bracketplus/intro"><i class="fa fa-twitter tx-20"></i></a>
+
+                    <a target="_blank" class="pd-x-5" href="https://github.com/RskRasim">
+                        <i class="fa tx-20">
+                            <img src="~/Content/img/github-logo.png" width="34" height="34" />
+                        </i>
+                    </a>
+                    <a target="_blank" class="pd-x-5" href="https://www.linkedin.com/in/rasim-%C5%9Feny%C3%BCz-548408b6/">
+                        <i class="fa tx-20">
+                            <img src="~/Content/img/linkedin.png" width="34" height="34" />
+                        </i>
+                    </a>
                 </div>
             </footer>
         </div><!-- br-pagebody -->
@@ -540,7 +594,9 @@
     <script src="~/Content/js/BarcodeJs/JsBarcode.js"></script>
 
     <script>
-       
+        /*>>>>*/
+        JsBarcode(".barcode").init();
+        /* ########## DetailProduct Page Barcode End ##########*/
         /*DetailProduct Page Print*/
         function printDiv(DivPrint) {
             var printContents = document.getElementById(DivPrint).innerHTML;
@@ -572,15 +628,9 @@
             $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
 
         });
-       
 
-        /*>>>>*/
-        JsBarcode("#barcode", "@ViewBag.BarcodeCode", {
-            lineColor: "#000",
-            background: "rgba(0, 0, 0, 0.0)",
-            width: 2
-        });
-       /* ########## DetailProduct Page Barcode End ##########*/
+
+
     </script>
 </body>
 </html>

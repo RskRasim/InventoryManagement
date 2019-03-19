@@ -104,6 +104,7 @@
     <Content Include="Content\fontIcon\flaticon.html" />
     <Content Include="Content\fontIcon\Flaticon.svg" />
     <Content Include="Content\img\bracketplus-social.png" />
+    <Content Include="Content\img\github-logo.png" />
     <Content Include="Content\img\Icon\change.png" />
     <Content Include="Content\img\Icon\service.png" />
     <Content Include="Content\img\Icon\warehouse.png" />
@@ -158,6 +159,8 @@
     <Content Include="Content\img\img7.jpg" />
     <Content Include="Content\img\img8.jpg" />
     <Content Include="Content\img\img9.jpg" />
+    <Content Include="Content\img\linkedin.png" />
+    <Content Include="Content\img\resume.png" />
     <Content Include="Content\img\screen1.png" />
     <Content Include="Content\img\screen2.png" />
     <Content Include="Content\img\screen3.png" />
@@ -269,6 +272,8 @@
     <Content Include="Content\lib\summernote\summernote-bs4.min.js" />
     <Content Include="Content\ProductImg\noimage.jpg" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Videos\video1.mp4" />
+    <Content Include="Content\Videos\video1.webm" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -283,6 +288,7 @@
     <Content Include="Content\fontIcon\Flaticon.woff" />
     <Content Include="Content\fontIcon\Flaticon.woff2" />
     <Content Include="Content\fontIcon\_flaticon.scss" />
+    <Content Include="Content\Videos\video1.ogv" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -293,6 +299,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
@@ -321,6 +328,7 @@
     <Content Include="Views\Company\Product.cshtml" />
     <Content Include="Views\Company\AddProduct.cshtml" />
     <Content Include="Views\Company\DetailProduct.cshtml" />
+    <Content Include="Views\Account\CompanyLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

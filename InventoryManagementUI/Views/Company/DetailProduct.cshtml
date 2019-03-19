@@ -1,7 +1,7 @@
 ﻿@model InventoryManagementEntity.Product
 @{
     ViewBag.Title = Model.ProductCode;
-    ViewBag.BarcodeCode = Model.BarcodeCode;
+
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
 
@@ -23,7 +23,14 @@
                             Barcode Code2: @Model.BarcodeCode2<br /><br />
                             Barcode:<br />
                             <!-- Barcode -->
-                            <svg id="barcode"></svg>
+                            <svg class="barcode"
+                                 jsbarcode-format="upc"
+                                 jsbarcode-value="@Model.BarcodeCode"
+                                 jsbarcode-textmargin="0"
+                                 jsbarcode-fontoptions="bold"
+                                 jsbarcode-height="20"
+                                 jsbarcode-background="rgba(200, 0, 0, 0.0)">
+                            </svg>
 
                             <!-- End Barcode -->
                         </p>
@@ -96,37 +103,37 @@
                     </table>
                 </div><!-- table-responsive -->
             </div>
-            
+
         </div><!-- divprint end -->
-     
 
 
-               <a href="#" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 mg-10 tx-mont tx-semibold" data-toggle="modal" data-target="#modaldemo2">Delete</a>
-           
+
+        <a href="#" class="btn btn-danger tx-11 tx-uppercase pd-y-12 pd-x-25 mg-10 tx-mont tx-semibold" data-toggle="modal" data-target="#modaldemo2">Delete</a>
+
+    </div>
+
+    <!-- SMALL MODAL -->
+    <div id="modaldemo2" class="modal fade">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content bd-0 tx-14">
+                <div class="modal-header pd-x-20">
+                    <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Delete</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pd-20">
+                    <p class="mg-b-5 tx-danger">Are you Sure Want to Delete this Product ? </p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    @Html.ActionLink("Delete", "DeleteProduct", "Company", new { Model.Id }, new { @class = "btn btn-danger btn-block" })
+                    <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-semibold" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
 </div>
-
-<!-- SMALL MODAL -->
-<div id="modaldemo2" class="modal fade">
-    <div class="modal-dialog modal-sm" role="document">
-        <div class="modal-content bd-0 tx-14">
-            <div class="modal-header pd-x-20">
-                <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Delete</h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body pd-20">
-                <p class="mg-b-5 tx-danger">Are you Sure Want to Delete this Product ? </p>
-            </div>
-            <div class="modal-footer justify-content-center">
-                @Html.ActionLink("Delete", "DeleteProduct", "Company", new { Model.Id }, new { @class = "btn btn-danger btn-block" })
-                <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-semibold" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div><!-- modal-dialog -->
-</div><!-- modal -->
-
-
 <script>
     $(function () {
 

@@ -50,12 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstrack\IAuthenticationDal.cs" />
     <Compile Include="Abstrack\ICompanyDal.cs" />
     <Compile Include="Abstrack\IMenuDal.cs" />
     <Compile Include="Abstrack\IProductDal.cs" />
     <Compile Include="Abstrack\IProductImagesDal.cs" />
     <Compile Include="Abstrack\IStaffDal.cs" />
     <Compile Include="Abstrack\IStoreDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfAuthenticationDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCompanyDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfMenuDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfProductDal.cs" />

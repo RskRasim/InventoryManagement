@@ -26,26 +26,40 @@ namespace InventoryManagementUI.Controllers
         }
 
         // GET: Company
+        [Authorize]
         public ActionResult Index()
         {
-            ViewBag.ProductCount = productManager.GetAll().Count();
-            ViewBag.ProductTotal =(float)productManager.GetAll().Select(S => S.TotalProductValue).Sum();
-            ViewBag.Nois = productManager.GetAll().Select(s => s.Pieces).Sum();
-                
-           return View(staffManager.GetAll());
-        }
-        /* ----- Product Actions Start ------*/ 
-        public ActionResult Product()
-        {
-            return View(productManager.GetAll());
+            try
+            {
+                ViewBag.ProductCount = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Count();
+                ViewBag.ProductTotal = (float)productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Select(S => S.TotalProductValue).Sum();
+                ViewBag.Nois = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Select(s => s.Pieces).Sum();
+
+                return View(staffManager.GetAll());
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+        
         }
 
+        /* ----- Product Actions Start ------*/
+        [Authorize]
+        public ActionResult Product()
+        {
+            return View(productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]));
+        }
+        [Authorize]
         public ActionResult AddProduct()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult AddProduct(HttpPostedFileBase Img, int ShelfNumber =0, int Pieces=0,int MaxPieces=0,int TaxRate=0, int MinPieces=0, decimal Price=0)
+        [Authorize]
+        public ActionResult AddProduct(HttpPostedFileBase Img, int ShelfNumber = 0, int Pieces = 0, int MaxPieces = 0, int TaxRate = 0, int MinPieces = 0, decimal Price = 0)
         {
 
             Product product = new Product
@@ -59,23 +73,23 @@ namespace InventoryManagementUI.Controllers
                 Pieces = Pieces,
                 Price = Price,
                 Total = (Price * TaxRate / 100) + Price,
-                TotalProductValue = Pieces*Price,
+                TotalProductValue = Pieces * Price,
                 MaxPieces = MaxPieces,
                 MinPieces = MinPieces,
                 TaxRate = TaxRate,
                 InsertionDate = DateTime.Now,
 
                 //Oturuma Göre Düzenlenecek
-                CompanyId = 2,
+                CompanyId = (int)Session["Id"],
                 StoreId = 1,
                 IsActive = true
-                
+
 
             };
 
             productManager.Add(product);
 
-            if (Img!=null)
+            if (Img != null)
             {
 
 
@@ -94,6 +108,7 @@ namespace InventoryManagementUI.Controllers
                 producImgManager.Add(productImg);
 
             }
+
             else
             {
                 ProductImage productImg = new ProductImage
@@ -108,12 +123,13 @@ namespace InventoryManagementUI.Controllers
 
             return RedirectToAction("Product");
         }
-        
+        [Authorize]
         public ActionResult DetailProduct(int Id)
         {
 
             return View(productManager.Get(Id));
         }
+        [Authorize]
         public ActionResult DeleteProduct(int Id)
         {
             productManager.Delete(Id);
@@ -123,7 +139,7 @@ namespace InventoryManagementUI.Controllers
         /* ----- Product Actions End ------ */
 
         /* ----- Staff Actions Start ----- */
-
+        [Authorize]
         public ActionResult Staff()
         {
             ViewBag.ProductCount = productManager.GetAll().Count();
@@ -131,7 +147,7 @@ namespace InventoryManagementUI.Controllers
         }
 
 
-
+        [Authorize]
         public ActionResult CreateStaff()
         {
             return View();
@@ -142,7 +158,9 @@ namespace InventoryManagementUI.Controllers
         {
             return View(staffManager.Get(Id));
         }
+
         [HttpPost]
+        [Authorize]
         public ActionResult EditStaff()
         {
             Staff UpStaff = new Staff
@@ -156,11 +174,14 @@ namespace InventoryManagementUI.Controllers
                 Phone = Request.Form["Phone"],
                 Email = Request.Form["Email"],
                 Password= Crypto.Hash(Request.Form["Password"], "sha256"),
+               
             };
             staffManager.Update(UpStaff);
             return RedirectToAction("Staff");
         }
+
         [HttpPost]
+        [Authorize]
         public ActionResult CreateStaff(string Password)
         {
             Staff staff = new Staff
@@ -174,13 +195,13 @@ namespace InventoryManagementUI.Controllers
                 Email = Request.Form["Email"],
                 Password = Crypto.Hash(Password, "sha256"),
                 //Oturuma Göre Düzenlenecek
-                CompanyId = 2
+                CompanyId = (int)Session["Id"],
 
             };
             staffManager.Add(staff);
             return RedirectToAction("Staff");
         }
-    
+        [Authorize]
         public ActionResult DeleteStaff(int Id)
         {
             staffManager.Delete(Id);
