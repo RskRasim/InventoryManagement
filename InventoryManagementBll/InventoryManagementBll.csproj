@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Concrete\AuthenticationManager.cs" />
+    <Compile Include="Concrete\CompanyAddressManager.cs" />
     <Compile Include="Concrete\CompanyManager.cs" />
     <Compile Include="Concrete\MenuManager.cs" />
     <Compile Include="Concrete\ProductImagesManager.cs" />

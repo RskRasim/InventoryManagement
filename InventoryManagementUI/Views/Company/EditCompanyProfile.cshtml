@@ -1,0 +1,75 @@
+﻿@model InventoryManagementEntity.Company
+@{
+    ViewBag.Title = "EditCompanyProfile";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+
+
+<div class="row mg-l-10">
+    <div class="br-section-wrapper">
+
+        <h4>EditCompanyProfile</h4>
+        @using (Html.BeginForm("EditCompanyProfile", "Company", FormMethod.Post))
+        {
+            <div class="form-layout form-layout-1">
+
+                <div class="row mg-b-25">
+
+
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Company Name: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" name="Name" maxlength="35" value="@Model.Name" placeholder="Enter Name">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">TaxNumber: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" required maxlength="35" name="TaxNumber" value="@Model.TaxNumber" placeholder="Enter TaxNumber">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Password: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="Password" name="Password" maxlength="35" minlength="6" required value="" placeholder="Enter Password">
+                        </div>
+                    </div><!-- col-4 -->
+                  
+                   
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Center Address: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark wd-400" type="text" name="Address" minlength="40"  value="" placeholder="Enter Address">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4
+
+    <div class="col-lg-4">
+        <div class="form-group mg-b-10-force">
+            <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
+            <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" tabindex="-1" aria-hidden="true">
+                <option label="Choose country"></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+            </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" style="width: 272px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-377j-container"><span class="select2-selection__rendered" id="select2-377j-container"><span class="select2-selection__placeholder">Choose country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+        </div>
+    </div>  col-4 -->
+                </div><!-- row -->
+
+                <div class="form-layout-footer">
+                    <button type="submit" name="Id" class="btn btn-primary" value="@Model.Id">Update </button>
+                    <input type="reset" name="rsbt" class="btn btn-default" value="clear" />
+
+                </div><!-- form-layout-footer -->
+            </div>
+        }
+    </div>
+
+</div>

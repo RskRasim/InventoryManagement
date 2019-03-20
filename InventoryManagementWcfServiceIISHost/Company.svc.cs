@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using InventoryManagementBll.Concrete;
-using InventoryManagementDal.concrete.EntityFramework;
+using ICompanyAddressesServices.concrete.EntityFramework;
 
 namespace InventoryManagementWcfServiceIISHost
 {

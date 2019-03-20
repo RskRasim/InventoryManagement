@@ -1,6 +1,6 @@
 ﻿using InventoryManagementBll;
-using InventoryManagementDal.Concrete;
-using InventoryManagementDal.Concrete.EntityFramework;
+using ICompanyAddressesServices.Concrete;
+using ICompanyAddressesServices.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System;
 using System.Collections.Generic;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Web.Helpers;
 
 namespace InventoryManagementUI.Controllers
 {
@@ -32,7 +33,7 @@ namespace InventoryManagementUI.Controllers
             Company user = new Company
             {
                 TaxNumber = TaxNumber,
-                Password = Password
+                Password = Crypto.Hash(Password, "sha256"),
 
             };
 

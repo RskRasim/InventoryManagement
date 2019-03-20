@@ -1,6 +1,6 @@
 ﻿using InventoryManagementBll.Concrete;
-using InventoryManagementDal.concrete.EntityFramework;
-using InventoryManagementDal.Concrete.EntityFramework;
+using ICompanyAddressesServices.concrete.EntityFramework;
+using ICompanyAddressesServices.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System;
 using System.Collections.Generic;
@@ -16,14 +16,18 @@ namespace InventoryManagementUI.Controllers
         private StaffManager staffManager;
         private ProductManager productManager;
         private ProductImagesManager producImgManager;
+        private CompanyAddressManager companyaddressManager;
+        private CompanyManager companyManager;
 
         public CompanyController()
         {
             staffManager = new StaffManager(new EfStaffDal());
             productManager = new ProductManager(new EfProductDal());
             producImgManager = new ProductImagesManager(new EfProductImagesDal());
-
+            companyaddressManager = new CompanyAddressManager(new EfCompanyAddressDal());
+            companyManager = new CompanyManager(new EfCompanyDal());
         }
+
 
         // GET: Company
         [Authorize]
@@ -44,6 +48,39 @@ namespace InventoryManagementUI.Controllers
             }
         
         }
+
+        [Authorize]
+        public ActionResult EditCompanyProfile(int Id)
+        {
+            return View(companyManager.Get(Id));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult EditCompanyProfile()
+        {
+            Company companyUp = new Company
+            {
+                Id = (int)Session["Id"],
+                Name = Request.Form["Name"],
+                TaxNumber = Request.Form["TaxNumber"],
+                Password = Crypto.Hash(Request.Form["Password"], "sha256"),
+            };
+
+            CompanyAddress companyAddressUp = new CompanyAddress
+            {
+                
+                Address = Request.Form["Address"],
+                CompanyId = (int)Session["Id"]
+
+            };
+
+            companyManager.Update(companyUp);
+            companyaddressManager.Update(companyAddressUp);
+            return RedirectToAction("EditCompanyProfile");
+        }
+
+        /* ----- Company End -----*/
 
         /* ----- Product Actions Start ------*/
         [Authorize]

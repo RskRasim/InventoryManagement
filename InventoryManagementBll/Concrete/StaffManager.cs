@@ -1,4 +1,4 @@
-﻿using InventoryManagementDal.Abstrack;
+﻿using ICompanyAddressesServices.Abstrack;
 using InventoryManagementEntity;
 using InventoryManagementInterfaces;
 using System;

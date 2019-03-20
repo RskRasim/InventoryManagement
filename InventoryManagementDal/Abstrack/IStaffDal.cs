@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManagementDal.Abstrack
+namespace ICompanyAddressesServices.Abstrack
 {
     public interface IStaffDal
     {

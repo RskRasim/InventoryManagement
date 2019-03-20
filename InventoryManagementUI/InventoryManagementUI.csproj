@@ -329,6 +329,7 @@
     <Content Include="Views\Company\AddProduct.cshtml" />
     <Content Include="Views\Company\DetailProduct.cshtml" />
     <Content Include="Views\Account\CompanyLogin.cshtml" />
+    <Content Include="Views\Company\EditCompanyProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

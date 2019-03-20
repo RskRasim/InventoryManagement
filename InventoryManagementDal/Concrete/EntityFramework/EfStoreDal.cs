@@ -1,5 +1,5 @@
-﻿using InventoryManagementDal.Abstrack;
-using InventoryManagementDal.Concrete.EntityFramework;
+﻿using ICompanyAddressesServices.Abstrack;
+using ICompanyAddressesServices.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManagementDal.concrete.EntityFramework
+namespace ICompanyAddressesServices.concrete.EntityFramework
 {
     class EfStoreDal : IStoreDal
     {

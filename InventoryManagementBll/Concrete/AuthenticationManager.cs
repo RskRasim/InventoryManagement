@@ -1,5 +1,5 @@
-﻿using InventoryManagementDal.Abstrack;
-using InventoryManagementDal.Concrete;
+﻿using ICompanyAddressesServices.Abstrack;
+using ICompanyAddressesServices.Concrete;
 using InventoryManagementEntity;
 using InventoryManagementInterfaces;
 

@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IAuthenticationService.cs" />
+    <Compile Include="ICompanyAddressService.cs" />
     <Compile Include="ICompanyService.cs" />
     <Compile Include="IMenuService.cs" />
     <Compile Include="IProductImagesServices.cs" />

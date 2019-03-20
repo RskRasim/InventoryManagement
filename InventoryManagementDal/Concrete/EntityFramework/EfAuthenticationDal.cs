@@ -1,9 +1,9 @@
-﻿using InventoryManagementDal.Abstrack;
-using InventoryManagementDal.Concrete.EntityFramework;
+﻿using ICompanyAddressesServices.Abstrack;
+using ICompanyAddressesServices.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System.Linq;
 
-namespace InventoryManagementDal.Concrete
+namespace ICompanyAddressesServices.Concrete
 {
     public class EfAuthenticationDal : IAuthenticationDal
     {

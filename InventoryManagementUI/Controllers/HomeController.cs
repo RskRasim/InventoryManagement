@@ -1,5 +1,5 @@
 ﻿using InventoryManagementBll.Concrete;
-using InventoryManagementDal.Concrete.EntityFramework;
+using ICompanyAddressesServices.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ namespace InventoryManagementUI.Controllers
     public class HomeController : Controller
     {
         StaffManager staffManager;
+        
         public HomeController()
         {
             staffManager = new StaffManager(new EfStaffDal());

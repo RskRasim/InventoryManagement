@@ -1,5 +1,5 @@
 ﻿using InventoryManagementBll.Concrete;
-using InventoryManagementDal.Concrete.EntityFramework;
+using ICompanyAddressesServices.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Linq;

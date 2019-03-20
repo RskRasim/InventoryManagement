@@ -1,4 +1,4 @@
-﻿using InventoryManagementDal.Abstrack;
+﻿using ICompanyAddressesServices.Abstrack;
 using InventoryManagementEntity;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InventoryManagementDal.Concrete.EntityFramework
+namespace ICompanyAddressesServices.Concrete.EntityFramework
 {
     
     public class EfMenuDal : IMenuDal

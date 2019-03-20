@@ -1,4 +1,4 @@
-namespace InventoryManagementDal.Concrete.EntityFramework
+namespace ICompanyAddressesServices.Concrete.EntityFramework
 {
     using System;
     using System.Data.Entity;
@@ -16,17 +16,22 @@ namespace InventoryManagementDal.Concrete.EntityFramework
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Store> Stores { get; set; }
-        public virtual DbSet<Staff> Staffs { get; set;}
+        public virtual DbSet<Staff> Staffs { get; set; }
         public virtual DbSet<ProductImage> ProductImages { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<CompanyAddress> CompanyAddresses { get; set; }
 
-
-       protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>()
                 .HasMany(e => e.Products)
                 .WithOptional(e => e.Company)
                 .HasForeignKey(e => e.CompanyId);
+
+            modelBuilder.Entity<Company>()
+                .HasMany(e => e.CompanyAddresses)
+                .WithOptional(e=> e.Company)
+                .HasForeignKey(e=> e.CompanyId);
 
             modelBuilder.Entity<Company>()
                 .HasMany(e => e.Stores)
@@ -47,6 +52,7 @@ namespace InventoryManagementDal.Concrete.EntityFramework
                 .HasMany(e => e.ProductImages)
                 .WithOptional(e => e.Product)
                 .HasForeignKey(e => e.ProductId);
+
         }
     }
 }
