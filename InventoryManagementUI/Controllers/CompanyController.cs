@@ -39,7 +39,7 @@ namespace InventoryManagementUI.Controllers
                 ViewBag.ProductTotal = (float)productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Select(S => S.TotalProductValue).Sum();
                 ViewBag.Nois = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Select(s => s.Pieces).Sum();
 
-                return View(staffManager.GetAll());
+                return View(staffManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]));
             }
             catch (System.NullReferenceException)
             {
@@ -50,6 +50,7 @@ namespace InventoryManagementUI.Controllers
         }
 
         [Authorize]
+        [HttpGet]
         public ActionResult EditCompanyProfile(int Id)
         {
             return View(companyManager.Get(Id));
@@ -160,12 +161,14 @@ namespace InventoryManagementUI.Controllers
 
             return RedirectToAction("Product");
         }
+        [HttpGet]
         [Authorize]
         public ActionResult DetailProduct(int Id)
         {
 
             return View(productManager.Get(Id));
         }
+        [HttpGet]
         [Authorize]
         public ActionResult DeleteProduct(int Id)
         {
@@ -179,8 +182,8 @@ namespace InventoryManagementUI.Controllers
         [Authorize]
         public ActionResult Staff()
         {
-            ViewBag.ProductCount = productManager.GetAll().Count();
-            return View(staffManager.GetAll());
+            ViewBag.ProductCount = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Count();
+            return View(staffManager.GetAll().Where(s=> s.CompanyId == (int)Session["Id"]));
         }
 
 

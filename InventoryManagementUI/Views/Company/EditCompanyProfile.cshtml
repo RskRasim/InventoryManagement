@@ -14,7 +14,7 @@
         {
             <div class="form-layout form-layout-1">
 
-                <div class="row mg-b-25">
+                <div class="row">
 
 
                     <!-- col-4 -->
@@ -44,7 +44,7 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label class="form-control-label">Center Address: <span class="tx-danger">*</span></label>
-                            <input class="form-control form-control-dark wd-400" type="text" name="Address" minlength="40"  value="" placeholder="Enter Address">
+                            <input class="form-control form-control-dark" style="width:100%;" type="text" name="Address"  minlength="40"  value="@Model.CompanyAddresses.Where(s=> s.CompanyId == Model.Id).FirstOrDefault().Address" placeholder="Enter Address">
                         </div>
                     </div><!-- col-4 -->
                     <!-- col-4
