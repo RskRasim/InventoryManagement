@@ -39,6 +39,11 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
          return _contexDb.Staffs.ToList();
         }
 
+        public List<Staff> GetAllById(int companyId)
+        {
+            return _contexDb.Staffs.Where(s => s.CompanyId == companyId).ToList();
+        }
+
         public void Update(Staff staff)
         {
             Staff StaffUp = _contexDb.Staffs.FirstOrDefault(s => s.Id == staff.Id);

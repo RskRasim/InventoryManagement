@@ -20,6 +20,8 @@ namespace InventoryManagementInterfaces
         [OperationContract]
         List<Staff> GetAll();
         [OperationContract]
+        List<Staff> GetAllById(int CompanyId);
+        [OperationContract]
         Staff Get(int Id);
 
 

@@ -39,7 +39,7 @@ namespace InventoryManagementUI.Controllers
                 ViewBag.ProductTotal = (float)productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Select(S => S.TotalProductValue).Sum();
                 ViewBag.Nois = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Select(s => s.Pieces).Sum();
 
-                return View(staffManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]));
+                return View(staffManager.GetAllById((int)Session["Id"]));
             }
             catch (System.NullReferenceException)
             {
@@ -183,7 +183,7 @@ namespace InventoryManagementUI.Controllers
         public ActionResult Staff()
         {
             ViewBag.ProductCount = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Count();
-            return View(staffManager.GetAll().Where(s=> s.CompanyId == (int)Session["Id"]));
+            return View(staffManager.GetAllById((int)Session["Id"]));
         }
 
 
