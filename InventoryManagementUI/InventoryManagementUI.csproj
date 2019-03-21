@@ -98,6 +98,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\CompanyLogo\CompanyLogoJohnDoe1110111.png" />
+    <Content Include="Content\CompanyLogo\noimage.jpg" />
     <Content Include="Content\css\bracket.css" />
     <Content Include="Content\css\bracket.dark.css" />
     <Content Include="Content\fontIcon\flaticon.css" />
@@ -329,6 +331,8 @@
     <Content Include="Views\Company\AddProduct.cshtml" />
     <Content Include="Views\Company\DetailProduct.cshtml" />
     <Content Include="Views\Account\CompanyLogin.cshtml" />
+    <Content Include="Views\Company\Store.cshtml" />
+    <Content Include="Views\Company\AddStore.cshtml" />
     <Content Include="Views\Company\EditCompanyProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

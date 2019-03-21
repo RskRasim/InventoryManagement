@@ -14,6 +14,8 @@ namespace InventoryManagementInterfaces
         [OperationContract]
         List<Product> GetAll();
         [OperationContract]
+        List<Product> GetAllById(int CompanyId);
+        [OperationContract]
         Product Get(int productId);
         [OperationContract]
         void Add(Product product);

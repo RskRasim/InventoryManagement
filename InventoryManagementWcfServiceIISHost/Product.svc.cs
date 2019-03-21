@@ -33,6 +33,11 @@ namespace InventoryManagementWcfServiceIISHost
             throw new NotImplementedException();
         }
 
+        public List<InventoryManagementEntity.Product> GetAllById(int CompanyId)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(InventoryManagementEntity.Product product)
         {
             throw new NotImplementedException();

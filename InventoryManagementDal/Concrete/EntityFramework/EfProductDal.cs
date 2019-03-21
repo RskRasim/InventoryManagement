@@ -42,6 +42,11 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
           return _contextDb.Products.ToList();
         }
 
+        public List<Product> GetAllById(int CompanyId)
+        {
+            return _contextDb.Products.Where(s => s.CompanyId == CompanyId).ToList();
+        }
+
         public void Update(Product product)
         {
            Product productUp = _contextDb.Products.FirstOrDefault(s => s.Id == product.Id);

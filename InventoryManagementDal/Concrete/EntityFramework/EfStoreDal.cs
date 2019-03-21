@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ICompanyAddressesServices.concrete.EntityFramework
 {
-    class EfStoreDal : IStoreDal
+    public class EfStoreDal : IStoreDal
     {
         private InventoryManagementContext _contexDb;
 
@@ -39,6 +39,11 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
         public List<Store> GetAll()
         {
             return _contexDb.Stores.ToList();
+        }
+
+        public List<Store> GetAllById(int CompanyId)
+        {
+          return  _contexDb.Stores.Where(s => s.CompanyId == CompanyId).ToList();
         }
 
         public void Update(Store store)

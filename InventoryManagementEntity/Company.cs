@@ -15,6 +15,7 @@ namespace InventoryManagementEntity
             Stores = new HashSet<Store>();
             Staffs = new HashSet<Staff>();
             CompanyAddresses = new HashSet<CompanyAddress>();
+            CompanyLogoes = new HashSet<CompanyLogo>();
         }
         [Key]
         public int Id { get; set; }
@@ -38,5 +39,7 @@ namespace InventoryManagementEntity
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CompanyAddress> CompanyAddresses { get; set; }
+
+        public  virtual ICollection<CompanyLogo> CompanyLogoes { get; set;}
     }
 }

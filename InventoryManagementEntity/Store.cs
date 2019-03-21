@@ -20,6 +20,8 @@ namespace InventoryManagementEntity
 
         public string Address { get; set; }
 
+        public string StoreManager { get; set; }
+
         public Boolean IsActive { get; set; }
 
         public int? CompanyId { get; set; }

@@ -41,10 +41,31 @@ namespace InventoryManagementUI.Controllers
             if (company != null)
             {
                 FormsAuthentication.SetAuthCookie(company.TaxNumber, false);
-                
-                //  Session["TaxNumber"] = company.TaxNumber;
-                Session["Id"] = company.Id;
-                return Redirect("~/Company/Index");
+
+                try
+                {
+                    Session["TaxNumber"] = company.TaxNumber;
+                    Session["CompanyName"] = company.Name;
+                    Session["CompanyLogo"] = company.CompanyLogoes.Where(s => s.CompanyId == company.Id).FirstOrDefault().Folder;
+
+                    Session["Id"] = company.Id;
+                    return Redirect("~/Company/Index");
+                }
+                catch (System.NullReferenceException)
+                {
+                    Session["TaxNumber"] = company.TaxNumber;
+                    Session["CompanyName"] = company.Name;
+               
+
+                    Session["Id"] = company.Id;
+                    /*Tek Boş Gelebilecek Session*/
+                    Session["CompanyLogo"] = "noimage.jpg";
+                    return Redirect("~/Company/Index");
+                }
+                //String companyLogo = company.CompanyLogoes.Where(s => s.CompanyId == company.Id).FirstOrDefault().Folder;
+
+              
+               
             }
 
             return View("CompanyLogin");

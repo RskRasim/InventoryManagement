@@ -18,6 +18,7 @@ namespace InventoryManagementUI.Controllers
         private ProductImagesManager producImgManager;
         private CompanyAddressManager companyaddressManager;
         private CompanyManager companyManager;
+        private StoreManager storeManager;
 
         public CompanyController()
         {
@@ -26,6 +27,7 @@ namespace InventoryManagementUI.Controllers
             producImgManager = new ProductImagesManager(new EfProductImagesDal());
             companyaddressManager = new CompanyAddressManager(new EfCompanyAddressDal());
             companyManager = new CompanyManager(new EfCompanyDal());
+            storeManager = new StoreManager(new EfStoreDal());
         }
 
 
@@ -35,9 +37,9 @@ namespace InventoryManagementUI.Controllers
         {
             try
             {
-                ViewBag.ProductCount = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Count();
-                ViewBag.ProductTotal = (float)productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Select(S => S.TotalProductValue).Sum();
-                ViewBag.Nois = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Select(s => s.Pieces).Sum();
+                ViewBag.ProductCount = productManager.GetAllById((int)Session["Id"]).Count();
+                ViewBag.ProductTotal = (float)productManager.GetAllById((int)Session["Id"]).Select(S => S.TotalProductValue).Sum();
+                ViewBag.Nois = productManager.GetAllById((int)Session["Id"]).Select(s => s.Pieces).Sum();
 
                 return View(staffManager.GetAllById((int)Session["Id"]));
             }
@@ -50,7 +52,6 @@ namespace InventoryManagementUI.Controllers
         }
 
         [Authorize]
-        [HttpGet]
         public ActionResult EditCompanyProfile(int Id)
         {
             return View(companyManager.Get(Id));
@@ -250,5 +251,38 @@ namespace InventoryManagementUI.Controllers
 
 
         /* ------ Staff Actions End ----- */
+
+        /* ------ Store Actions Start ----- */
+
+        public ActionResult Store()
+        {
+            
+            return View(storeManager.GetAllById((int)Session["Id"]));
+        }
+
+        [Authorize]
+        public ActionResult AddStore()
+        {
+
+            return View();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddStore(string Name,string Address,string StoreManager)
+        {
+            Store store = new Store
+            {
+                Name = Name,
+                Address = Address,
+                CompanyId = (int)Session["Id"],
+                StoreManager = StoreManager,
+                IsActive= true
+                
+            };
+            storeManager.Add(store);
+            return View("AddStore");
+        }
+        /* ------ Store Actions End ----- */
     }
 }

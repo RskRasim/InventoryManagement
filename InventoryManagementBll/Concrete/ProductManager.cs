@@ -38,6 +38,11 @@ namespace InventoryManagementBll.Concrete
             return _productDal.GetAll();
         }
 
+        public List<Product> GetAllById(int CompanyId)
+        {
+            return _productDal.GetAllById(CompanyId);
+        }
+
         public void Update(Product product)
         {
             _productDal.Update(product);

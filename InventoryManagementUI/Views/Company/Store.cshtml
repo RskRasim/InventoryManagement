@@ -1,0 +1,63 @@
+﻿@model IEnumerable<InventoryManagementEntity.Store>
+@{
+    ViewBag.Title = "Store";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+<h2>Stores</h2>
+
+@Html.ActionLink("Add New Store", "AddStore", "Company", new { @class = "btn btn-success btn-block mg-b-10" })
+<div class="br-section-wrapper">
+    <h6 class="br-section-label">Store DataTable</h6>
+    <div class="table-wrapper">
+        <table id="datatable1" class="table display responsive nowrap dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable1_info" style="width: 935px;">
+            <thead>
+                <tr role="row">
+                    <th class="wd-15p sorting_asc" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 112px;" aria-sort="ascending" aria-label="First name: activate to sort column descending">Name of Store</th>
+                    <th class="wd-20p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 175px;" aria-label="Position: activate to sort column ascending">Store Manager</th>
+                    <th class="wd-20p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 175px;" aria-label="Position: activate to sort column ascending">Name of Address</th>
+
+                    <th class="wd-25p sorting" tabindex="0" aria-controls="datatable1" rowspan="1" colspan="1" style="width: 208px;" aria-label="E-mail: activate to sort column ascending">Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Store in Model)
+                {
+                <tr role="row" class="odd">
+
+
+                    <td class="sorting_1" tabindex="0">@Store.Name</td>
+                    <td>@Store.StoreManager</td>
+
+
+                    <td>@Store.Address</td>
+
+
+
+
+                    <td>@Html.ActionLink("Detail", "DetailStore", "Company", new { Store.Id }, new { @class = "btn btn-info" })</td>
+                </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div><!-- table-wrapper -->
+<script>
+
+
+    $('#datatable1').DataTable({
+        responsive: true,
+        language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+        }
+    });
+
+
+
+
+</script>
+

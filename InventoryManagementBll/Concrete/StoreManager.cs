@@ -38,6 +38,11 @@ namespace InventoryManagementBll.Concrete
            return _storeDal.GetAll();
         }
 
+        public List<Store> GetAllById(int CompanyId)
+        {
+            return _storeDal.GetAllById(CompanyId);
+        }
+
         public void Update(Store store)
         {
             _storeDal.Update(store);

@@ -20,6 +20,7 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
         public virtual DbSet<ProductImage> ProductImages { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<CompanyAddress> CompanyAddresses { get; set; }
+        public  virtual DbSet<CompanyLogo> CompanyLogoes { get; set;}
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,6 +33,11 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
                 .HasMany(e => e.CompanyAddresses)
                 .WithOptional(e=> e.Company)
                 .HasForeignKey(e=> e.CompanyId);
+
+            modelBuilder.Entity<Company>()
+                .HasMany(e => e.CompanyLogoes)
+                .WithOptional(e => e.Company)
+                .HasForeignKey(e => e.CompanyId);
 
             modelBuilder.Entity<Company>()
                 .HasMany(e => e.Stores)
