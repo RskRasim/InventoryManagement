@@ -341,6 +341,7 @@
     <Content Include="Views\Company\AddStore.cshtml" />
     <Content Include="Views\Company\EditCompanyProfile.cshtml" />
     <Content Include="Views\Company\Customer.cshtml" />
+    <Content Include="Views\Company\AddCustomer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

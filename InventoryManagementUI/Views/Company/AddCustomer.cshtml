@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "AddCustomer";
+    Layout = "~/Views/Shared/_CompanyLayout.cshtml";
+}
+
+<h2>Add Customer</h2>
+
+<div class="row row-sm mg-b-20">
+    <div class="br-section-wrapper">
+
+        @using (Html.BeginForm("AddCustomer", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-layout form-layout-1">
+
+                <div class="row mg-b-25">
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Name: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" name="Name" maxlength="45" value="" placeholder="Enter CustomeName">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Surname: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" required name="ProductName" maxlength="45" value="" placeholder="Enter CustomerSurname">
+                        </div>
+                    </div><!-- col-4 -->
+                    <!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">CompanyName: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" name="CompanyName" required maxlength="45" value="" placeholder="Enter Companyname">
+                        </div>
+                    </div><!-- col-4 -->
+
+
+
+
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label class="form-control-label">Taxnumber: <span class="tx-danger">*</span></label>
+                            <input class="form-control form-control-dark" type="text" required name="Taxnumber" value="" placeholder="Enter Taxnumber">
+                        </div>
+                    </div><!-- col-4 -->
+                   
+             
+                </div><!-- row -->
+
+                <div class="form-layout-footer">
+                    <input type="submit" name="bt" class="btn btn-primary" value="Add" />
+                    <input type="reset" name="rsbt" class="btn btn-default" value="clear" />
+                </div><!-- form-layout-footer -->
+            </div>
+        }
+    </div>
+
+</div>

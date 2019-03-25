@@ -293,8 +293,28 @@ namespace InventoryManagementUI.Controllers
             return View(customerManager.GetAllById((int)Session["Id"]));
         }
 
+        [Authorize]
+        public ActionResult AddCustomer()
+        {
+            return View();
+        }
+        [Authorize]
+        [HttpPost]
+        public ActionResult AddCustomer(string Name, string Surname, string Taxnumber, string CompanyName )
+        {
+            Customer customer = new Customer
+            {
+                Name = Name,
+                Surname = Surname,
+                Taxnumber = Taxnumber,
+                CompanyName = CompanyName,
+                CompanyId = (int)Session["Id"]
 
+            };
+            customerManager.Add(customer);
 
+            return View();
+        }
 
         /*------ Customer Actions End ------*/
     }
