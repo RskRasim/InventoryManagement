@@ -34,7 +34,6 @@ namespace InventoryManagementUI.Controllers
             {
                 TaxNumber = TaxNumber,
                 Password = Crypto.Hash(Password, "sha256"),
-
             };
 
             Company company = authenticationManager.AuthenticationCompany(user);
@@ -63,13 +62,9 @@ namespace InventoryManagementUI.Controllers
                     return Redirect("~/Company/Index");
                 }
                 //String companyLogo = company.CompanyLogoes.Where(s => s.CompanyId == company.Id).FirstOrDefault().Folder;
-
-              
-               
             }
 
             return View("CompanyLogin");
-
         }
 
 

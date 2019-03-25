@@ -4,11 +4,11 @@
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
 
-
+<h4 class="br-section-label">Add Store</h4>
 
 <div class="col-xl-6">
     <div class="form-layout form-layout-4">
-        <h6 class="br-section-label">Add Store</h6>
+
         @using (Html.BeginForm("AddStore", "Company", FormMethod.Post))
         {
 
@@ -19,27 +19,27 @@
                         <input type="text" class="form-control form-control-dark" name="Name" placeholder="Enter StoreName">
                     </div>
                 </div><!-- row -->
-             </div>
-               
-             <div class="row mg-t-20">
-                    <div class="row">
-                        <label class="col-sm-4 form-control-label">StoreManger: <span class="tx-danger">*</span></label>
-                        <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                            <input type="text" class="form-control form-control-dark" name="StoreManager" placeholder="Enter StoreManger">
-                        </div>
-                    </div><!-- row -->
-             </div>
-             
-             <div class="row mg-t-20">
-                    <label class="col-sm-4 form-control-label">Address: <span class="tx-danger">*</span></label>
-                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
-                        <textarea rows="2" class="form-control form-control-dark" name="Address" placeholder="Enter your address"></textarea>
-                    </div>
-             </div>
+            </div>
 
-                <div class="form-layout-footer mg-t-30">
-                    <input type="submit" class="btn btn-primary" name="bt" value="Add" />
-                    <button class="btn btn-secondary">Cancel</button>
-                </div>}<!-- form-layout-footer -->
-            </div><!-- form-layout -->
-        </div>
+            <div class="row mg-t-20">
+                <div class="row">
+                    <label class="col-sm-4 form-control-label">StoreManger: <span class="tx-danger">*</span></label>
+                    <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                        <input type="text" class="form-control form-control-dark" name="StoreManager" placeholder="Enter StoreManger">
+                    </div>
+                </div><!-- row -->
+            </div>
+
+            <div class="row mg-t-20">
+                <label class="col-sm-4 form-control-label">Address: <span class="tx-danger">*</span></label>
+                <div class="col-sm-8 mg-t-10 mg-sm-t-0">
+                    <textarea rows="2" class="form-control form-control-dark" name="Address" placeholder="Enter your address"></textarea>
+                </div>
+            </div>
+
+            <div class="form-layout-footer mg-t-30">
+                <input type="submit" class="btn btn-primary" name="bt" value="Add" />
+                <button class="btn btn-secondary">Cancel</button>
+            </div>}<!-- form-layout-footer -->
+    </div><!-- form-layout -->
+</div>

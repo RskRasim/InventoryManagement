@@ -100,13 +100,16 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\CompanyLogo\CompanyLogoJohnDoe1110111.png" />
     <Content Include="Content\CompanyLogo\noimage.jpg" />
+    <Content Include="Content\css\Background.css" />
     <Content Include="Content\css\bracket.css" />
     <Content Include="Content\css\bracket.dark.css" />
     <Content Include="Content\fontIcon\flaticon.css" />
     <Content Include="Content\fontIcon\flaticon.html" />
     <Content Include="Content\fontIcon\Flaticon.svg" />
+    <Content Include="Content\img\Background\bg-register4.jpg" />
     <Content Include="Content\img\bracketplus-social.png" />
     <Content Include="Content\img\github-logo.png" />
+    <Content Include="Content\img\Background\BGRinver.jpg" />
     <Content Include="Content\img\Icon\change.png" />
     <Content Include="Content\img\Icon\service.png" />
     <Content Include="Content\img\Icon\warehouse.png" />
@@ -162,6 +165,7 @@
     <Content Include="Content\img\img8.jpg" />
     <Content Include="Content\img\img9.jpg" />
     <Content Include="Content\img\linkedin.png" />
+    <Content Include="Content\img\Background\manhattan-new-york-city.jpg" />
     <Content Include="Content\img\resume.png" />
     <Content Include="Content\img\screen1.png" />
     <Content Include="Content\img\screen2.png" />
@@ -291,6 +295,7 @@
     <Content Include="Content\fontIcon\Flaticon.woff2" />
     <Content Include="Content\fontIcon\_flaticon.scss" />
     <Content Include="Content\Videos\video1.ogv" />
+    <Content Include="Areas\Master\Views\web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -301,6 +306,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Master\MasterAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -334,6 +340,7 @@
     <Content Include="Views\Company\Store.cshtml" />
     <Content Include="Views\Company\AddStore.cshtml" />
     <Content Include="Views\Company\EditCompanyProfile.cshtml" />
+    <Content Include="Views\Company\Customer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -343,6 +350,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Master\Controllers\" />
+    <Folder Include="Areas\Master\Models\" />
+    <Folder Include="Areas\Master\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Product\" />
     <Folder Include="Views\Staff\" />

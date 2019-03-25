@@ -1,20 +1,14 @@
-﻿
+﻿@model IEnumerable<InventoryManagementEntity.Store>
 @{
     ViewBag.Title = "AddProduct";
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
 
-
+<h4>Add Product</h4>
 
 <div class="row row-sm mg-b-20">
     <div class="br-section-wrapper">
-        <div class="br-pagetitle">
-          <div>
-                <h4>Add Product</h4>
-                <p class="mg-b-0"></p>
-            </div>
-        </div>
-
+   
         @using (Html.BeginForm("AddProduct", "Company", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
             <div class="form-layout form-layout-1">
@@ -48,7 +42,7 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label class="form-control-label">BarcodeCode: <span class="tx-danger">*</span></label>
-                            <input class="form-control form-control-dark" type="text" required name="BarcodeCode" value="" placeholder="Enter BarcodeCode">
+                            <input class="form-control form-control-dark" type="text" required name="BarcodeCode" maxlength="11" minlength="11" value="" placeholder="Enter BarcodeCode">
                         </div>
                     </div><!-- col-4 -->
                     <div class="col-lg-4">
@@ -112,20 +106,35 @@
 
                         </div>
                     </div><!-- col-4 -->
+                    <div class="col-lg-4">
+                        <div class="form-group mg-b-10-force">
+
+                            <label class="form-control-label">Store: <span class="tx-danger">*</span></label>
+                            <select class="form-control select2"data-placeholder="Choose country" name="store" tabindex="-1" aria-hidden="true">
+                                @foreach (var store in Model)
+                                {
+                                    <option value="@store.Id">@store.Name</option>
+                                }
+
+
+                            </select>
+
+                        </div>
+                    </div><!-- col-4 -->
                     <!-- col-4
 
-                <div class="col-lg-4">
-                    <div class="form-group mg-b-10-force">
-                        <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
-                        <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" tabindex="-1" aria-hidden="true">
-                            <option label="Choose country"></option>
-                            <option value="USA">United States of America</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="China">China</option>
-                            <option value="Japan">Japan</option>
-                        </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" style="width: 272px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-377j-container"><span class="select2-selection__rendered" id="select2-377j-container"><span class="select2-selection__placeholder">Choose country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                    </div>
-                </div>  col-4 -->
+    <div class="col-lg-4">
+        <div class="form-group mg-b-10-force">
+            <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
+            <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" tabindex="-1" aria-hidden="true">
+                <option label="Choose country"></option>
+                <option value="USA">United States of America</option>
+                <option value="UK">United Kingdom</option>
+                <option value="China">China</option>
+                <option value="Japan">Japan</option>
+            </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" style="width: 272px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-377j-container"><span class="select2-selection__rendered" id="select2-377j-container"><span class="select2-selection__placeholder">Choose country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+        </div>
+    </div>  col-4 -->
                 </div><!-- row -->
 
                 <div class="form-layout-footer">

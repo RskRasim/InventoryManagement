@@ -45,6 +45,7 @@
     <Compile Include="IAuthenticationService.cs" />
     <Compile Include="ICompanyAddressService.cs" />
     <Compile Include="ICompanyService.cs" />
+    <Compile Include="ICustomerService.cs" />
     <Compile Include="IMenuService.cs" />
     <Compile Include="IProductImagesServices.cs" />
     <Compile Include="IProductService.cs" />

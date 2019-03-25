@@ -3,6 +3,7 @@
 <html lang="en">
 
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,6 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Company Login</title>
+   
     <!-- vendor css -->
     <link href="~/Content/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="~/Content/lib/Ionicons/css/ionicons.css" rel="stylesheet">
@@ -19,12 +21,13 @@
 </head>
 <body>
     <div class="d-flex align-items-center justify-content-center ht-100v">
-        <video id="headVideo" class="pos-absolute a-0 wd-100p ht-100p object-fit-cover" autoplay muted loop>
-            <source src="~/Content/videos/video1.mp4" type="video/mp4">
-            <source src="~/Content/Videos/video1.ogv" type="video/ogg">
-            <source src="~/Content/Videos/video1.webm" type="video/webm">
-        </video><!-- /video -->
-        @using (Html.BeginForm("CompanyLogin","Account",FormMethod.Post))
+
+        <img src="~/Content/img/Background/manhattan-new-york-city.jpg" class="wd-100p ht-100p object-fit-cover" />
+        <!--  <video id="headVideo" class="pos-absolute a-0 wd-100p ht-100p object-fit-cover" autoplay muted loop>
+        <source src="~/Content/img/bg-register4.jpg" type="image/jpeg">
+
+    </video> /video -->
+        @using (Html.BeginForm("CompanyLogin", "Account", FormMethod.Post))
         {
 
 
@@ -36,7 +39,7 @@
                         <input type="text" class="form-control fc-outline-dark bd-1" name="TaxNumber" style="border: solid 1px white;" placeholder="Enter your TaxNumber">
                     </div><!-- form-group -->
                     <div class="form-group">
-                        <input type="password" class="form-control fc-outline-dark bd-1" name="Password" style="border: solid 1px white;"  placeholder="Enter your password">
+                        <input type="password" class="form-control fc-outline-dark bd-1" name="Password" style="border: solid 1px white;" placeholder="Enter your password">
                         <a href="#" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
                     </div><!-- form-group -->
                     <button type="submit" class="btn btn-info btn-block">Sign In</button>

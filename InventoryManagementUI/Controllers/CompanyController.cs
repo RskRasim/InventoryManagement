@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using InventoryManagementDal.Concrete.EntityFramework;
 
 namespace InventoryManagementUI.Controllers
 {
@@ -19,6 +20,7 @@ namespace InventoryManagementUI.Controllers
         private CompanyAddressManager companyaddressManager;
         private CompanyManager companyManager;
         private StoreManager storeManager;
+        private CustomerManager customerManager;
 
         public CompanyController()
         {
@@ -28,6 +30,8 @@ namespace InventoryManagementUI.Controllers
             companyaddressManager = new CompanyAddressManager(new EfCompanyAddressDal());
             companyManager = new CompanyManager(new EfCompanyDal());
             storeManager = new StoreManager(new EfStoreDal());
+            customerManager = new CustomerManager(new EfCustomerDal());
+
         }
 
 
@@ -45,7 +49,6 @@ namespace InventoryManagementUI.Controllers
             }
             catch (System.NullReferenceException)
             {
-
                 return Redirect("~/Account/CompanyLogin");
             }
         
@@ -71,10 +74,8 @@ namespace InventoryManagementUI.Controllers
 
             CompanyAddress companyAddressUp = new CompanyAddress
             {
-                
                 Address = Request.Form["Address"],
                 CompanyId = (int)Session["Id"]
-
             };
 
             companyManager.Update(companyUp);
@@ -93,12 +94,12 @@ namespace InventoryManagementUI.Controllers
         [Authorize]
         public ActionResult AddProduct()
         {
-            return View();
+            return View(storeManager.GetAllById((int)Session["Id"]));
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult AddProduct(HttpPostedFileBase Img, int ShelfNumber = 0, int Pieces = 0, int MaxPieces = 0, int TaxRate = 0, int MinPieces = 0, decimal Price = 0)
+        public ActionResult AddProduct(HttpPostedFileBase Img,int store ,int ShelfNumber = 0, int Pieces = 0, int MaxPieces = 0, int TaxRate = 0, int MinPieces = 0, decimal Price = 0)
         {
 
             Product product = new Product
@@ -120,7 +121,7 @@ namespace InventoryManagementUI.Controllers
 
                 //Oturuma Göre Düzenlenecek
                 CompanyId = (int)Session["Id"],
-                StoreId = 1,
+                StoreId = store,
                 IsActive = true
 
 
@@ -183,7 +184,7 @@ namespace InventoryManagementUI.Controllers
         [Authorize]
         public ActionResult Staff()
         {
-            ViewBag.ProductCount = productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]).Count();
+            //ViewBag.ProductCount = productManager.GetAllById((int)Session["Id"]).Count();
             return View(staffManager.GetAllById((int)Session["Id"]));
         }
 
@@ -283,6 +284,18 @@ namespace InventoryManagementUI.Controllers
             storeManager.Add(store);
             return View("AddStore");
         }
-        /* ------ Store Actions End ----- */
+        /* ------ Store Actions End ------ */
+
+        /*------ Customer Actions Start ------*/
+        [Authorize]
+        public ActionResult Customer()
+        {
+            return View(customerManager.GetAllById((int)Session["Id"]));
+        }
+
+
+
+
+        /*------ Customer Actions End ------*/
     }
 }
