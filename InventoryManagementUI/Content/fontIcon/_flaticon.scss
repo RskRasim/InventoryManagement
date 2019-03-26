@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 12/03/2019 14:03
+    Creation date: 26/03/2019 11:01
     */
 
     @font-face {
@@ -37,20 +37,42 @@
   font-smoothing: antialiased;
     }
 
-    .flaticon-buy:before { content: "\f100"; }
-.flaticon-home:before { content: "\f101"; }
+    .flaticon-Buy:before { content: "\f100"; }
+.flaticon-Home:before { content: "\f101"; }
 .flaticon-mail:before { content: "\f102"; }
-.flaticon-product:before { content: "\f103"; }
-.flaticon-store:before {
-    content: "\f103";
-}
+.flaticon-store:before { content: "\f103"; }
 .flaticon-staff:before { content: "\f104"; }
 .flaticon-menu:before { content: "\f105"; }
+.flaticon-customer:before { content: "\f106"; }
+.flaticon-resume:before { content: "\f107"; }
+.flaticon-barcode:before { content: "\f108"; }
+.flaticon-casting-call:before { content: "\f109"; }
+.flaticon-product2:before { content: "\f10a"; }
+.flaticon-box:before { content: "\f10b"; }
+.flaticon-Product:before { content: "\f10c"; }
+.flaticon-conversation:before { content: "\f10d"; }
+.flaticon-membership:before { content: "\f10e"; }
+.flaticon-membership-1:before { content: "\f10f"; }
+.flaticon-cinema:before { content: "\f110"; }
+.flaticon-sale:before { content: "\f111"; }
+.flaticon-money:before { content: "\f112"; }
     
     $font-Flaticon-buy: "\f100";
     $font-Flaticon-home: "\f101";
     $font-Flaticon-mail: "\f102";
-    $font-Flaticon-product: "\f103";
-$font-Flaticon-store: "\f103";
+    $font-Flaticon-store: "\f103";
     $font-Flaticon-staff: "\f104";
     $font-Flaticon-menu: "\f105";
+    $font-Flaticon-customer: "\f106";
+    $font-Flaticon-resume: "\f107";
+    $font-Flaticon-barcode: "\f108";
+    $font-Flaticon-casting-call: "\f109";
+    $font-Flaticon-product2: "\f10a";
+    $font-Flaticon-box: "\f10b";
+    $font-Flaticon-product: "\f10c";
+    $font-Flaticon-conversation: "\f10d";
+    $font-Flaticon-membership: "\f10e";
+    $font-Flaticon-membership-1: "\f10f";
+    $font-Flaticon-cinema: "\f110";
+    $font-Flaticon-sale: "\f111";
+    $font-Flaticon-money: "\f112";

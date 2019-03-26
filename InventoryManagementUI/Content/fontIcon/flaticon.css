@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 12/03/2019 14:03
+  	Creation date: 26/03/2019 11:01
   	*/
 
 @font-face {
@@ -25,37 +25,27 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-        font-size: 30px;
+        font-size: 29px;
 font-style: normal;
 margin-left: -1px;
 }
 
 .flaticon-Buy:before { content: "\f100"; }
-.flaticon-Product:before {
-    content: "\f103";
-}
-.flaticon-Store:before {
-    content: "\f103";
-}
-
-.flaticon-Staff:before {
-    content: "\f104";
-}
-
-.flaticon-Menu:before {
-    content: "\f105";
-}
-
-.flaticon-Home:before {
-    content: "\f101";
-}
-
-.flaticon-Mail:before {
-    content: "\f102";
-}
-
-.flaticon-MailOpen:before {
-    content: "\f105"
-}
-
-
+.flaticon-Home:before { content: "\f101"; }
+.flaticon-mail:before { content: "\f102"; }
+.flaticon-Store:before { content: "\f103"; }
+.flaticon-Staff:before { content: "\f104"; }
+.flaticon-Menu:before { content: "\f105"; }
+.flaticon-Customer:before { content: "\f106"; }
+.flaticon-resume:before { content: "\f107"; }
+.flaticon-barcode:before { content: "\f108"; }
+.flaticon-casting-call:before { content: "\f109"; }
+.flaticon-product2:before { content: "\f10a"; }
+.flaticon-box:before { content: "\f10b"; }
+.flaticon-Product:before { content: "\f10c"; }
+.flaticon-conversation:before { content: "\f10d"; }
+.flaticon-membership:before { content: "\f10e"; }
+.flaticon-membership-1:before { content: "\f10f"; }
+.flaticon-cinema:before { content: "\f110"; }
+.flaticon-sale:before { content: "\f111"; }
+.flaticon-money:before { content: "\f112"; }

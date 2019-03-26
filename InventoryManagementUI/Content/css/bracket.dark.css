@@ -196,9 +196,9 @@ body {
 }
 
 .br-section-wrapper {
-  background-color: #1D2939;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: none;
+    background-color: #1D2939;
+    border: 1px solid #1caf9a;
+    box-shadow: none;
 }
 
 .br-section-label {
