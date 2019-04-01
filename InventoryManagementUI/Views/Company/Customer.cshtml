@@ -4,7 +4,20 @@
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
 
-<h2>Customer</h2>
+
+<div class="br-pagetitle pd-0">
+    <table class="pd-0">
+        <tr>
+
+            <td>
+                <h4>Customer</h4>
+            </td>
+        </tr>
+    </table>
+
+
+
+</div>
 
 <div class="br-section-wrapper">
     @Html.ActionLink("Add New Customer", "AddCustomer", "Company", new { @class = "btn btn-success btn-block mg-b-10 tx-sm-bold" })
@@ -25,15 +38,15 @@
             <tbody>
                 @foreach (var customer in Model)
                 {
-                <tr role="row" class="odd">
-                    <td class="sorting_1" tabindex="0">@customer.CompanyName</td>
-                    <td>@customer.Name</td>
-                    <td>@customer.Surname</td>
-                    <td>@customer.Taxnumber</td>
+                    <tr role="row" class="odd">
+                        <td class="sorting_1" tabindex="0">@customer.CompanyName</td>
+                        <td>@customer.Name</td>
+                        <td>@customer.Surname</td>
+                        <td>@customer.Taxnumber</td>
 
-                    <td>@Html.ActionLink("Edit", "#", "Company", new { customer.Id }, new { @class = "btn btn-teal" })</td>
-                    <td>@Html.ActionLink("Detail", "#", "Company", new { customer.Id }, new { @class = "btn" })</td>
-                </tr>
+                        <td>@Html.ActionLink("Edit", "#", "Company", new { customer.Id }, new { @class = "btn" })</td>
+                        <td>@Html.ActionLink("Detail", "DetailCustomer", "Company", new { customer.Id }, new { @class = "btn btn-teal" })</td>
+                    </tr>
                 }
 
 

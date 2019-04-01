@@ -124,7 +124,7 @@
         </div>
 
         <div class="br-header-right mg-r-20">
-
+            
 
             <!--dropdown-menu start-->
             <div class="dropdown">
@@ -146,20 +146,18 @@
                     <hr>
                     <div class="tx-center">
                         <!-- <span class="d-block mg-b-5 tx-10 tx-spacing-1 tx-uppercase tx-info tx-medium">Earnings After Taxes</span>
-                        <h3 class="profile-earning-amount">$13,230 <i class="icon ion-ios-arrow-thin-up tx-success"></i></h3>
-                        <span class="profile-earning-text">Based on list price.</span>-->
+                <h3 class="profile-earning-amount">$13,230 <i class="icon ion-ios-arrow-thin-up tx-success"></i></h3>
+                <span class="profile-earning-text">Based on list price.</span>-->
                     </div>
                     <hr>
                     <ul class="list-unstyled user-profile-nav">
                         <li>
-                            @{
-                                int Id = (int)Session["Id"];
+                           
+                            <a href="~/Company/EditCompanyProfile/@Session["Id"]"class = "btn btn-info btn-block mg-b-10 tx-sm-bold">Edit Profile</a>
+                            
+                              
 
-                               
-                                   @Html.ActionLink("Edit Profile", "EditCompanyProfile", "Company", new { Id }, new { @class = "btn btn-info btn-block mg-b-10 tx-sm-bold" })
-                               
-
-                            }
+                           
                         </li>
                         <li><a href="#" class="btn btn-teal btn-block mg-b-10 tx-sm-bold">Notification</a></li>
                         <li><a href="#" class="btn btn-purple btn-block mg-b-10 tx-sm-bold">----</a></li>
@@ -613,14 +611,14 @@
         JsBarcode(".barcode").init();
         /* ########## DetailProduct Page Barcode End ##########*/
         /*DetailProduct Page Print*/
-        function printDiv(DivPrint) {
-            var printContents = document.getElementById(DivPrint).innerHTML;
+     /*  function printDiv(Print) {
+            var printContents = document.getElementById(Print).innerHTML;
             var originalContents = document.body.innerHTML;
             document.body.innerHTML = printContents;
             window.print();
             document.body.innerHTML = originalContents;
         }
-
+        */
         $(function () {
             'use strict';
 

@@ -1,14 +1,15 @@
 ﻿using InventoryManagementBll.Concrete;
+using InventoryManagementDal.Concrete.EntityFramework;
 using ICompanyAddressesServices.concrete.EntityFramework;
 using ICompanyAddressesServices.Concrete.EntityFramework;
 using InventoryManagementEntity;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
-using InventoryManagementDal.Concrete.EntityFramework;
 
 namespace InventoryManagementUI.Controllers
 {
@@ -46,41 +47,60 @@ namespace InventoryManagementUI.Controllers
                 ViewBag.Nois = productManager.GetAllById((int)Session["Id"]).Select(s => s.Pieces).Sum();
 
                 return View(staffManager.GetAllById((int)Session["Id"]));
-            }
+           }
             catch (System.NullReferenceException)
             {
                 return Redirect("~/Account/CompanyLogin");
             }
-        
+      
         }
 
         [Authorize]
         public ActionResult EditCompanyProfile(int Id)
         {
-            return View(companyManager.Get(Id));
+            try
+            {
+                return View(companyManager.Get(Id));
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+            
         }
 
         [Authorize]
         [HttpPost]
         public ActionResult EditCompanyProfile()
         {
-            Company companyUp = new Company
+            try
             {
-                Id = (int)Session["Id"],
-                Name = Request.Form["Name"],
-                TaxNumber = Request.Form["TaxNumber"],
-                Password = Crypto.Hash(Request.Form["Password"], "sha256"),
-            };
+                Company companyUp = new Company
+                {
+                    Id = (int)Session["Id"],
+                    Name = Request.Form["Name"],
+                    TaxNumber = Request.Form["TaxNumber"],
+                    Password = Crypto.Hash(Request.Form["Password"], "sha256"),
+                };
 
-            CompanyAddress companyAddressUp = new CompanyAddress
+                CompanyAddress companyAddressUp = new CompanyAddress
+                {
+                    Address = Request.Form["Address"],
+                    CompanyId = (int)Session["Id"]
+                };
+
+                companyManager.Update(companyUp);
+                companyaddressManager.Update(companyAddressUp);
+                return RedirectToAction("EditCompanyProfile");
+
+            }
+            catch (System.NullReferenceException)
             {
-                Address = Request.Form["Address"],
-                CompanyId = (int)Session["Id"]
-            };
 
-            companyManager.Update(companyUp);
-            companyaddressManager.Update(companyAddressUp);
-            return RedirectToAction("EditCompanyProfile");
+                return Redirect("~/Account/CompanyLogin");
+            }
+           
         }
 
         /* ----- Company End -----*/
@@ -89,79 +109,106 @@ namespace InventoryManagementUI.Controllers
         [Authorize]
         public ActionResult Product()
         {
-            return View(productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]));
+            try
+            {
+                return View(productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]));
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+          
         }
         [Authorize]
         public ActionResult AddProduct()
         {
-            return View(storeManager.GetAllById((int)Session["Id"]));
+            try
+            {
+                return View(storeManager.GetAllById((int)Session["Id"]));
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+          
         }
 
         [HttpPost]
         [Authorize]
         public ActionResult AddProduct(HttpPostedFileBase Img,int store ,int ShelfNumber = 0, int Pieces = 0, int MaxPieces = 0, int TaxRate = 0, int MinPieces = 0, decimal Price = 0)
         {
-
-            Product product = new Product
+            try
             {
-                BarcodeCode = Request.Form["BarcodeCode"],
-                BarcodeCode2 = Request.Form["BarcodeCode2"],
-                ProductCode = Request.Form["ProductCode"],
-                ProductName = Request.Form["ProductName"],
-                Content = Request.Form["Content"],
-                ShelfNumber = ShelfNumber,
-                Pieces = Pieces,
-                Price = Price,
-                Total = (Price * TaxRate / 100) + Price,
-                TotalProductValue = Pieces * Price,
-                MaxPieces = MaxPieces,
-                MinPieces = MinPieces,
-                TaxRate = TaxRate,
-                InsertionDate = DateTime.Now,
-
-                //Oturuma Göre Düzenlenecek
-                CompanyId = (int)Session["Id"],
-                StoreId = store,
-                IsActive = true
-
-
-            };
-
-            productManager.Add(product);
-
-            if (Img != null)
-            {
-
-
-                Random random = new Random();
-                int prefix = random.Next();
-
-                string ImgName = +prefix + Img.FileName;
-
-                Img.SaveAs(HttpContext.Server.MapPath("~/Content/ProductImg/" + ImgName));
-                ProductImage productImg = new ProductImage
+                Product product = new Product
                 {
-                    ImgFolder = ImgName.ToString(),
-                    ProductId = product.Id
+                    BarcodeCode = Request.Form["BarcodeCode"],
+                    BarcodeCode2 = Request.Form["BarcodeCode2"],
+                    ProductCode = Request.Form["ProductCode"],
+                    ProductName = Request.Form["ProductName"],
+                    Content = Request.Form["Content"],
+                    ShelfNumber = ShelfNumber,
+                    Pieces = Pieces,
+                    Price = Price,
+                    Total = (Price * TaxRate / 100) + Price,
+                    TotalProductValue = Pieces * Price,
+                    MaxPieces = MaxPieces,
+                    MinPieces = MinPieces,
+                    TaxRate = TaxRate,
+                    InsertionDate = DateTime.Now,
+
+                    //Oturuma Göre Düzenlenecek
+                    CompanyId = (int)Session["Id"],
+                    StoreId = store,
+                    IsActive = true
+
+
                 };
 
-                producImgManager.Add(productImg);
+                productManager.Add(product);
 
-            }
-
-            else
-            {
-                ProductImage productImg = new ProductImage
+                if (Img != null)
                 {
-                    ImgFolder = "noimage.jpg",
-                    ProductId = product.Id
-                };
 
-                producImgManager.Add(productImg);
+
+                    Random random = new Random();
+                    int prefix = random.Next();
+
+                    string ImgName = +prefix + Img.FileName;
+
+                    Img.SaveAs(HttpContext.Server.MapPath("~/Content/ProductImg/" + ImgName));
+                    ProductImage productImg = new ProductImage
+                    {
+                        ImgFolder = ImgName.ToString(),
+                        ProductId = product.Id
+                    };
+
+                    producImgManager.Add(productImg);
+
+                }
+
+                else
+                {
+                    ProductImage productImg = new ProductImage
+                    {
+                        ImgFolder = "noimage.jpg",
+                        ProductId = product.Id
+                    };
+
+                    producImgManager.Add(productImg);
+                }
+
+
+                return RedirectToAction("Product");
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
             }
 
-
-            return RedirectToAction("Product");
+           
         }
         [HttpGet]
         [Authorize]
@@ -226,22 +273,31 @@ namespace InventoryManagementUI.Controllers
         [Authorize]
         public ActionResult CreateStaff(string Password)
         {
-            Staff staff = new Staff
+            try
             {
-                Name = Request.Form["Name"],
-                Surname = Request.Form["Surname"],
-                Username = Request.Form["Username"],
-                Phone = Request.Form["Phone"],
-                Department = Request.Form["Department"],
-                Task = Request.Form["Task"],
-                Email = Request.Form["Email"],
-                Password = Crypto.Hash(Password, "sha256"),
-                //Oturuma Göre Düzenlenecek
-                CompanyId = (int)Session["Id"],
+                Staff staff = new Staff
+                {
+                    Name = Request.Form["Name"],
+                    Surname = Request.Form["Surname"],
+                    Username = Request.Form["Username"],
+                    Phone = Request.Form["Phone"],
+                    Department = Request.Form["Department"],
+                    Task = Request.Form["Task"],
+                    Email = Request.Form["Email"],
+                    Password = Crypto.Hash(Password, "sha256"),
+                    //Oturuma Göre Düzenlenecek
+                    CompanyId = (int)Session["Id"],
 
-            };
-            staffManager.Add(staff);
-            return RedirectToAction("Staff");
+                };
+                staffManager.Add(staff);
+                return RedirectToAction("Staff");
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+           
         }
         [Authorize]
         public ActionResult DeleteStaff(int Id)
@@ -257,8 +313,16 @@ namespace InventoryManagementUI.Controllers
 
         public ActionResult Store()
         {
-            
-            return View(storeManager.GetAllById((int)Session["Id"]));
+            try
+            {
+                return View(storeManager.GetAllById((int)Session["Id"]));
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+          
         }
 
         [Authorize]
@@ -272,17 +336,26 @@ namespace InventoryManagementUI.Controllers
         [HttpPost]
         public ActionResult AddStore(string Name,string Address,string StoreManager)
         {
-            Store store = new Store
+            try
             {
-                Name = Name,
-                Address = Address,
-                CompanyId = (int)Session["Id"],
-                StoreManager = StoreManager,
-                IsActive= true
-                
-            };
-            storeManager.Add(store);
-            return View("AddStore");
+                Store store = new Store
+                {
+                    Name = Name,
+                    Address = Address,
+                    CompanyId = (int)Session["Id"],
+                    StoreManager = StoreManager,
+                    IsActive = true
+
+                };
+                storeManager.Add(store);
+                return View("AddStore");
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+           
         }
         /* ------ Store Actions End ------ */
 
@@ -290,7 +363,15 @@ namespace InventoryManagementUI.Controllers
         [Authorize]
         public ActionResult Customer()
         {
-            return View(customerManager.GetAllById((int)Session["Id"]));
+            try
+            {
+                return View(customerManager.GetAllById((int)Session["Id"]));
+            }
+            catch (System.NullReferenceException)
+            {
+                return Redirect("~/Account/CompanyLogin");
+            }
+          
         }
 
         [Authorize]
@@ -302,20 +383,33 @@ namespace InventoryManagementUI.Controllers
         [HttpPost]
         public ActionResult AddCustomer(string Name, string Surname, string Taxnumber, string CompanyName )
         {
-            Customer customer = new Customer
+            try
             {
-                Name = Name,
-                Surname = Surname,
-                Taxnumber = Taxnumber,
-                CompanyName = CompanyName,
-                CompanyId = (int)Session["Id"]
+                Customer customer = new Customer
+                {
+                    Name = Name,
+                    Surname = Surname,
+                    Taxnumber = Taxnumber,
+                    CompanyName = CompanyName,
+                    CompanyId = (int)Session["Id"]
 
-            };
-            customerManager.Add(customer);
+                };
+                customerManager.Add(customer);
 
-            return View();
+                return View();
+            }
+            catch (System.NullReferenceException)
+            {
+                return Redirect("~/Account/CompanyLogin");
+            }
+       
         }
 
+        public ActionResult DetailCustomer(int Id)
+        {
+
+            return View(customerManager.Get(Id));
+        }
         /*------ Customer Actions End ------*/
     }
 }

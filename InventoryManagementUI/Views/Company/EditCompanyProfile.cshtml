@@ -4,16 +4,29 @@
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
 
-<h2>Edit Company Profile</h2>
+
+<div class="br-pagetitle pd-0">
+    <table class="pd-0">
+        <tr>
+
+            <td>
+                <h4>Edit Company Profile</h4>
+            </td>
+        </tr>
+    </table>
+
+
+
+</div>
 
 <div class="row mg-l-10">
     <div class="br-section-wrapper">
 
-     
-        @using (Html.BeginForm("EditCompanyProfile","Company", FormMethod.Post))
+
+        @using (Html.BeginForm("EditCompanyProfile", "Company", FormMethod.Post))
         {
 
-         <div class="form-layout form-layout-1">
+            <div class="form-layout form-layout-1">
 
                 <div class="row">
 
@@ -26,7 +39,6 @@
                         </div>
                     </div>
                     <!-- col-4 -->
-                    
                     <!-- col-4 -->
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -35,7 +47,6 @@
                         </div>
                     </div>
                     <!-- col-4 -->
-                    
                     <!-- col-4 -->
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -44,7 +55,6 @@
                         </div>
                     </div>
                     <!-- col-4 -->
-                    
                     <!-- col-4 -->
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -53,21 +63,20 @@
                         </div>
                     </div>
                     <!-- col-4 -->
-                    
-             <!-- col-4
+                    <!-- col-4
 
-                <div class="col-lg-4">
-                    <div class="form-group mg-b-10-force">
-                        <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
-                        <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" tabindex="-1" aria-hidden="true">
-                            <option label="Choose country"></option>
-                            <option value="USA">United States of America</option>
-                            <option value="UK">United Kingdom</option>
-                            <option value="China">China</option>
-                            <option value="Japan">Japan</option>
-                        </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" style="width: 272px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-377j-container"><span class="select2-selection__rendered" id="select2-377j-container"><span class="select2-selection__placeholder">Choose country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                    </div>
-                </div>  col-4 -->
+                       <div class="col-lg-4">
+                           <div class="form-group mg-b-10-force">
+                               <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
+                               <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" tabindex="-1" aria-hidden="true">
+                                   <option label="Choose country"></option>
+                                   <option value="USA">United States of America</option>
+                                   <option value="UK">United Kingdom</option>
+                                   <option value="China">China</option>
+                                   <option value="Japan">Japan</option>
+                               </select><span class="select2 select2-container select2-container--default select2-container--above" dir="ltr" style="width: 272px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-377j-container"><span class="select2-selection__rendered" id="select2-377j-container"><span class="select2-selection__placeholder">Choose country</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                           </div>
+                       </div>  col-4 -->
                 </div><!-- row -->
 
                 <div class="form-layout-footer">

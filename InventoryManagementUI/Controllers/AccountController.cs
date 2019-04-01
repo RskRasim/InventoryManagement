@@ -37,34 +37,39 @@ namespace InventoryManagementUI.Controllers
             };
 
             Company company = authenticationManager.AuthenticationCompany(user);
+
             if (company != null)
             {
                 FormsAuthentication.SetAuthCookie(company.TaxNumber, false);
-
                 try
                 {
+
                     Session["TaxNumber"] = company.TaxNumber;
                     Session["CompanyName"] = company.Name;
                     Session["CompanyLogo"] = company.CompanyLogoes.Where(s => s.CompanyId == company.Id).FirstOrDefault().Folder;
-
                     Session["Id"] = company.Id;
+                    Session.Timeout = 60;
                     return Redirect("~/Company/Index");
                 }
                 catch (System.NullReferenceException)
                 {
+
                     Session["TaxNumber"] = company.TaxNumber;
                     Session["CompanyName"] = company.Name;
-               
-
                     Session["Id"] = company.Id;
-                    /*Tek Boş Gelebilecek Session*/
+                    Session.Timeout = 60;
                     Session["CompanyLogo"] = "noimage.jpg";
                     return Redirect("~/Company/Index");
                 }
+                
+                            
                 //String companyLogo = company.CompanyLogoes.Where(s => s.CompanyId == company.Id).FirstOrDefault().Folder;
             }
-
-            return View("CompanyLogin");
+            else
+            {
+                return View("CompanyLogin");
+            }
+     
         }
 
 
@@ -72,6 +77,7 @@ namespace InventoryManagementUI.Controllers
         public ActionResult SignOut()
         {
             FormsAuthentication.SignOut();
+            Session.Abandon();
             return View("CompanyLogin");
         }
     }

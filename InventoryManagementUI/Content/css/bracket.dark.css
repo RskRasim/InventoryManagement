@@ -253,7 +253,7 @@ body {
 /***** CARDS ******/
 .card {
     background-color: #1a2432;
-    border-color: #C0C0C0;
+   /*border-color: #C0C0C0;*/
 }
 
 .card-header,

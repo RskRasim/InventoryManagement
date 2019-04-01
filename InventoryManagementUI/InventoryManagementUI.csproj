@@ -107,26 +107,15 @@
     <Content Include="Content\fontIcon\flaticon.html" />
     <Content Include="Content\fontIcon\Flaticon.svg" />
     <Content Include="Content\img\Background\bg-register4.jpg" />
+    <Content Include="Content\img\Background\IMG_20190326_112304.jpg" />
     <Content Include="Content\img\bracketplus-social.png" />
     <Content Include="Content\img\github-logo.png" />
     <Content Include="Content\img\Background\BGRinver.jpg" />
     <Content Include="Content\img\Icon\change.png" />
     <Content Include="Content\img\Icon\service.png" />
     <Content Include="Content\img\Icon\warehouse.png" />
-    <Content Include="Content\img\img1.jpg" />
-    <Content Include="Content\img\img10.jpg" />
     <Content Include="Content\img\img11.jpg" />
     <Content Include="Content\img\img12.jpg" />
-    <Content Include="Content\img\img13.jpg" />
-    <Content Include="Content\img\img14.jpg" />
-    <Content Include="Content\img\img15.jpg" />
-    <Content Include="Content\img\img16.png" />
-    <Content Include="Content\img\img17.jpg" />
-    <Content Include="Content\img\img18.jpg" />
-    <Content Include="Content\img\img19.jpg" />
-    <Content Include="Content\img\img2.jpg" />
-    <Content Include="Content\img\img20.jpg" />
-    <Content Include="Content\img\img21.jpg" />
     <Content Include="Content\img\img22.jpg" />
     <Content Include="Content\img\img23.jpg" />
     <Content Include="Content\img\img24.jpg" />
@@ -164,6 +153,7 @@
     <Content Include="Content\img\img7.jpg" />
     <Content Include="Content\img\img8.jpg" />
     <Content Include="Content\img\img9.jpg" />
+    <Content Include="Content\img\Background\IMG_20190326_112307.jpg" />
     <Content Include="Content\img\linkedin.png" />
     <Content Include="Content\img\Background\manhattan-new-york-city.jpg" />
     <Content Include="Content\img\resume.png" />
@@ -322,7 +312,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -342,6 +334,7 @@
     <Content Include="Views\Company\EditCompanyProfile.cshtml" />
     <Content Include="Views\Company\Customer.cshtml" />
     <Content Include="Views\Company\AddCustomer.cshtml" />
+    <Content Include="Views\Company\DetailCustomer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

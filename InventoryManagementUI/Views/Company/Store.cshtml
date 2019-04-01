@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
 
-<h2>Stores</h2>
+
+
 
 @Html.ActionLink("Add New Store", "AddStore", "Company", new { @class = "btn btn-success btn-block mg-b-10" })
 <div class="br-section-wrapper">
@@ -23,20 +24,20 @@
             <tbody>
                 @foreach (var Store in Model)
                 {
-                <tr role="row" class="odd">
+                    <tr role="row" class="odd">
 
 
-                    <td class="sorting_1" tabindex="0">@Store.Name</td>
-                    <td>@Store.StoreManager</td>
+                        <td class="sorting_1" tabindex="0">@Store.Name</td>
+                        <td>@Store.StoreManager</td>
 
 
-                    <td>@Store.Address</td>
+                        <td>@Store.Address</td>
 
 
 
 
-                    <td>@Html.ActionLink("Detail", "DetailStore", "Company", new { Store.Id }, new { @class = "btn btn-info" })</td>
-                </tr>
+                        <td>@Html.ActionLink("Detail", "DetailStore", "Company", new { Store.Id }, new { @class = "btn btn-info" })</td>
+                    </tr>
                 }
 
 
