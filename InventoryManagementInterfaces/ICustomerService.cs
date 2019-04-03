@@ -18,7 +18,7 @@ namespace InventoryManagementInterfaces
         [OperationContract]
         void Update(Customer customer);
         [OperationContract]
-        Customer Get(int Id);
+        Customer Get(int Id,int companyId);
         [OperationContract]
         List<Customer> GetAll(int Id);
         [OperationContract]

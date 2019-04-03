@@ -28,9 +28,9 @@ namespace InventoryManagementBll.Concrete
             _customerDal.Delete(Id);
         }
 
-        public Customer Get(int Id)
+        public Customer Get(int Id, int companyId)
         {
-           return _customerDal.Get(Id);
+            return _customerDal.Get(Id,companyId);
         }
 
         public List<Customer> GetAll(int Id)

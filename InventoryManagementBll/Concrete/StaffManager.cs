@@ -20,6 +20,7 @@ namespace InventoryManagementBll.Concrete
 
         public void Add(Staff staff)
         {
+            /*Username kontrol yapılacak*/
             _staffDal.Add(staff);
         }
 
@@ -28,9 +29,9 @@ namespace InventoryManagementBll.Concrete
             _staffDal.Delete(Id);
         }
 
-        public Staff Get(int Id)
+        public Staff Get(int Id, int companyId)
         {
-          return  _staffDal.Get(Id);
+            return _staffDal.Get(Id,companyId);
         }
 
         public List<Staff> GetAll()
@@ -44,7 +45,7 @@ namespace InventoryManagementBll.Concrete
         }
 
         public void Update(Staff staff)
-        {
+        {  /*Username kontrol yapılacak*/
             _staffDal.Update(staff);
         }
     }

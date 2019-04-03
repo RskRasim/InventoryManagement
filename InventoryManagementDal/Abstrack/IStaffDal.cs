@@ -11,8 +11,8 @@ namespace ICompanyAddressesServices.Abstrack
     {
         List<Staff> GetAll();
        
-        List<Staff> GetAllById(int CompanyId);
-        Staff Get(int Id);
+        List<Staff> GetAllById(int companyId);
+        Staff Get(int Id,int companyId);
         void Add(Staff staff);
         void Delete(int Id);
         void Update(Staff staff);

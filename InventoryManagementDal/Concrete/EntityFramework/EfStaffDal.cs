@@ -29,9 +29,11 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
             _contexDb.SaveChanges();
         }
 
-        public Staff Get(int Id)
+       
+
+        public Staff Get(int Id, int companyId)
         {
-          return _contexDb.Staffs.FirstOrDefault(s => s.Id == Id);
+            return _contexDb.Staffs.FirstOrDefault(s => s.Id == Id && s.CompanyId == companyId );
         }
 
         public List<Staff> GetAll()

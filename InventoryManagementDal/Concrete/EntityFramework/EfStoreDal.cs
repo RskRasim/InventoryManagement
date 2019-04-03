@@ -31,9 +31,11 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
             _contexDb.Stores.Remove(_contexDb.Stores.FirstOrDefault(s => s.Id == storeId));
         }
 
-        public Store Get(int storeId)
+      
+
+        public Store Get(int storeId, int companyId)
         {
-          return  _contexDb.Stores.FirstOrDefault(s => s.Id == storeId);
+            return _contexDb.Stores.FirstOrDefault(s => s.Id == storeId && s.CompanyId==companyId);
         }
 
         public List<Store> GetAll()
@@ -41,9 +43,9 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
             return _contexDb.Stores.ToList();
         }
 
-        public List<Store> GetAllById(int CompanyId)
+        public List<Store> GetAllById(int companyId)
         {
-          return  _contexDb.Stores.Where(s => s.CompanyId == CompanyId).ToList();
+          return  _contexDb.Stores.Where(s => s.CompanyId == companyId).ToList();
         }
 
         public void Update(Store store)

@@ -152,21 +152,21 @@
                     <hr>
                     <ul class="list-unstyled user-profile-nav">
                         <li>
-                           
-                            <a href="~/Company/EditCompanyProfile/@Session["Id"]"class = "btn btn-info btn-block mg-b-10 tx-sm-bold">Edit Profile</a>
-                            
-                              
 
-                           
-                        </li>
-                        <li><a href="#" class="btn btn-teal btn-block mg-b-10 tx-sm-bold">Notification</a></li>
-                        <li><a href="#" class="btn btn-purple btn-block mg-b-10 tx-sm-bold">----</a></li>
-                        <li><a href="#" class="btn btn-pink btn-block mg-b-10 tx-sm-bold">----</a></li>
-                        <li><a href="#" class="btn btn-warning btn-block mg-b-10 tx-sm-bold">----</a></li>
-                        <li> <a href="~/Account/SignOut" class="btn btn-danger btn-block mg-r-20 tx-sm-bold">SignOut</a></li>
-                    </ul>
-                </div><!-- dropdown-menu end -->
-            </div>
+                            <!-- <a href="~/Company/EditCompanyProfile/@Session["Id"]"class = "btn btn-info btn-block mg-b-10 tx-sm-bold">Edit Profile</a>-->
+                            @Html.ActionLink("Edit Company Profile", "EditCompanyProfile", "Company",new {@class = "btn btn-info btn-block mg-b-10 tx-sm-bold" })
+
+
+
+            </li>
+            <li><a href="#" class="btn btn-teal btn-block mg-b-10 tx-sm-bold">Notification</a></li>
+            <li><a href="#" class="btn btn-purple btn-block mg-b-10 tx-sm-bold">----</a></li>
+            <li><a href="#" class="btn btn-pink btn-block mg-b-10 tx-sm-bold">----</a></li>
+            <li><a href="#" class="btn btn-warning btn-block mg-b-10 tx-sm-bold">----</a></li>
+            <li> <a href="~/Account/SignOut" class="btn btn-danger btn-block mg-r-20 tx-sm-bold">SignOut</a></li>
+        </ul>
+    </div><!-- dropdown-menu end -->
+</div>
 
         </div>
 

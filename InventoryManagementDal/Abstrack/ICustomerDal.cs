@@ -13,7 +13,7 @@ namespace InventoryManagementDal.Abstrack
         void Delete(int Id);
         void Update(Customer customer);
 
-        Customer Get(int Id);
+        Customer Get(int Id,int companyId);
         List<Customer> GetAll(int Id);
         List<Customer> GetAllById(int companyId);
     }

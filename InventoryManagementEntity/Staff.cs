@@ -31,7 +31,7 @@ namespace InventoryManagementEntity
         public string Department { get; set; }
         [MaxLength(35)]
         public string Task { get; set; }
-
+        public string Role { get; set; }
         public Boolean IsActive { get; set; }
         [MaxLength(45)]
         [Required(ErrorMessage = "Email is Mandatory")]

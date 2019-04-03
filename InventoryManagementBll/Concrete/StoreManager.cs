@@ -28,14 +28,14 @@ namespace InventoryManagementBll.Concrete
             _storeDal.Delete(storeId);
         }
 
-        public Store Get(int storeId)
+        public Store Get(int storeId, int companyId)
         {
-            return _storeDal.Get(storeId);
+            return _storeDal.Get(storeId, companyId);
         }
 
         public List<Store> GetAll()
         {
-           return _storeDal.GetAll();
+            return _storeDal.GetAll();
         }
 
         public List<Store> GetAllById(int CompanyId)

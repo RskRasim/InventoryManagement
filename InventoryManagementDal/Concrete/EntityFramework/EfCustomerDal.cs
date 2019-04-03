@@ -30,9 +30,11 @@ namespace InventoryManagementDal.Concrete.EntityFramework
             _contexDb.SaveChanges();
         }
 
-        public Customer Get(int Id)
+       
+
+        public Customer Get(int Id, int companyId)
         {
-           return _contexDb.Customers.FirstOrDefault(s => s.Id == Id);
+            return _contexDb.Customers.FirstOrDefault(s => s.Id == Id && s.CompanyId == companyId);
         }
 
         public List<Customer> GetAll(int Id)

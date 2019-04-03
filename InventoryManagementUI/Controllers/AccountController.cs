@@ -40,7 +40,7 @@ namespace InventoryManagementUI.Controllers
 
             if (company != null)
             {
-                FormsAuthentication.SetAuthCookie(company.TaxNumber, false);
+                FormsAuthentication.SetAuthCookie(company.TaxNumber,false);
                 try
                 {
 
@@ -61,7 +61,7 @@ namespace InventoryManagementUI.Controllers
                     Session["CompanyLogo"] = "noimage.jpg";
                     return Redirect("~/Company/Index");
                 }
-                
+                     
                             
                 //String companyLogo = company.CompanyLogoes.Where(s => s.CompanyId == company.Id).FirstOrDefault().Folder;
             }

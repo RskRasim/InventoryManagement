@@ -32,9 +32,10 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
             _contextDb.SaveChanges();
         }
 
-        public Product Get(int productId)
+       
+        public Product Get(int productId, int companyId)
         {
-           return _contextDb.Products.FirstOrDefault(s => s.Id == productId);
+            return _contextDb.Products.FirstOrDefault(s => s.Id == productId && s.CompanyId == companyId);
         }
 
         public List<Product> GetAll()
@@ -42,9 +43,9 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
           return _contextDb.Products.ToList();
         }
 
-        public List<Product> GetAllById(int CompanyId)
+        public List<Product> GetAllById(int companyId)
         {
-            return _contextDb.Products.Where(s => s.CompanyId == CompanyId).ToList();
+            return _contextDb.Products.Where(s => s.CompanyId == companyId).ToList();
         }
 
         public void Update(Product product)

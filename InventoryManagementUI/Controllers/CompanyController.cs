@@ -10,9 +10,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Security;
+
+using InventoryManagementUI.Models;
 
 namespace InventoryManagementUI.Controllers
 {
+    [RoleControl (Roles ="Company")]
     public class CompanyController : Controller
     {
         private StaffManager staffManager;
@@ -37,7 +41,7 @@ namespace InventoryManagementUI.Controllers
 
 
         // GET: Company
-        [Authorize]
+        [Authorize ]
         public ActionResult Index()
         {
             try
@@ -56,11 +60,11 @@ namespace InventoryManagementUI.Controllers
         }
 
         [Authorize]
-        public ActionResult EditCompanyProfile(int Id)
+        public ActionResult EditCompanyProfile()
         {
             try
             {
-                return View(companyManager.Get(Id));
+                return View(companyManager.Get((int)Session["Id"]));
             }
             catch (System.NullReferenceException)
             {
@@ -72,7 +76,7 @@ namespace InventoryManagementUI.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult EditCompanyProfile()
+        public ActionResult EditCompanyProfile(string Password)
         {
             try
             {
@@ -81,7 +85,7 @@ namespace InventoryManagementUI.Controllers
                     Id = (int)Session["Id"],
                     Name = Request.Form["Name"],
                     TaxNumber = Request.Form["TaxNumber"],
-                    Password = Crypto.Hash(Request.Form["Password"], "sha256"),
+                    Password = Crypto.Hash(Password, "sha256"),
                 };
 
                 CompanyAddress companyAddressUp = new CompanyAddress
@@ -111,7 +115,7 @@ namespace InventoryManagementUI.Controllers
         {
             try
             {
-                return View(productManager.GetAll().Where(s => s.CompanyId == (int)Session["Id"]));
+                return View(productManager.GetAllById((int)Session["Id"]));
             }
             catch (System.NullReferenceException)
             {
@@ -214,8 +218,17 @@ namespace InventoryManagementUI.Controllers
         [Authorize]
         public ActionResult DetailProduct(int Id)
         {
-
-            return View(productManager.Get(Id));
+            Product product = productManager.Get(Id, (int)Session["Id"]);
+            if (product != null)
+            {
+                return View(product);
+            }
+            else
+            {
+                TempData["NotProduct"] = "OHH! Sorry I couldn't find a product like this";
+                return RedirectToAction("Product");
+            }
+            
         }
         [HttpGet]
         [Authorize]
@@ -245,7 +258,7 @@ namespace InventoryManagementUI.Controllers
 
         public ActionResult EditStaff(int Id)
         {
-            return View(staffManager.Get(Id));
+            return View(staffManager.Get(Id, (int)Session["Id"]));
         }
 
         [HttpPost]
@@ -408,7 +421,7 @@ namespace InventoryManagementUI.Controllers
         public ActionResult DetailCustomer(int Id)
         {
 
-            return View(customerManager.Get(Id));
+            return View(customerManager.Get(Id, (int)Session["Id"]));
         }
         /*------ Customer Actions End ------*/
     }

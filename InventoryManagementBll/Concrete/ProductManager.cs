@@ -28,9 +28,9 @@ namespace InventoryManagementBll.Concrete
             _productDal.Delete(Id);
         }
 
-        public Product Get(int productId)
+        public Product Get(int productId, int companyId)
         {
-          return  _productDal.Get(productId);
+            return _productDal.Get(productId,companyId);
         }
 
         public List<Product> GetAll()

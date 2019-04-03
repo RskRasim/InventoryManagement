@@ -23,7 +23,8 @@ namespace InventoryManagementWcfServiceIISHost
             throw new NotImplementedException();
         }
 
-        public InventoryManagementEntity.Product Get(int productId)
+
+        public InventoryManagementEntity.Product Get(int productId, int companyId)
         {
             throw new NotImplementedException();
         }

@@ -10,8 +10,8 @@ namespace ICompanyAddressesServices.Abstrack
     public interface IStoreDal
     {
         List<Store> GetAll();
-        List<Store> GetAllById(int CompanyId);
-        Store Get(int storeId);
+        List<Store> GetAllById(int companyId);
+        Store Get(int storeId,int companyId);
         void Add(Store store);
         void Delete(int storeId);
         void Update(Store store);
