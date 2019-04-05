@@ -23,10 +23,11 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
             _contexDb.SaveChanges();
         }
 
-        public void Delete(int Id)
-        {
+        public int Delete(int Id, int companyId)
+        {//Tüm delete işlemlerine ugulancak
             _contexDb.Staffs.Remove(_contexDb.Staffs.FirstOrDefault(s => s.Id == Id));
-            _contexDb.SaveChanges();
+            int events = _contexDb.SaveChanges();
+            return events;
         }
 
        

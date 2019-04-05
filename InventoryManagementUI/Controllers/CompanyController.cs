@@ -16,7 +16,7 @@ using InventoryManagementUI.Models;
 
 namespace InventoryManagementUI.Controllers
 {
-    [RoleControl (Roles ="Company")]
+    [RoleControl(Roles = "Company")]
     public class CompanyController : Controller
     {
         private StaffManager staffManager;
@@ -41,7 +41,7 @@ namespace InventoryManagementUI.Controllers
 
 
         // GET: Company
-        [Authorize ]
+        [Authorize]
         public ActionResult Index()
         {
             try
@@ -51,12 +51,12 @@ namespace InventoryManagementUI.Controllers
                 ViewBag.Nois = productManager.GetAllById((int)Session["Id"]).Select(s => s.Pieces).Sum();
 
                 return View(staffManager.GetAllById((int)Session["Id"]));
-           }
+            }
             catch (System.NullReferenceException)
             {
                 return Redirect("~/Account/CompanyLogin");
             }
-      
+
         }
 
         [Authorize]
@@ -71,7 +71,7 @@ namespace InventoryManagementUI.Controllers
 
                 return Redirect("~/Account/CompanyLogin");
             }
-            
+
         }
 
         [Authorize]
@@ -104,7 +104,7 @@ namespace InventoryManagementUI.Controllers
 
                 return Redirect("~/Account/CompanyLogin");
             }
-           
+
         }
 
         /* ----- Company End -----*/
@@ -122,7 +122,7 @@ namespace InventoryManagementUI.Controllers
 
                 return Redirect("~/Account/CompanyLogin");
             }
-          
+
         }
         [Authorize]
         public ActionResult AddProduct()
@@ -136,12 +136,12 @@ namespace InventoryManagementUI.Controllers
 
                 return Redirect("~/Account/CompanyLogin");
             }
-          
+
         }
 
         [HttpPost]
         [Authorize]
-        public ActionResult AddProduct(HttpPostedFileBase Img,int store ,int ShelfNumber = 0, int Pieces = 0, int MaxPieces = 0, int TaxRate = 0, int MinPieces = 0, decimal Price = 0)
+        public ActionResult AddProduct(HttpPostedFileBase Img, int store, int ShelfNumber = 0, int Pieces = 0, int MaxPieces = 0, int TaxRate = 0, int MinPieces = 0, decimal Price = 0)
         {
             try
             {
@@ -212,30 +212,59 @@ namespace InventoryManagementUI.Controllers
                 return Redirect("~/Account/CompanyLogin");
             }
 
-           
+
         }
         [HttpGet]
         [Authorize]
-        public ActionResult DetailProduct(int Id)
+        public ActionResult DetailProduct(int Id = 0)
         {
-            Product product = productManager.Get(Id, (int)Session["Id"]);
-            if (product != null)
+            try
             {
-                return View(product);
+
+                Product product = productManager.Get(Id, (int)Session["Id"]);
+                if (product != null)
+                {
+                    return View(product);
+                }
+                else
+                {
+                    TempData["NotProduct"] = "OHH! Sorry I couldn't find a product like this";
+                    return RedirectToAction("Product");
+                }
+
+
+
             }
-            else
+            catch (System.NullReferenceException)
             {
-                TempData["NotProduct"] = "OHH! Sorry I couldn't find a product like this";
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+
+
+
+
+        }
+         
+           
+          
+        
+        [HttpGet]
+        [Authorize]
+        public ActionResult DeleteProduct(int Id = 0)
+        {
+            try
+            {
+             int events =   productManager.Delete(Id, (int)Session["Id"]);
+                TempData["DeleteNum"] = "Number of deleted items:"+events;
                 return RedirectToAction("Product");
             }
-            
-        }
-        [HttpGet]
-        [Authorize]
-        public ActionResult DeleteProduct(int Id)
-        {
-            productManager.Delete(Id);
-           return RedirectToAction("Product");
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+
         }
 
         /* ----- Product Actions End ------ */
@@ -256,7 +285,7 @@ namespace InventoryManagementUI.Controllers
         }
 
 
-        public ActionResult EditStaff(int Id)
+        public ActionResult EditStaff(int Id = 0)
         {
             return View(staffManager.Get(Id, (int)Session["Id"]));
         }
@@ -313,9 +342,9 @@ namespace InventoryManagementUI.Controllers
            
         }
         [Authorize]
-        public ActionResult DeleteStaff(int Id)
+        public ActionResult DeleteStaff(int Id=0)
         {
-            staffManager.Delete(Id);
+            staffManager.Delete(Id, (int)Session["Id"]);
             return RedirectToAction("Staff");
         }
 

@@ -13,7 +13,7 @@ namespace ICompanyAddressesServices.Abstrack
         List<Store> GetAllById(int companyId);
         Store Get(int storeId,int companyId);
         void Add(Store store);
-        void Delete(int storeId);
+        void Delete(int storeId, int companyId);
         void Update(Store store);
 
     }

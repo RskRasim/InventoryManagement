@@ -23,9 +23,10 @@ namespace InventoryManagementBll.Concrete
             _productDal.Add(product);
         }
 
-        public void Delete(int Id)
+        public int Delete(int Id, int companyId)
         {
-            _productDal.Delete(Id);
+         int events= _productDal.Delete(Id,companyId);
+            return events;
         }
 
         public Product Get(int productId, int companyId)

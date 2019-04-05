@@ -24,9 +24,10 @@ namespace InventoryManagementBll.Concrete
             _staffDal.Add(staff);
         }
 
-        public void Delete(int Id)
+        public int Delete(int Id, int companyId)
         {
-            _staffDal.Delete(Id);
+           int events= _staffDal.Delete(Id,companyId);
+            return events;
         }
 
         public Staff Get(int Id, int companyId)

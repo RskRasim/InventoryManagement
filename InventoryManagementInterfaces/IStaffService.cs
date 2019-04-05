@@ -14,7 +14,7 @@ namespace InventoryManagementInterfaces
         [OperationContract]
         void Add(Staff staff);
         [OperationContract]
-        void Delete(int Id);
+        int Delete(int Id, int companyId);
         [OperationContract]
         void Update(Staff staff);
         [OperationContract]

@@ -14,7 +14,7 @@ namespace ICompanyAddressesServices.Abstrack
         List<Staff> GetAllById(int companyId);
         Staff Get(int Id,int companyId);
         void Add(Staff staff);
-        void Delete(int Id);
+        int Delete(int Id, int companyId);
         void Update(Staff staff);
 
     }

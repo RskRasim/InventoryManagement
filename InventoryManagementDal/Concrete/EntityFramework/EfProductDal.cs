@@ -22,14 +22,28 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
             
         }
 
-        public void Delete(int Id)
+        public int Delete(int Id, int companyId)
         {
             /**************** ImageDelete *****************/
-            _contextDb.ProductImages.Remove(_contextDb.ProductImages.FirstOrDefault(s => s.ProductId == Id));
-            _contextDb.SaveChanges();
+            ProductImage productImage = _contextDb.ProductImages.FirstOrDefault(s => s.ProductId == Id && s.Product.CompanyId == companyId);
+            Product product = _contextDb.Products.FirstOrDefault(s => s.Id == Id && s.CompanyId == companyId);
+            if (productImage != null)
+            {
+                _contextDb.ProductImages.Remove(productImage);
+                _contextDb.Products.Remove(product);
+                int events = _contextDb.SaveChanges();
+                return events;
+            }
+            else
+            {
+                int events = 0;
+                return events;
+            }
+    
             /**/
-            _contextDb.Products.Remove(_contextDb.Products.FirstOrDefault(s => s.Id == Id));
-            _contextDb.SaveChanges();
+           
+           
+           
         }
 
        

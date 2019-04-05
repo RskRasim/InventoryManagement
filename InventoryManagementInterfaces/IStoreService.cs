@@ -20,7 +20,7 @@ namespace InventoryManagementInterfaces
         [OperationContract]
         void Add(Store store);
         [OperationContract]
-        void Delete(int storeId);
+        void Delete(int storeId, int companyId);
         [OperationContract]
         void Update(Store store);
 

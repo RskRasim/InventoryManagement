@@ -23,9 +23,9 @@ namespace InventoryManagementBll.Concrete
             _customerDal.Add(customer);
         }
 
-        public void Delete(int Id)
+        public void Delete(int Id, int companyId)
         {
-            _customerDal.Delete(Id);
+            _customerDal.Delete(Id,companyId);
         }
 
         public Customer Get(int Id, int companyId)
@@ -46,6 +46,36 @@ namespace InventoryManagementBll.Concrete
         public void Update(Customer customer)
         {
             _customerDal.Update(customer);
+        }
+
+        void ICustomerService.Add(Customer customer)
+        {
+            throw new NotImplementedException();
+        }
+
+        void ICustomerService.Delete(int Id, int companyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        Customer ICustomerService.Get(int Id, int companyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Customer> ICustomerService.GetAll(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        List<Customer> ICustomerService.GetAllById(int companyId)
+        {
+            throw new NotImplementedException();
+        }
+
+        void ICustomerService.Update(Customer customer)
+        {
+            throw new NotImplementedException();
         }
     }
 }

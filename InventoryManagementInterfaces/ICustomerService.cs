@@ -14,7 +14,7 @@ namespace InventoryManagementInterfaces
         [OperationContract]
         void Add(Customer customer);
         [OperationContract]
-        void Delete(int Id);
+        void Delete(int Id, int companyId);
         [OperationContract]
         void Update(Customer customer);
         [OperationContract]

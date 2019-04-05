@@ -20,7 +20,7 @@ namespace InventoryManagementBll.Concrete
 
         public void Add(Company company)
         {
-            /*TaxNumber Kontrol yapılacak. Aynı TaxNuberden birtane olucak  */
+            /*TaxNumber Kontrol yapılacak. Aynı TaxNuberden birtane olucak ve admin için */
             _companyDal.Add(company);
         }
 

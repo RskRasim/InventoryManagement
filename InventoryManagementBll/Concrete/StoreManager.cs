@@ -23,9 +23,9 @@ namespace InventoryManagementBll.Concrete
             _storeDal.Add(store);
         }
 
-        public void Delete(int storeId)
+        public void Delete(int storeId, int companyId)
         {
-            _storeDal.Delete(storeId);
+            _storeDal.Delete(storeId,companyId);
         }
 
         public Store Get(int storeId, int companyId)

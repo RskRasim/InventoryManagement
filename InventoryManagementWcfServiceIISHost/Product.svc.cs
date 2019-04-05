@@ -18,7 +18,7 @@ namespace InventoryManagementWcfServiceIISHost
             throw new NotImplementedException();
         }
 
-        public void Delete(int Id)
+        public int Delete(int Id, int companyId)
         {
             throw new NotImplementedException();
         }

@@ -26,7 +26,7 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
                 
         }
 
-        public void Delete(int storeId)
+        public void Delete(int storeId,int companyId)
         {
             _contexDb.Stores.Remove(_contexDb.Stores.FirstOrDefault(s => s.Id == storeId));
         }

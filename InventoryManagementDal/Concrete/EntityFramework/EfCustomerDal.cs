@@ -24,7 +24,7 @@ namespace InventoryManagementDal.Concrete.EntityFramework
             _contexDb.SaveChanges();
         }
 
-        public void Delete(int Id)
+        public void Delete(int Id,int companyId)
         {
             _contexDb.Customers.Remove(_contexDb.Customers.FirstOrDefault(s => s.Id == Id));
             _contexDb.SaveChanges();
