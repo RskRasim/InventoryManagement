@@ -24,10 +24,21 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
         }
 
         public int Delete(int Id, int companyId)
-        {//Tüm delete işlemlerine ugulancak
-            _contexDb.Staffs.Remove(_contexDb.Staffs.FirstOrDefault(s => s.Id == Id));
-            int events = _contexDb.SaveChanges();
-            return events;
+        {
+            //Tüm delete işlemlerine ugulancak staff url erişimi engelemek için companyId Session dan geliyor
+            Staff staff = _contexDb.Staffs.FirstOrDefault(s => s.Id == Id && s.CompanyId == companyId);
+            if (staff != null)
+            {
+                _contexDb.Staffs.Remove(staff);
+                int events = _contexDb.SaveChanges();
+                return events;
+            }
+            else
+            {
+                int events = 0;
+                return events;
+            }
+           
         }
 
        
