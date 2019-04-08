@@ -6,6 +6,7 @@
 @Html.ActionLink("Create New Staff", "CreateStaff", "Company", new { @class = "btn btn-success btn-block mg-b-10" })
 <div class="br-section-wrapper">
     <h6 class="br-section-label">Staff DataTable</h6>
+    <span class="text-danger">@TempData["NotStaff"]</span>
     <div class="table-wrapper">
         <table id="datatable1" class="table display responsive nowrap dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable1_info" style="width: 935px;">
             <thead>

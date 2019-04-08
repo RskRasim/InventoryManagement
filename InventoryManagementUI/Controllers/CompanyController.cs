@@ -256,6 +256,7 @@ namespace InventoryManagementUI.Controllers
             try
             {
              int events =   productManager.Delete(Id, (int)Session["Id"]);
+                /*İşlem sayısı 0 gelirse ürün company ürünü değil*/
                 TempData["DeleteNum"] = "Number of deleted items:"+events;
                 return RedirectToAction("Product");
             }
@@ -287,7 +288,26 @@ namespace InventoryManagementUI.Controllers
 
         public ActionResult EditStaff(int Id = 0)
         {
-            return View(staffManager.Get(Id, (int)Session["Id"]));
+            try
+            {
+            Staff staff =  staffManager.Get(Id, (int)Session["Id"]);
+
+                if (staff != null)
+                {
+                    return View(staff);
+                }
+                else
+                {
+                    TempData["NotStaff"] = "OHH! Sorry I couldn't find a Staff like this";
+                    return RedirectToAction("Staff");
+                }
+            }
+            catch (System.NullReferenceException)
+            {
+
+                return Redirect("~/Account/CompanyLogin");
+            }
+
         }
 
         [HttpPost]
@@ -344,7 +364,7 @@ namespace InventoryManagementUI.Controllers
         [Authorize]
         public ActionResult DeleteStaff(int Id=0)
         {
-            staffManager.Delete(Id, (int)Session["Id"]);
+            staffManager.Delete(Id,(int)Session["Id"]);
             return RedirectToAction("Staff");
         }
 
