@@ -41,7 +41,7 @@ namespace InventoryManagementUI.Controllers
 
 
         // GET: Company
-        [Authorize]
+     
         public ActionResult Index()
         {
             try
@@ -59,7 +59,7 @@ namespace InventoryManagementUI.Controllers
 
         }
 
-        [Authorize]
+       
         public ActionResult EditCompanyProfile()
         {
             try
@@ -74,7 +74,6 @@ namespace InventoryManagementUI.Controllers
 
         }
 
-        [Authorize]
         [HttpPost]
         public ActionResult EditCompanyProfile(string Password)
         {
@@ -110,7 +109,7 @@ namespace InventoryManagementUI.Controllers
         /* ----- Company End -----*/
 
         /* ----- Product Actions Start ------*/
-        [Authorize]
+  
         public ActionResult Product()
         {
             try
@@ -124,7 +123,7 @@ namespace InventoryManagementUI.Controllers
             }
 
         }
-        [Authorize]
+   
         public ActionResult AddProduct()
         {
             try
@@ -140,7 +139,7 @@ namespace InventoryManagementUI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+
         public ActionResult AddProduct(HttpPostedFileBase Img, int store, int ShelfNumber = 0, int Pieces = 0, int MaxPieces = 0, int TaxRate = 0, int MinPieces = 0, decimal Price = 0)
         {
             try
@@ -215,7 +214,7 @@ namespace InventoryManagementUI.Controllers
 
         }
         [HttpGet]
-        [Authorize]
+ 
         public ActionResult DetailProduct(int Id = 0)
         {
             try
@@ -271,7 +270,7 @@ namespace InventoryManagementUI.Controllers
         /* ----- Product Actions End ------ */
 
         /* ----- Staff Actions Start ----- */
-        [Authorize]
+
         public ActionResult Staff()
         {
             //ViewBag.ProductCount = productManager.GetAllById((int)Session["Id"]).Count();
@@ -279,7 +278,7 @@ namespace InventoryManagementUI.Controllers
         }
 
 
-        [Authorize]
+        
         public ActionResult CreateStaff()
         {
             return View();
@@ -311,7 +310,7 @@ namespace InventoryManagementUI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+    
         public ActionResult EditStaff()
         {
             Staff UpStaff = new Staff
