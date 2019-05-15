@@ -10,8 +10,8 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Company Login</title>
-   
+    <title>Create Company Account</title>
+
     <!-- vendor css -->
     <link href="~/Content/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="~/Content/lib/Ionicons/css/ionicons.css" rel="stylesheet">
@@ -24,26 +24,37 @@
 
         <img src="~/Content/img/Background/IMG_20190404_142947.jpg" class="wd-100p opacity-1 ht-100p object-fit-cover" />
         <!--  <video id="headVideo" class="pos-absolute a-0 wd-100p ht-100p object-fit-cover" autoplay muted loop>
-        <source src="~/Content/img/bg-register4.jpg" type="image/jpeg">
+            <source src="~/Content/img/bg-register4.jpg" type="image/jpeg">
 
-    </video> /video -->
-        @using (Html.BeginForm("CompanyLogin", "Account", FormMethod.Post))
+        </video> /video -->
+        @using (Html.BeginForm("CreateCompanyAccount", "Account", FormMethod.Post))
         {
 
 
             <div class="overlay-body bg-black-7 d-flex align-items-center justify-content-center">
-                <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 rounded bg-black-6" style="border: #776b6a 1px solid">
+                <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 rounded bg-black-6" style="border: #17A2B8 1px solid">
                     <div class="signin-logo tx-center tx-sm-20 tx-bold tx-white"><span class="tx-sm-16">[</span> Inventory <span class="tx-info">Management</span> <span class="tx-normal">]</span></div>
                     <div class="tx-white-5 tx-center mg-b-60"></div>
                     <div class="form-group">
                         <input type="text" class="form-control fc-outline-dark bd-1" required name="TaxNumber" style="border: solid 1px white;" placeholder="Enter your TaxNumber">
                     </div><!-- form-group -->
+
                     <div class="form-group">
-                        <input type="password" class="form-control fc-outline-dark bd-1" required name="Password" style="border: solid 1px white;" placeholder="Enter your password">
-                        <a href="#" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
+                        <input type="text" class="form-control fc-outline-dark bd-1" name="Name" required style="border: solid 1px white;" placeholder="Enter your CompanyName">
                     </div><!-- form-group -->
-                    <button type="submit" class="btn btn-info btn-block">Sign In</button>
-                    <div class="mg-t-60 tx-center">Not yet a member? <a href="~/Account/CreateCompanyAccount" class="tx-info">Create New Account</a></div>
+                    <!-- Personel Sayısına Göre Ücret belirnecek -->
+                    <div class="form-group">
+                        <input type="number" class="form-control fc-outline-dark bd-1" name="PersonalNumber" style="border: solid 1px white;" placeholder="Enter your Personal Number">
+                    </div><!-- form-group -->
+                    <div class="form-group">
+                        <input type="email" class="form-control fc-outline-dark bd-1" name="Email" maxlength="50" required style="border: solid 1px white;" placeholder="Enter your Email">
+                    </div><!-- form-group -->
+                    <div class="form-group">
+                        <input type="password" class="form-control fc-outline-dark bd-1" name="Password" required style="border: solid 1px white;" placeholder="Enter your password">
+
+                    </div><!-- form-group -->
+                    <button type="submit" class="btn btn-info btn-block">Create Account</button>
+                    <div class="mg-t-60 tx-center">Not yet a member? <a href="~/Account/CompanyLogin" class="tx-info">Login</a></div>
                 </div><!-- login-wrapper -->
             </div><!-- overlay-body -->
         }
@@ -51,7 +62,8 @@
     <script src="~/Content/lib/jquery/jquery.js"></script>
     <script src="~/Content/lib/popper.js/popper.js"></script>
     <script src="~/Content/lib/bootstrap/bootstrap.js"></script>
-    <script>$(function(){
+    <script>
+$(function(){
         'use strict';
 
         // Check if video can play, and play it

@@ -37,7 +37,7 @@ namespace InventoryManagementUI.Models
 
             if(user != null) { 
 
-            //kullanıcı admin ise 
+         
             if (user.Role == "Company")
             {
                 if (roles.Contains("Company"))

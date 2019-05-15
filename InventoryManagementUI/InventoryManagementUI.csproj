@@ -109,6 +109,7 @@
     <Content Include="Content\fontIcon\Flaticon.svg" />
     <Content Include="Content\img\Background\bg-register4.jpg" />
     <Content Include="Content\img\Background\IMG_20190326_112304.jpg" />
+    <Content Include="Content\img\Background\IMG_20190404_142947.jpg" />
     <Content Include="Content\img\bracketplus-social.png" />
     <Content Include="Content\img\github-logo.png" />
     <Content Include="Content\img\Background\BGRinver.jpg" />
@@ -337,6 +338,7 @@
     <Content Include="Views\Company\Customer.cshtml" />
     <Content Include="Views\Company\AddCustomer.cshtml" />
     <Content Include="Views\Company\DetailCustomer.cshtml" />
+    <Content Include="Views\Account\CreateCompanyAccount.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

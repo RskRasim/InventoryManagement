@@ -9,15 +9,21 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.Helpers;
+using InventoryManagementBll.Concrete;
+using ICompanyAddressesServices.concrete.EntityFramework;
 
 namespace InventoryManagementUI.Controllers
 {
     public class AccountController : Controller
     {
         private AuthenticationManager authenticationManager;
+        private CompanyManager companyManager;
+        private  CompanyAddressManager companyAddressManager;
         public AccountController()
         {
             authenticationManager = new AuthenticationManager(new EfAuthenticationDal());
+            companyManager = new CompanyManager(new EfCompanyDal());
+            companyAddressManager = new CompanyAddressManager(new EfCompanyAddressDal());
 
         }
 
@@ -72,7 +78,35 @@ namespace InventoryManagementUI.Controllers
      
         }
 
+        public ActionResult CreateCompanyAccount()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateCompanyAccount(string Password)
+        {
+            Company company = new Company
+            {
+                Name = Request.Form["Name"],
+                TaxNumber = Request.Form["TaxNumber"],
+                Email = Request.Form["Email"],
+                Password = Crypto.Hash(Password, "sha256"),
+                IsActive = true,
+                Role = "Company"
+               
+            };
+            companyManager.Add(company);
+            CompanyAddress companyAddress = new CompanyAddress
+            {
+                Address = "null",
+                CompanyId = company.Id
+            };
+            
+            companyAddressManager.Add(companyAddress);
 
+
+            return View();
+        }
 
         public ActionResult SignOut()
         {
