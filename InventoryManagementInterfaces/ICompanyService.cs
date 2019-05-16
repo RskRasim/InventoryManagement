@@ -16,7 +16,7 @@ namespace InventoryManagementInterfaces
         [OperationContract]
         Company Get(int companyId);
         [OperationContract]
-        void Add(Company company);
+        bool Add(Company company);
         [OperationContract]
         void Delete(int companyId);
         [OperationContract]

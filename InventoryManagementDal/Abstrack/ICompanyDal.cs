@@ -13,7 +13,7 @@ namespace ICompanyAddressesServices.Abstrack
         List<Company> GetAll();
 
         Company Get(int companyId);
-
+        Company GetTax(string TaxNumber);
         void Add(Company company);
 
         void Delete(int companyId);

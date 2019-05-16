@@ -15,9 +15,9 @@ namespace InventoryManagementWcfServiceIISHost
     public class Company : ICompanyService
     {
         private CompanyManager _companyManeger = new CompanyManager(new EfCompanyDal());
-        public void Add(InventoryManagementEntity.Company company)
+        public bool Add(InventoryManagementEntity.Company company)
         {
-            _companyManeger.Add(company);
+         return _companyManeger.Add(company);
         }
 
         public void Delete(int companyId)

@@ -95,17 +95,26 @@ namespace InventoryManagementUI.Controllers
                 Role = "Company"
                
             };
-            companyManager.Add(company);
-            CompanyAddress companyAddress = new CompanyAddress
+          bool Cntr = companyManager.Add(company);
+            if (Cntr)
             {
-                Address = "null",
-                CompanyId = company.Id
-            };
-            
-            companyAddressManager.Add(companyAddress);
+                CompanyAddress companyAddress = new CompanyAddress
+                {
+                    Address = "null",
+                    CompanyId = company.Id
+                };
 
+                companyAddressManager.Add(companyAddress);
 
-            return View();
+                return View("CompanyLogin");
+
+            }
+            else
+            {
+                ViewBag.Company = "There is a company in this tax number";
+                return View();
+            }
+           
         }
 
         public ActionResult SignOut()

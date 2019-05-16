@@ -18,10 +18,19 @@ namespace InventoryManagementBll.Concrete
             _companyDal = companyDal;
         }
 
-        public void Add(Company company)
+        public bool Add(Company company)
         {
             /*TaxNumber Kontrol yapılacak. Aynı TaxNuberden birtane olucak ve admin için */
-            _companyDal.Add(company);
+            Company Com = _companyDal.GetTax(company.TaxNumber);
+            if (Com == null)
+            {
+                _companyDal.Add(company);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Delete(int companyId)
@@ -44,5 +53,7 @@ namespace InventoryManagementBll.Concrete
             /*TaxNumber Kontrol yapılacak. Aynı TaxNuberden birtane olucak  */
             _companyDal.Update(company);
         }
+
+      
     }
 }

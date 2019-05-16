@@ -39,6 +39,11 @@ namespace ICompanyAddressesServices.concrete.EntityFramework
             return _contexDb.Companies.ToList();
         }
 
+        public Company GetTax(string TaxNumber)
+        {
+            return _contexDb.Companies.FirstOrDefault(s => s.TaxNumber == TaxNumber);
+        }
+
         public void Update(Company company)
         {
           Company  UpCompany = _contexDb.Companies.FirstOrDefault(s => s.Id == company.Id);
