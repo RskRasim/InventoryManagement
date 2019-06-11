@@ -22,3 +22,15 @@ C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\Inve
 C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.csproj.CopyComplete
 C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.dll
 C:\Users\ASUS\Desktop\StokYonetimi-mvc(.net)RasimSenyuz\InventoryManagement\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.pdb
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\bin\Debug\InventoryManagementEntity.dll.config
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\bin\Debug\InventoryManagementEntity.dll
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\bin\Debug\InventoryManagementEntity.pdb
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.csprojAssemblyReference.cache
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.csproj.CopyComplete
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.dll
+C:\Users\ASUS\Desktop\pry\pryv\InventoryManagementEntity\obj\Debug\InventoryManagementEntity.pdb

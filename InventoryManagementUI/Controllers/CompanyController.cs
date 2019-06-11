@@ -41,7 +41,7 @@ namespace InventoryManagementUI.Controllers
 
 
         // GET: Company
-     
+
         public ActionResult Index()
         {
             try
@@ -59,7 +59,7 @@ namespace InventoryManagementUI.Controllers
 
         }
 
-       
+
         public ActionResult EditCompanyProfile()
         {
             try
@@ -109,7 +109,7 @@ namespace InventoryManagementUI.Controllers
         /* ----- Company End -----*/
 
         /* ----- Product Actions Start ------*/
-  
+
         public ActionResult Product()
         {
             try
@@ -123,7 +123,7 @@ namespace InventoryManagementUI.Controllers
             }
 
         }
-   
+
         public ActionResult AddProduct()
         {
             try
@@ -214,7 +214,7 @@ namespace InventoryManagementUI.Controllers
 
         }
         [HttpGet]
- 
+
         public ActionResult DetailProduct(int Id = 0)
         {
             try
@@ -244,19 +244,19 @@ namespace InventoryManagementUI.Controllers
 
 
         }
-         
-           
-          
-        
+
+
+
+
         [HttpGet]
         [Authorize]
         public ActionResult DeleteProduct(int Id = 0)
         {
             try
             {
-             int events =   productManager.Delete(Id, (int)Session["Id"]);
+                int events = productManager.Delete(Id, (int)Session["Id"]);
                 /*İşlem sayısı 0 gelirse ürün company ürünü değil*/
-                TempData["DeleteNum"] = "Number of deleted items:"+events;
+                TempData["DeleteNum"] = "Number of deleted items:" + events;
                 return RedirectToAction("Product");
             }
             catch (System.NullReferenceException)
@@ -278,7 +278,7 @@ namespace InventoryManagementUI.Controllers
         }
 
 
-        
+
         public ActionResult CreateStaff()
         {
             return View();
@@ -289,7 +289,7 @@ namespace InventoryManagementUI.Controllers
         {
             try
             {
-            Staff staff =  staffManager.Get(Id, (int)Session["Id"]);
+                Staff staff = staffManager.Get(Id, (int)Session["Id"]);
 
                 if (staff != null)
                 {
@@ -310,12 +310,12 @@ namespace InventoryManagementUI.Controllers
         }
 
         [HttpPost]
-    
+
         public ActionResult EditStaff()
         {
             Staff UpStaff = new Staff
             {
-                Id =Convert.ToInt32(Request.Form["Id"]),
+                Id = Convert.ToInt32(Request.Form["Id"]),
                 Name = Request.Form["Name"],
                 Surname = Request.Form["Surname"],
                 Username = Request.Form["Username"],
@@ -323,8 +323,8 @@ namespace InventoryManagementUI.Controllers
                 Task = Request.Form["Task"],
                 Phone = Request.Form["Phone"],
                 Email = Request.Form["Email"],
-                Password= Crypto.Hash(Request.Form["Password"], "sha256"),
-               
+                Password = Crypto.Hash(Request.Form["Password"], "sha256"),
+
             };
             staffManager.Update(UpStaff);
             return RedirectToAction("Staff");
@@ -358,12 +358,12 @@ namespace InventoryManagementUI.Controllers
 
                 return Redirect("~/Account/CompanyLogin");
             }
-           
+
         }
         [Authorize]
-        public ActionResult DeleteStaff(int Id=0)
+        public ActionResult DeleteStaff(int Id = 0)
         {
-            staffManager.Delete(Id,(int)Session["Id"]);
+            staffManager.Delete(Id, (int)Session["Id"]);
             return RedirectToAction("Staff");
         }
 
@@ -383,7 +383,7 @@ namespace InventoryManagementUI.Controllers
 
                 return Redirect("~/Account/CompanyLogin");
             }
-          
+
         }
 
         [Authorize]
@@ -395,7 +395,7 @@ namespace InventoryManagementUI.Controllers
 
         [Authorize]
         [HttpPost]
-        public ActionResult AddStore(string Name,string Address,string StoreManager)
+        public ActionResult AddStore(string Name, string Address, string StoreManager)
         {
             try
             {
@@ -416,7 +416,7 @@ namespace InventoryManagementUI.Controllers
 
                 return Redirect("~/Account/CompanyLogin");
             }
-           
+
         }
         /* ------ Store Actions End ------ */
 
@@ -432,7 +432,7 @@ namespace InventoryManagementUI.Controllers
             {
                 return Redirect("~/Account/CompanyLogin");
             }
-          
+
         }
 
         [Authorize]
@@ -442,7 +442,7 @@ namespace InventoryManagementUI.Controllers
         }
         [Authorize]
         [HttpPost]
-        public ActionResult AddCustomer(string Name, string Surname, string Taxnumber, string CompanyName )
+        public ActionResult AddCustomer(string Name, string Surname, string Taxnumber, string CompanyName)
         {
             try
             {
@@ -463,7 +463,7 @@ namespace InventoryManagementUI.Controllers
             {
                 return Redirect("~/Account/CompanyLogin");
             }
-       
+
         }
 
         public ActionResult DetailCustomer(int Id)

@@ -20,8 +20,10 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
         public virtual DbSet<ProductImage> ProductImages { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<CompanyAddress> CompanyAddresses { get; set; }
-        public virtual DbSet<CompanyLogo> CompanyLogoes { get; set;}
+        public virtual DbSet<CompanyLogo> CompanyLogoes { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -32,8 +34,8 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
 
             modelBuilder.Entity<Company>()
                 .HasMany(e => e.CompanyAddresses)
-                .WithOptional(e=> e.Company)
-                .HasForeignKey(e=> e.CompanyId);
+                .WithOptional(e => e.Company)
+                .HasForeignKey(e => e.CompanyId);
 
             modelBuilder.Entity<Company>()
                 .HasMany(e => e.CompanyLogoes)
@@ -55,6 +57,16 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
                 .WithOptional(e => e.Company)
                 .HasForeignKey(e => e.CompanyId);
 
+            modelBuilder.Entity<Company>()
+                .HasMany(e => e.Messages)
+                .WithOptional(e => e.Company)
+                .HasForeignKey(e => e.CompanyId);
+
+            modelBuilder.Entity<Company>()
+                .HasMany(e => e.Roles)
+                .WithOptional(e => e.Company)
+                .HasForeignKey(e => e.CompanyId);
+
             modelBuilder.Entity<Store>()
                 .HasMany(e => e.Products)
                 .WithOptional(e => e.Store)
@@ -65,6 +77,10 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
                 .WithOptional(e => e.Product)
                 .HasForeignKey(e => e.ProductId);
 
+            modelBuilder.Entity<Staff>()
+                .HasMany(e => e.Messages)
+                .WithOptional(e => e.Staff)
+                .HasForeignKey(e => e.StaffId);
         }
     }
 }

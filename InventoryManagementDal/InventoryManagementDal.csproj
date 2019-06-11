@@ -57,6 +57,7 @@
     <Compile Include="Abstrack\IMenuDal.cs" />
     <Compile Include="Abstrack\IProductDal.cs" />
     <Compile Include="Abstrack\IProductImagesDal.cs" />
+    <Compile Include="Abstrack\IRoleDal.cs" />
     <Compile Include="Abstrack\IStaffDal.cs" />
     <Compile Include="Abstrack\IStoreDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfAuthenticationDal.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Concrete\EntityFramework\EfStaffDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfStoreDal.cs" />
     <Compile Include="Concrete\EntityFramework\InventoryManagementContext.cs" />
+    <Compile Include="Concrete\EntityFramework\RoleDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

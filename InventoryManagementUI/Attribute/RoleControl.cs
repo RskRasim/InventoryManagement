@@ -1,6 +1,7 @@
 ﻿using ICompanyAddressesServices.concrete.EntityFramework;
 using ICompanyAddressesServices.Concrete.EntityFramework;
 using InventoryManagementBll.Concrete;
+using InventoryManagementDal.Concrete.EntityFramework;
 using InventoryManagementEntity;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,13 @@ namespace InventoryManagementUI.Models
     {/*Henüz tamamlanmadı sadece CompanyControl Çalışmakta*/
         private StaffManager staffManager;
         private CompanyManager companyManager;
+        
+      
         public RoleControl()
         {
             staffManager = new StaffManager(new EfStaffDal());
             companyManager = new CompanyManager(new EfCompanyDal());
+       
         }
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
@@ -32,25 +36,28 @@ namespace InventoryManagementUI.Models
             string rolid = httpContext.User.Identity.Name;
             //idsini aldığım kullanıcıyı db'den çekiyorum
             /******************Role tablosundan gelicek veri test amaçlı*********************/
-            var user = companyManager.GetAll().FirstOrDefault(s=> s.TaxNumber == rolid);
+
+            var user = roleManager.GetRole(rolid);
+
             var roles = Roles.Split(',');
 
-            if(user != null) { 
-
-         
-            if (user.Role == "Company")
+            if (user != null)
             {
-                if (roles.Contains("Company"))
-                    return true;
-            }
+
+
+                if (user.RoleName == "Company")
+                {
+                    if (roles.Contains("Company"))
+                        return true;
+                }
                 //kullanıcı company ise
-                /* else if (user.IsCompany)
-                 {
-                     if (roles.Contains("Company"))
-                         return true;
-                 }*/
+                else if (user.RoleName == "Staff")
+                {
+                    if (roles.Contains("Staff"))
+                        return true;
+                }
             }
-           
+
             return base.AuthorizeCore(httpContext);
         }
     }

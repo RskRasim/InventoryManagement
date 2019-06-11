@@ -1,0 +1,651 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        h4 {
+            color: #fff;
+        }
+
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+    <!-- Meta -->
+    <meta name="description" content=".">
+    <meta name="author" content="">
+    <title>@ViewBag.Title |Elbow Contact</title>
+    <!-- vendor css -->
+    <link href="~/Content/lib/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/Content/lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="~/Content/lib/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet">
+    <link href="~/Content/lib/jquery-switchbutton/jquery.switchButton.css" rel="stylesheet">
+
+
+
+    <link href="~/Content/lib/highlightjs/dracula.css" rel="stylesheet">
+    <link href="~/Content/lib/datatables/jquery.dataTables.css" rel="stylesheet">
+    <link href="~/Content/lib/select2/css/select2.min.css" rel="stylesheet">
+    <!--Icon-->
+
+
+    <link href="~/Content/fontIcon/flaticon.css" rel="stylesheet" />
+
+    <!-- Bracket CSS -->
+    <link rel="stylesheet" href="~/Content/css/bracket.css">
+    <link rel="stylesheet" href="~/Content/css/bracket.dark.css">
+</head>
+<body>
+    <!-- ########## START: LEFT PANEL ########## -->
+    <div class="br-logo">
+
+        <img src="~/Content/img/Logo/AdminLogo.png" width="190" height="45" />
+    </div>
+
+    <div class="br-sideleft overflow-y-auto">
+        <label class="sidebar-label pd-x-10 mg-t-20">Navigation</label>
+        <ul class="br-sideleft-menu">
+
+
+            <li class="br-menu-item">
+                <a href="~/Company/" class="br-menu-link">
+                    <i class="flaticon-Home icon icon-24 tx-28"></i>
+                    <span class="menu-item-label tx-18" style="color:azure; font-size:20px;">Home</span>
+                </a>
+                <!-- br-menu-link-->
+
+            </li><!-- br-menu-item -->
+            <!-- br-menu-link
+    <ul class="br-menu-sub">
+        <li class="sub-item"><a href="card-dashboard.html" class="sub-link">Dashboard</a></li>
+        <li class="sub-item"><a href="card-social.html" class="sub-link">Blog &amp; Social Media</a></li>
+        <li class="sub-item"><a href="card-listing.html" class="sub-link">Shop &amp; Listing</a></li>
+    </ul>
+    </li>-->
+
+        </ul><!--br-sideleft-menu -->
+        <label class="sidebar-label pd-x-10 mg-t-25 mg-b-20 tx-info">Information Summary</label>
+        <div class="info-list">
+            <div class="info-list-item">
+                <div>
+                    <p class="info-list-label">Memory Usage</p>
+                    <h5 class="info-list-amount">32.3%</h5>
+                </div>
+                <span class="peity-bar" data-peity='{ "fill": ["#336490"], "height": 35, "width": 60 }'>8,6,5,9,8,4,9,3,5,9</span>
+            </div><!-- info-list-item -->
+            <div class="info-list-item">
+                <div>
+                    <p class="info-list-label">CPU Usage</p>
+                    <h5 class="info-list-amount">140.05</h5>
+                </div>
+                <span class="peity-bar" data-peity='{ "fill": ["#1C7973"], "height": 35, "width": 60 }'>4,3,5,7,12,10,4,5,11,7</span>
+            </div><!-- info-list-item -->
+            <div class="info-list-item">
+                <div>
+                    <p class="info-list-label">Disk Usage</p>
+                    <h5 class="info-list-amount">82.02%</h5>
+                </div>
+                <span class="peity-bar" data-peity='{ "fill": ["#8E4246"], "height": 35, "width": 60 }'>1,2,1,3,2,10,4,12,7</span>
+            </div><!-- info-list-item -->
+            <div class="info-list-item">
+                <div>
+                    <p class="info-list-label">Daily Traffic</p>
+                    <h5 class="info-list-amount">62,201</h5>
+                </div>
+                <span class="peity-bar" data-peity='{ "fill": ["#9C7846"], "height": 35, "width": 60 }'>3,12,7,9,2,3,4,5,2</span>
+            </div><!-- info-list-item -->
+        </div><!-- info-list -->
+        <br>
+    </div><!-- br-sideleft -->
+    <!-- ########## END: LEFT PANEL ########## -->
+    <!-- ########## START: HEAD PANEL ########## -->
+    <div class="br-header">
+        <div class="br-header-left">
+            <div class="navicon-left hidden-md-down"><a id="btnLeftMenu" href="#"><i class="flaticon-Menu"></i></a></div>
+            <div class="navicon-left hidden-lg-up"><a id="btnLeftMenuMobile" href="#"><i class="flaticon-Menu"></i></a></div>
+
+        </div>
+
+        <div class="input-group mg-10 transition">
+
+            <span style="color:azure; border:solid 0 azure; padding:5px; font-family:'Times New Roman', Times, serif; font-size:large;">  @DateTime.Today.ToLongDateString()</span>
+
+
+        </div>
+
+        <div class="br-header-right mg-r-20">
+
+
+            <!--dropdown-menu start-->
+            <div class="dropdown">
+                <a href="#" class="nav-link nav-link-profile wd-150" data-toggle="dropdown" aria-expanded="false">
+                    <!--Şirket Adı ve Yetkili Kişi Adı-->
+                    <span class="logged-name hidden-md-down tx-sm-8">@Session["CompanyName"]</span>
+                    <!--Şirket Logosu Gelicek-->
+                    <img src="~/Content/CompanyLogo/@Session["CompanyLogo"]" class="wd-32 rounded-circle" alt="">
+
+                </a>
+                <div class="dropdown-menu dropdown-menu-header" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 48px, 0px); top: 0px; left: 0px; will-change: transform;">
+                    <div class="tx-center">
+                        <!--Şirket Logosu Gelicek-->
+                        <a href="#"><img src="~/Content/CompanyLogo/@Session["CompanyLogo"]" class="wd-80 rounded-circle" alt=""></a>
+                        <!--Şirket Adı-->
+                        <h6 class="logged-fullname">@Session["CompanyName"]</h6>
+                        <p>@Session["TaxNumber"]</p>
+                    </div>
+                    <hr>
+                    <div class="tx-center">
+                        <!-- <span class="d-block mg-b-5 tx-10 tx-spacing-1 tx-uppercase tx-info tx-medium">Earnings After Taxes</span>
+                        <h3 class="profile-earning-amount">$13,230 <i class="icon ion-ios-arrow-thin-up tx-success"></i></h3>
+                        <span class="profile-earning-text">Based on list price.</span>-->
+                    </div>
+                    <hr>
+                    <ul class="list-unstyled user-profile-nav">
+                        <li>
+
+                            <!-- <a href="~/Company/EditCompanyProfile/@Session["Id"]"class = "btn btn-info btn-block mg-b-10 tx-sm-bold">Edit Profile</a>-->
+                            @Html.ActionLink("Edit Company Profile", "EditCompanyProfile", "Company", new { @class = "btn btn-info btn-block mg-b-10 tx-sm-bold" })
+
+
+
+                        </li>
+                        <li><a href="#" class="btn btn-teal btn-block mg-b-10 tx-sm-bold">Notification</a></li>
+                        <li><a href="#" class="btn btn-purple btn-block mg-b-10 tx-sm-bold">----</a></li>
+                        <li><a href="#" class="btn btn-pink btn-block mg-b-10 tx-sm-bold">----</a></li>
+                        <li><a href="#" class="btn btn-warning btn-block mg-b-10 tx-sm-bold">----</a></li>
+                        <li> <a href="~/Account/SignOut" class="btn btn-danger btn-block mg-r-20 tx-sm-bold">SignOut</a></li>
+                    </ul>
+                </div><!-- dropdown-menu end -->
+            </div>
+
+        </div>
+
+        <!-- input-group -->
+    </div><!-- br-header -->
+    <!-- ########## END: HEAD PANEL ########## -->
+    <!-- ########## START: RIGHT PANEL ########## -->
+    <div class="br-sideright">
+        <ul class="nav nav-tabs sidebar-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" role="tab" href="#contacts"><i class="icon ion-ios-contact-outline tx-24"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" role="tab" href="#attachments"><i class="icon ion-ios-folder-outline tx-22"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" role="tab" href="#calendar"><i class="icon ion-ios-calendar-outline tx-24"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" role="tab" href="#settings"><i class="icon ion-ios-gear-outline tx-24"></i></a>
+            </li>
+        </ul><!-- sidebar-tabs -->
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto active" id="contacts" role="tabpanel">
+                <label class="sidebar-label pd-x-25 mg-t-25">Online Contacts</label>
+                <div class="contact-list pd-x-10">
+                    <a href="#" class="contact-list-link new">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img2.jpg" alt="">
+                                <div class="contact-status-indicator bg-success"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Marilyn Tarter</p>
+                                <span>Clemson, CA</span>
+                            </div>
+                            <span class="tx-info tx-12"><span class="square-8 bg-info rounded-circle"></span> 1 new</span>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img3.jpg" alt="">
+                                <div class="contact-status-indicator bg-success"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p class="mg-b-0 ">Belinda Connor</p>
+                                <span>Fort Kent, ME</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link new">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img4.jpg" alt="">
+                                <div class="contact-status-indicator bg-success"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Britanny Cevallos</p>
+                                <span>Shiboygan Falls, WI</span>
+                            </div>
+                            <span class="tx-info tx-12"><span class="square-8 bg-info rounded-circle"></span> 3 new</span>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link new">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img5.jpg" alt="">
+                                <div class="contact-status-indicator bg-success"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Brandon Lawrence</p>
+                                <span>Snohomish, WA</span>
+                            </div>
+                            <span class="tx-info tx-12"><span class="square-8 bg-info rounded-circle"></span> 1 new</span>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img6.jpg" alt="">
+                                <div class="contact-status-indicator bg-success"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Andrew Wiggins</p>
+                                <span>Springfield, MA</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img7.jpg" alt="">
+                                <div class="contact-status-indicator bg-success"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Theodore Gristen</p>
+                                <span>Nashville, TN</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img8.jpg" alt="">
+                                <div class="contact-status-indicator bg-success"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Deborah Miner</p>
+                                <span>North Shore, CA</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                </div><!-- contact-list -->
+
+                <label class="sidebar-label pd-x-25 mg-t-25">Offline Contacts</label>
+                <div class="contact-list pd-x-10">
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img2.jpg" alt="">
+                                <div class="contact-status-indicator bg-gray-500"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Marilyn Tarter</p>
+                                <span>Clemson, CA</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img3.jpg" alt="">
+                                <div class="contact-status-indicator bg-gray-500"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Belinda Connor</p>
+                                <span>Fort Kent, ME</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img4.jpg" alt="">
+                                <div class="contact-status-indicator bg-gray-500"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Britanny Cevallos</p>
+                                <span>Shiboygan Falls, WI</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img5.jpg" alt="">
+                                <div class="contact-status-indicator bg-gray-500"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Brandon Lawrence</p>
+                                <span>Snohomish, WA</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img6.jpg" alt="">
+                                <div class="contact-status-indicator bg-gray-500"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Andrew Wiggins</p>
+                                <span>Springfield, MA</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img7.jpg" alt="">
+                                <div class="contact-status-indicator bg-gray-500"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Theodore Gristen</p>
+                                <span>Nashville, TN</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                    <a href="#" class="contact-list-link">
+                        <div class="d-flex">
+                            <div class="pos-relative">
+                                <img src="../img/img8.jpg" alt="">
+                                <div class="contact-status-indicator bg-gray-500"></div>
+                            </div>
+                            <div class="contact-person">
+                                <p>Deborah Miner</p>
+                                <span>North Shore, CA</span>
+                            </div>
+                        </div><!-- d-flex -->
+                    </a><!-- contact-list-link -->
+                </div><!-- contact-list -->
+            </div><!-- #contacts -->
+
+            <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="attachments" role="tabpanel">
+                <label class="sidebar-label pd-x-25 mg-t-25">Recent Attachments</label>
+                <div class="media-file-list">
+                    <div class="media">
+                        <div class="pd-10 bg-gray-500 bg-mojito wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-image-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">IMG_43445</p>
+                            <p class="mg-b-0 tx-12 op-5">JPG Image</p>
+                            <p class="mg-b-0 tx-12 op-5">1.2mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                    <div class="media mg-t-20">
+                        <div class="pd-10 bg-gray-500 bg-purple wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-video-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">VID_6543</p>
+                            <p class="mg-b-0 tx-12 op-5">MP4 Video</p>
+                            <p class="mg-b-0 tx-12 op-5">24.8mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                    <div class="media mg-t-20">
+                        <div class="pd-10 bg-gray-500 bg-reef wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-word-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">Tax_Form</p>
+                            <p class="mg-b-0 tx-12 op-5">Word Document</p>
+                            <p class="mg-b-0 tx-12 op-5">5.5mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                    <div class="media mg-t-20">
+                        <div class="pd-10 bg-gray-500 bg-firewatch wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-pdf-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">Getting_Started</p>
+                            <p class="mg-b-0 tx-12 op-5">PDF Document</p>
+                            <p class="mg-b-0 tx-12 op-5">12.7mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                    <div class="media mg-t-20">
+                        <div class="pd-10 bg-gray-500 bg-firewatch wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-pdf-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">Introduction</p>
+                            <p class="mg-b-0 tx-12 op-5">PDF Document</p>
+                            <p class="mg-b-0 tx-12 op-5">7.7mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                    <div class="media mg-t-20">
+                        <div class="pd-10 bg-gray-500 bg-mojito wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-image-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">IMG_43420</p>
+                            <p class="mg-b-0 tx-12 op-5">JPG Image</p>
+                            <p class="mg-b-0 tx-12 op-5">2.2mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                    <div class="media mg-t-20">
+                        <div class="pd-10 bg-gray-500 bg-mojito wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-image-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">IMG_43447</p>
+                            <p class="mg-b-0 tx-12 op-5">JPG Image</p>
+                            <p class="mg-b-0 tx-12 op-5">3.2mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                    <div class="media mg-t-20">
+                        <div class="pd-10 bg-gray-500 bg-purple wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-video-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">VID_6545</p>
+                            <p class="mg-b-0 tx-12 op-5">AVI Video</p>
+                            <p class="mg-b-0 tx-12 op-5">14.8mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                    <div class="media mg-t-20">
+                        <div class="pd-10 bg-gray-500 bg-reef wd-50 ht-60 tx-center d-flex align-items-center justify-content-center">
+                            <i class="fa fa-file-word-o tx-28 tx-white"></i>
+                        </div>
+                        <div class="media-body">
+                            <p class="mg-b-0 tx-13">Secret_Document</p>
+                            <p class="mg-b-0 tx-12 op-5">Word Document</p>
+                            <p class="mg-b-0 tx-12 op-5">4.5mb</p>
+                        </div><!-- media-body -->
+                        <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                    </div><!-- media -->
+                </div><!-- media-list -->
+            </div><!-- #history -->
+            <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="calendar" role="tabpanel">
+                <label class="sidebar-label pd-x-25 mg-t-25">Time &amp; Date</label>
+                <div class="pd-x-25">
+                    <h2 id="brTime" class="br-time"></h2>
+                    <h6 id="brDate" class="br-date"></h6>
+                </div>
+                <label class="sidebar-label pd-x-25 mg-t-25">Events Calendar</label>
+                <div class="datepicker sidebar-datepicker"></div>
+
+                <label class="sidebar-label pd-x-25 mg-t-25">Event Today</label>
+                <div class="pd-x-25">
+                    <div class="list-group sidebar-event-list mg-b-20">
+                        <div class="list-group-item">
+                            <div>
+                                <h6>Roven's 32th Birthday</h6>
+                                <p>2:30PM</p>
+                            </div>
+                            <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                        </div><!-- list-group-item -->
+                        <div class="list-group-item">
+                            <div>
+                                <h6>Regular Workout Schedule</h6>
+                                <p>7:30PM</p>
+                            </div>
+                            <a href="#" class="more"><i class="icon ion-android-more-vertical tx-18"></i></a>
+                        </div><!-- list-group-item -->
+                    </div><!-- list-group -->
+                    <a href="#" class="btn btn-block btn-primary tx-uppercase tx-10 tx-mont tx-semibold">+ Add Event</a>
+                    <br>
+                </div>
+            </div>
+            <div class="tab-pane pos-absolute a-0 mg-t-60 overflow-y-auto" id="settings" role="tabpanel">
+                <label class="sidebar-label pd-x-25 mg-t-25">Quick Settings</label>
+                <div class="sidebar-settings-item">
+                    <h6 class="tx-13 tx-normal">Sound Notification</h6>
+                    <p class="op-5 tx-13">Play an alert sound everytime there is a new notification.</p>
+                    <div class="pos-relative">
+                        <input type="checkbox" name="checkbox" class="switch-button" checked>
+                    </div>
+                </div>
+                <div class="sidebar-settings-item">
+                    <h6 class="tx-13 tx-normal">2 Steps Verification</h6>
+                    <p class="op-5 tx-13">Sign in using a two step verification by sending a verification code to your phone.</p>
+                    <div class="pos-relative">
+                        <input type="checkbox" name="checkbox2" class="switch-button">
+                    </div>
+                </div>
+                <div class="sidebar-settings-item">
+                    <h6 class="tx-13 tx-normal">Location Services</h6>
+                    <p class="op-5 tx-13">Allowing us to access your location</p>
+                    <div class="pos-relative">
+                        <input type="checkbox" name="checkbox3" class="switch-button">
+                    </div>
+                </div>
+                <div class="sidebar-settings-item">
+                    <h6 class="tx-13 tx-normal">Newsletter Subscription</h6>
+                    <p class="op-5 tx-13">Enables you to send us news and updates send straight to your email.</p>
+                    <div class="pos-relative">
+                        <input type="checkbox" name="checkbox4" class="switch-button" checked>
+                    </div>
+                </div>
+                <div class="sidebar-settings-item">
+                    <h6 class="tx-13 tx-normal">Your email</h6>
+                    <div class="pos-relative">
+                        <input type="email" name="email" class="form-control" value="janedoe@domain.com">
+                    </div>
+                </div>
+                <div class="pd-y-20 pd-x-25">
+                    <h6 class="tx-13 tx-normal tx-white mg-b-20">More Settings</h6>
+                    <a href="#" class="btn btn-block btn-outline-secondary tx-uppercase tx-11 tx-spacing-2">Account Settings</a>
+                    <a href="#" class="btn btn-block btn-outline-secondary tx-uppercase tx-11 tx-spacing-2">Privacy Settings</a>
+                </div>
+            </div>
+        </div><!-- tab-content -->
+    </div><!-- br-sideright -->
+    <!-- ########## END: RIGHT PANEL ########## --->
+    <!-- ########## START: MAIN PANEL ########## -->
+    <div class="br-mainpanel">
+
+        <div class="br-pagetitle">
+
+            <div>
+
+            </div>
+        </div><!-- d-flex -->
+        <div class="br-pagebody">
+            @RenderBody()
+
+
+            <footer class="br-footer">
+                <div class="footer-left">
+                    <div style="color:azure">Copyright © 2019. Rasim Şenyüz.</div>
+
+                </div>
+                <div class="footer-right d-flex align-items-center">
+
+                    <a target="_blank" class="pd-x-5" href="https://github.com/RskRasim">
+                        <i class="fa tx-20">
+                            <img src="~/Content/img/github-logo.png" width="34" height="34" />
+                        </i>
+                    </a>
+                    <a target="_blank" class="pd-x-5" href="https://www.linkedin.com/in/rasim-%C5%9Feny%C3%BCz-548408b6/">
+                        <i class="fa tx-20">
+                            <img src="~/Content/img/linkedin.png" width="34" height="34" />
+                        </i>
+                    </a>
+                </div>
+            </footer>
+        </div><!-- br-pagebody -->
+    </div><!-- br-mainpanel -->
+    <!-- ########## END: MAIN PANEL ########## -->
+
+
+    <script src="~/Content/lib/jquery/jquery.js"></script>
+    <script src="~/Content/lib/popper.js/popper.js"></script>
+    <script src="~/Content/lib/bootstrap/bootstrap.js"></script>
+    <script src="~/Content/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js"></script>
+    <script src="~/Content/lib/moment/moment.js"></script>
+    <script src="~/Content/lib/jquery-ui/jquery-ui.js"></script>
+    <script src="~/Content/lib/jquery-switchbutton/jquery.switchButton.js"></script>
+    <script src="~/Content/lib/peity/jquery.peity.js"></script>
+    <script src="~/Content/lib/highlightjs/highlight.pack.js"></script>
+    <script src="~/Content/lib/datatables/jquery.dataTables.js"></script>
+    <script src="~/Content/lib/datatables-responsive/dataTables.responsive.js"></script>
+    <script src="~/Content/lib/select2/js/select2.min.js"></script>
+    <script src="~/Content/js/bracket.js"></script>
+
+    <!-- ########## DetailProduct Page Barcode ########## -->
+    <script src="~/Content/js/BarcodeJs/JsBarcode.js"></script>
+
+    <script>
+        /*>>>>*/
+        JsBarcode(".barcode").init();
+        /* ########## DetailProduct Page Barcode End ##########*/
+        /*DetailProduct Page Print*/
+        /*  function printDiv(Print) {
+               var printContents = document.getElementById(Print).innerHTML;
+               var originalContents = document.body.innerHTML;
+               document.body.innerHTML = printContents;
+               window.print();
+               document.body.innerHTML = originalContents;
+           }
+           */
+        $(function () {
+            'use strict';
+
+            $('#datatable1').DataTable({
+                responsive: true,
+                language: {
+                    searchPlaceholder: 'Search...',
+                    sSearch: '',
+                    lengthMenu: '_MENU_ items/page',
+                }
+            });
+
+            $('#datatable2').DataTable({
+                bLengthChange: false,
+                searching: false,
+                responsive: true
+            });
+
+            // Select2
+            $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+        });
+
+
+
+    </script>
+</body>
+</html>
+

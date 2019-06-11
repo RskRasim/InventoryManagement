@@ -107,6 +107,26 @@
     <Content Include="Content\fontIcon\flaticon.css" />
     <Content Include="Content\fontIcon\flaticon.html" />
     <Content Include="Content\fontIcon\Flaticon.svg" />
+    <Content Include="Content\HomePage\assets\css\fonts\et-line-2.html" />
+    <Content Include="Content\HomePage\assets\css\fonts\et-line-3.html" />
+    <Content Include="Content\HomePage\assets\css\fonts\et-line-4.html" />
+    <Content Include="Content\HomePage\assets\css\fonts\et-line.html" />
+    <Content Include="Content\HomePage\assets\css\fonts\et-lined41d.html" />
+    <Content Include="Content\HomePage\assets\css\page.min.css" />
+    <Content Include="Content\HomePage\assets\css\style.css" />
+    <Content Include="Content\HomePage\assets\img\apple-touch-icon.png" />
+    <Content Include="Content\HomePage\assets\img\app\photoswipe\default-skin.png" />
+    <Content Include="Content\HomePage\assets\img\app\photoswipe\preloader.gif" />
+    <Content Include="Content\HomePage\assets\img\favicon.png" />
+    <Content Include="Content\HomePage\assets\img\logo-dark.png" />
+    <Content Include="Content\HomePage\assets\img\logo-light.png" />
+    <Content Include="Content\HomePage\assets\img\preview\dribbble-6.png" />
+    <Content Include="Content\HomePage\assets\img\preview\dribbble-7.png" />
+    <Content Include="Content\HomePage\assets\img\preview\dribbble-8.png" />
+    <Content Include="Content\HomePage\assets\img\preview\dribbble-9.gif" />
+    <Content Include="Content\HomePage\assets\img\preview\laptop-1.png" />
+    <Content Include="Content\HomePage\assets\js\page.min.js" />
+    <Content Include="Content\HomePage\assets\js\script.js" />
     <Content Include="Content\img\Background\bg-register4.jpg" />
     <Content Include="Content\img\Background\IMG_20190326_112304.jpg" />
     <Content Include="Content\img\Background\IMG_20190404_142947.jpg" />
@@ -158,7 +178,9 @@
     <Content Include="Content\img\Background\IMG_20190326_112307.jpg" />
     <Content Include="Content\img\linkedin.png" />
     <Content Include="Content\img\Background\manhattan-new-york-city.jpg" />
-    <Content Include="Content\img\Logoelbow-theme.png" />
+    <Content Include="Content\img\Logo\AdminLogo.png" />
+    <Content Include="Content\img\Logo\HomeBlack.png" />
+    <Content Include="Content\img\Logo\HomeLight.png" />
     <Content Include="Content\img\resume.png" />
     <Content Include="Content\img\screen1.png" />
     <Content Include="Content\img\screen2.png" />
@@ -321,7 +343,6 @@
     </None>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Shared\_CompanyLayout.cshtml" />
@@ -340,6 +361,10 @@
     <Content Include="Views\Company\AddCustomer.cshtml" />
     <Content Include="Views\Company\DetailCustomer.cshtml" />
     <Content Include="Views\Account\CreateCompanyAccount.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\StaffLogin.cshtml" />
+    <Content Include="Views\Shared\_StaffLayout.cshtml" />
+    <Content Include="Views\Staff\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -351,10 +376,11 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Master\Controllers\" />
     <Folder Include="Areas\Master\Models\" />
+    <Folder Include="Areas\Master\Views\Account\" />
+    <Folder Include="Areas\Master\Views\Home\" />
     <Folder Include="Areas\Master\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Product\" />
-    <Folder Include="Views\Staff\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InventoryManagementBll\InventoryManagementBll.csproj">

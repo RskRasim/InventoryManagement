@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementEntity
 {
-   public class Staff
+   public  class Staff
     {
         [Key]
         public int Id { get; set; }
@@ -31,12 +31,14 @@ namespace InventoryManagementEntity
         public string Department { get; set; }
         [MaxLength(35)]
         public string Task { get; set; }
-        public string Role { get; set; }
+   
         public Boolean IsActive { get; set; }
         [MaxLength(45)]
         [Required(ErrorMessage = "Email is Mandatory")]
         public string Email { get; set; }
 
         public virtual Company Company { get; set; }
+
+        public virtual ICollection<Message> Messages { get; set; } 
     }
 }

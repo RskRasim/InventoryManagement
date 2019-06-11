@@ -21,7 +21,7 @@ namespace ICompanyAddressesServices.Concrete
 
         public Staff AuthenticationStaff(Staff user)
         {
-            throw new System.NotImplementedException();
+            return _contexDb.Staffs.FirstOrDefault(s => s.Email == user.Email && s.Password == user.Password && s.IsActive == true);
         }
     }
 }
