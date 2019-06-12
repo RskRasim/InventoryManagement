@@ -12,16 +12,16 @@ using System.Web.Mvc;
 namespace InventoryManagementUI.Models
 {
     public class RoleControl : AuthorizeAttribute
-    {/*Henüz tamamlanmadı sadece CompanyControl Çalışmakta*/
+    {
         private StaffManager staffManager;
         private CompanyManager companyManager;
-        
+        private RoleManager roleManager;
       
         public RoleControl()
         {
             staffManager = new StaffManager(new EfStaffDal());
             companyManager = new CompanyManager(new EfCompanyDal());
-       
+            roleManager = new RoleManager(new RoleDal());
         }
 
         protected override bool AuthorizeCore(HttpContextBase httpContext)
