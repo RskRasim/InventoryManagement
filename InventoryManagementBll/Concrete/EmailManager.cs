@@ -150,7 +150,7 @@ namespace InventoryManagementBll.Concrete
                        "</table>" +
                    "</body >" +
                    "</html>"; ;
-            #endregion
+            #endregion 
 
 
             client.Send(msg);
