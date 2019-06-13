@@ -26,6 +26,7 @@ namespace InventoryManagementUI.Controllers
         private CompanyManager companyManager;
         private StoreManager storeManager;
         private CustomerManager customerManager;
+        private RoleManager roleManager;
 
         public CompanyController()
         {
@@ -36,11 +37,12 @@ namespace InventoryManagementUI.Controllers
             companyManager = new CompanyManager(new EfCompanyDal());
             storeManager = new StoreManager(new EfStoreDal());
             customerManager = new CustomerManager(new EfCustomerDal());
+            roleManager = new RoleManager(new RoleDal());
 
         }
 
 
-        // GET: Company
+        #region Company
 
         public ActionResult Index()
         {
@@ -106,9 +108,9 @@ namespace InventoryManagementUI.Controllers
 
         }
 
-        /* ----- Company End -----*/
+        #endregion
 
-        /* ----- Product Actions Start ------*/
+        #region Product Actions
 
         public ActionResult Product()
         {
@@ -249,7 +251,7 @@ namespace InventoryManagementUI.Controllers
 
 
         [HttpGet]
-        [Authorize]
+
         public ActionResult DeleteProduct(int Id = 0)
         {
             try
@@ -267,9 +269,9 @@ namespace InventoryManagementUI.Controllers
 
         }
 
-        /* ----- Product Actions End ------ */
+        #endregion
 
-        /* ----- Staff Actions Start ----- */
+        #region Staff Actions
 
         public ActionResult Staff()
         {
@@ -331,7 +333,7 @@ namespace InventoryManagementUI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+
         public ActionResult CreateStaff(string Password)
         {
             try
@@ -346,11 +348,21 @@ namespace InventoryManagementUI.Controllers
                     Task = Request.Form["Task"],
                     Email = Request.Form["Email"],
                     Password = Crypto.Hash(Password, "sha256"),
+                    IsActive = true,
                     //Oturuma Göre Düzenlenecek
                     CompanyId = (int)Session["Id"],
 
                 };
                 staffManager.Add(staff);
+                Role role = new Role
+                {
+                    RoleName = "Staff",
+                    UserName = Request.Form["Email"],
+                    CompanyId = (int)Session["Id"]
+
+                };
+
+                roleManager.Add(role);
                 return RedirectToAction("Staff");
             }
             catch (System.NullReferenceException)
@@ -360,17 +372,17 @@ namespace InventoryManagementUI.Controllers
             }
 
         }
-        [Authorize]
+
         public ActionResult DeleteStaff(int Id = 0)
         {
-            staffManager.Delete(Id, (int)Session["Id"]);
+            staffManager.IsActivet(Id, (int)Session["Id"]);
             return RedirectToAction("Staff");
         }
 
 
-        /* ------ Staff Actions End ----- */
+        #endregion
 
-        /* ------ Store Actions Start ----- */
+        #region Store Actions
 
         public ActionResult Store()
         {
@@ -386,14 +398,14 @@ namespace InventoryManagementUI.Controllers
 
         }
 
-        [Authorize]
+
         public ActionResult AddStore()
         {
 
             return View();
         }
 
-        [Authorize]
+
         [HttpPost]
         public ActionResult AddStore(string Name, string Address, string StoreManager)
         {
@@ -418,10 +430,10 @@ namespace InventoryManagementUI.Controllers
             }
 
         }
-        /* ------ Store Actions End ------ */
+        #endregion
 
-        /*------ Customer Actions Start ------*/
-        [Authorize]
+        #region Customer Actions
+
         public ActionResult Customer()
         {
             try
@@ -435,12 +447,11 @@ namespace InventoryManagementUI.Controllers
 
         }
 
-        [Authorize]
         public ActionResult AddCustomer()
         {
             return View();
         }
-        [Authorize]
+
         [HttpPost]
         public ActionResult AddCustomer(string Name, string Surname, string Taxnumber, string CompanyName)
         {
@@ -471,6 +482,6 @@ namespace InventoryManagementUI.Controllers
 
             return View(customerManager.Get(Id, (int)Session["Id"]));
         }
-        /*------ Customer Actions End ------*/
+        #endregion
     }
 }
