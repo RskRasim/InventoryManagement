@@ -58,6 +58,13 @@ namespace ICompanyAddressesServices.Concrete.EntityFramework
             return _contexDb.Staffs.Where(s => s.CompanyId == companyId).ToList();
         }
 
+        public int IsActive(int Id, int companyId)
+        {
+            Staff StaffUp = _contexDb.Staffs.FirstOrDefault(s => s.Id == Id && s.CompanyId == companyId);
+            StaffUp.IsActive = false;
+            return _contexDb.SaveChanges();
+        }
+
         public void Update(Staff staff)
         {
             Staff StaffUp = _contexDb.Staffs.FirstOrDefault(s => s.Id == staff.Id);

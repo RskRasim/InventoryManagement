@@ -23,6 +23,9 @@ namespace InventoryManagementInterfaces
         List<Staff> GetAllById(int companyId);
         [OperationContract]
         Staff Get(int Id,int companyId);
+        [OperationContract]
+        int IsActivet(int Id, int CompanyId);
+
 
 
 

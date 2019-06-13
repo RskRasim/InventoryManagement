@@ -45,6 +45,11 @@ namespace InventoryManagementBll.Concrete
             return _staffDal.GetAllById(CompanyId);
         }
 
+        public int IsActivet(int Id, int CompanyId)
+        {
+            return _staffDal.IsActive(Id, CompanyId);
+        }
+
         public void Update(Staff staff)
         {  /*Username kontrol yapılacak*/
             _staffDal.Update(staff);

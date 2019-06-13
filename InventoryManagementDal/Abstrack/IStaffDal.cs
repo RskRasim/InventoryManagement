@@ -16,6 +16,7 @@ namespace ICompanyAddressesServices.Abstrack
         void Add(Staff staff);
         int Delete(int Id, int companyId);
         void Update(Staff staff);
+        int IsActive(int Id, int companyId);
 
     }
 }
