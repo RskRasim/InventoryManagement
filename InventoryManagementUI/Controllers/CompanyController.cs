@@ -21,22 +21,21 @@ namespace InventoryManagementUI.Controllers
     {
         private StaffManager staffManager;
         private ProductManager productManager;
-        private ProductImagesManager producImgManager;
+
         private CompanyAddressManager companyaddressManager;
         private CompanyManager companyManager;
-        private StoreManager storeManager;
-        private CustomerManager customerManager;
+
+
         private RoleManager roleManager;
 
         public CompanyController()
         {
             staffManager = new StaffManager(new EfStaffDal());
             productManager = new ProductManager(new EfProductDal());
-            producImgManager = new ProductImagesManager(new EfProductImagesDal());
+
             companyaddressManager = new CompanyAddressManager(new EfCompanyAddressDal());
             companyManager = new CompanyManager(new EfCompanyDal());
-            storeManager = new StoreManager(new EfStoreDal());
-            customerManager = new CustomerManager(new EfCustomerDal());
+
             roleManager = new RoleManager(new RoleDal());
 
         }
@@ -110,166 +109,7 @@ namespace InventoryManagementUI.Controllers
 
         #endregion
 
-        #region Product Actions
 
-        public ActionResult Product()
-        {
-            try
-            {
-                return View(productManager.GetAllById((int)Session["Id"]));
-            }
-            catch (System.NullReferenceException)
-            {
-
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-        }
-
-        public ActionResult AddProduct()
-        {
-            try
-            {
-                return View(storeManager.GetAllById((int)Session["Id"]));
-            }
-            catch (System.NullReferenceException)
-            {
-
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-        }
-
-        [HttpPost]
-
-        public ActionResult AddProduct(HttpPostedFileBase Img, int store, int ShelfNumber = 0, int Pieces = 0, int MaxPieces = 0, int TaxRate = 0, int MinPieces = 0, decimal Price = 0)
-        {
-            try
-            {
-                Product product = new Product
-                {
-                    BarcodeCode = Request.Form["BarcodeCode"],
-                    BarcodeCode2 = Request.Form["BarcodeCode2"],
-                    ProductCode = Request.Form["ProductCode"],
-                    ProductName = Request.Form["ProductName"],
-                    Content = Request.Form["Content"],
-                    ShelfNumber = ShelfNumber,
-                    Pieces = Pieces,
-                    Price = Price,
-                    Total = (Price * TaxRate / 100) + Price,
-                    TotalProductValue = Pieces * Price,
-                    MaxPieces = MaxPieces,
-                    MinPieces = MinPieces,
-                    TaxRate = TaxRate,
-                    InsertionDate = DateTime.Now,
-
-                    //Oturuma Göre Düzenlenecek
-                    CompanyId = (int)Session["Id"],
-                    StoreId = store,
-                    IsActive = true
-
-
-                };
-
-                productManager.Add(product);
-
-                if (Img != null)
-                {
-
-
-                    Random random = new Random();
-                    int prefix = random.Next();
-
-                    string ImgName = +prefix + Img.FileName;
-
-                    Img.SaveAs(HttpContext.Server.MapPath("~/Content/ProductImg/" + ImgName));
-                    ProductImage productImg = new ProductImage
-                    {
-                        ImgFolder = ImgName.ToString(),
-                        ProductId = product.Id
-                    };
-
-                    producImgManager.Add(productImg);
-
-                }
-
-                else
-                {
-                    ProductImage productImg = new ProductImage
-                    {
-                        ImgFolder = "noimage.jpg",
-                        ProductId = product.Id
-                    };
-
-                    producImgManager.Add(productImg);
-                }
-
-
-                return RedirectToAction("Product");
-            }
-            catch (System.NullReferenceException)
-            {
-
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-
-        }
-        [HttpGet]
-
-        public ActionResult DetailProduct(int Id = 0)
-        {
-            try
-            {
-
-                Product product = productManager.Get(Id, (int)Session["Id"]);
-                if (product != null)
-                {
-                    return View(product);
-                }
-                else
-                {
-                    TempData["NotProduct"] = "OHH! Sorry I couldn't find a product like this";
-                    return RedirectToAction("Product");
-                }
-
-
-
-            }
-            catch (System.NullReferenceException)
-            {
-
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-
-
-
-        }
-
-
-
-
-        [HttpGet]
-
-        public ActionResult DeleteProduct(int Id = 0)
-        {
-            try
-            {
-                int events = productManager.Delete(Id, (int)Session["Id"]);
-                /*İşlem sayısı 0 gelirse ürün company ürünü değil*/
-                TempData["DeleteNum"] = "Number of deleted items:" + events;
-                return RedirectToAction("Product");
-            }
-            catch (System.NullReferenceException)
-            {
-
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-        }
-
-        #endregion
 
         #region Staff Actions
 
@@ -382,106 +222,7 @@ namespace InventoryManagementUI.Controllers
 
         #endregion
 
-        #region Store Actions
-
-        public ActionResult Store()
-        {
-            try
-            {
-                return View(storeManager.GetAllById((int)Session["Id"]));
-            }
-            catch (System.NullReferenceException)
-            {
-
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-        }
 
 
-        public ActionResult AddStore()
-        {
-
-            return View();
-        }
-
-
-        [HttpPost]
-        public ActionResult AddStore(string Name, string Address, string StoreManager)
-        {
-            try
-            {
-                Store store = new Store
-                {
-                    Name = Name,
-                    Address = Address,
-                    CompanyId = (int)Session["Id"],
-                    StoreManager = StoreManager,
-                    IsActive = true
-
-                };
-                storeManager.Add(store);
-                return View("AddStore");
-            }
-            catch (System.NullReferenceException)
-            {
-
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-        }
-        #endregion
-
-        #region Customer Actions
-
-        public ActionResult Customer()
-        {
-            try
-            {
-                return View(customerManager.GetAllById((int)Session["Id"]));
-            }
-            catch (System.NullReferenceException)
-            {
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-        }
-
-        public ActionResult AddCustomer()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult AddCustomer(string Name, string Surname, string Taxnumber, string CompanyName)
-        {
-            try
-            {
-                Customer customer = new Customer
-                {
-                    Name = Name,
-                    Surname = Surname,
-                    Taxnumber = Taxnumber,
-                    CompanyName = CompanyName,
-                    CompanyId = (int)Session["Id"]
-
-                };
-                customerManager.Add(customer);
-
-                return View();
-            }
-            catch (System.NullReferenceException)
-            {
-                return Redirect("~/Account/CompanyLogin");
-            }
-
-        }
-
-        public ActionResult DetailCustomer(int Id)
-        {
-
-            return View(customerManager.Get(Id, (int)Session["Id"]));
-        }
-        #endregion
     }
 }

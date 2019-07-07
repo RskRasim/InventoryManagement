@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<InventoryManagementEntity.Product>
 @{
-    ViewBag.Title = "Product";
+    ViewBag.Title = "Product List";
     Layout = "~/Views/Shared/_CompanyLayout.cshtml";
 }
-@Html.ActionLink("Add New Product", "AddProduct", "Company", new { @class = "btn btn-success btn-block mg-b-10" })
+@Html.ActionLink("Add New Product", "Add", "Product", new { @class = "btn btn-success btn-block mg-b-10" })
 <div class="br-section-wrapper">
     <h6 class="br-section-label">Product DataTable</h6>
     <span class="text-danger">@TempData["NotProduct"] @TempData["DeleteNum"]</span>
@@ -31,12 +31,12 @@
                         <td>@Product.ProductName</td>
 
                         <td>@Product.Pieces</td>
-                       @{float Price = (float)Product.Price;}
+                        @{float Price = (float)Product.Price;}
                         <td>@Price</td>
-                            
+
                         <td>% @Product.TaxRate</td>
-                        <td>@Html.ActionLink("Edit", "EditProduct", "Company", new { Product.Id }, new { @class = "btn btn-teal" })</td>
-                        <td>@Html.ActionLink("Detail", "DetailProduct", "Company", new { Product.Id }, new { @class = "btn btn-info" })</td>
+                        <td>@Html.ActionLink("Edit", "Edit", "Product", new { Product.Id }, new { @class = "btn btn-teal" })</td>
+                        <td>@Html.ActionLink("Detail", "Detail", "Product", new { Product.Id }, new { @class = "btn btn-info" })</td>
                     </tr>
                 }
 

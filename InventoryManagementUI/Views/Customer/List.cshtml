@@ -20,7 +20,7 @@
 </div>
 
 <div class="br-section-wrapper">
-    @Html.ActionLink("Add New Customer", "AddCustomer", "Company", new { @class = "btn btn-success btn-block mg-b-10 tx-sm-bold" })
+    @Html.ActionLink("Add New Customer", "Add", "Store", new { @class = "btn btn-success btn-block mg-b-10 tx-sm-bold" })
     <h6 class="br-section-label">Customer DataTable</h6>
     <div class="table-wrapper">
         <table id="datatable1" class="table display responsive nowrap dataTable no-footer dtr-inline" role="grid" aria-describedby="datatable1_info">
@@ -44,8 +44,8 @@
                         <td>@customer.Surname</td>
                         <td>@customer.Taxnumber</td>
 
-                        <td>@Html.ActionLink("Edit", "#", "Company", new { customer.Id }, new { @class = "btn" })</td>
-                        <td>@Html.ActionLink("Detail", "DetailCustomer", "Company", new { customer.Id }, new { @class = "btn btn-teal" })</td>
+                        <td>@Html.ActionLink("Edit", "#", "Customer", new { customer.Id }, new { @class = "btn" })</td>
+                        <td>@Html.ActionLink("Detail", "Detail", "Customer", new { customer.Id }, new { @class = "btn btn-teal" })</td>
                     </tr>
                 }
 

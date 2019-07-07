@@ -324,9 +324,12 @@
     <Compile Include="Areas\Master\MasterAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -350,20 +353,21 @@
     <Content Include="Views\Company\CreateStaff.cshtml" />
     <Content Include="Views\Company\Staff.cshtml" />
     <Content Include="Views\Company\EditStaff.cshtml" />
-    <Content Include="Views\Company\Product.cshtml" />
-    <Content Include="Views\Company\AddProduct.cshtml" />
-    <Content Include="Views\Company\DetailProduct.cshtml" />
     <Content Include="Views\Account\CompanyLogin.cshtml" />
-    <Content Include="Views\Company\Store.cshtml" />
-    <Content Include="Views\Company\AddStore.cshtml" />
     <Content Include="Views\Company\EditCompanyProfile.cshtml" />
-    <Content Include="Views\Company\Customer.cshtml" />
-    <Content Include="Views\Company\AddCustomer.cshtml" />
-    <Content Include="Views\Company\DetailCustomer.cshtml" />
     <Content Include="Views\Account\CreateCompanyAccount.cshtml" />
     <Content Include="Views\Account\StaffLogin.cshtml" />
     <Content Include="Views\Shared\_StaffLayout.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\Add.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Store\List.cshtml" />
+    <Content Include="Views\Store\Add.cshtml" />
+    <Content Include="Views\Customer\List.cshtml" />
+    <Content Include="Views\Customer\Add.cshtml" />
+    <Content Include="Views\Customer\Detail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -380,7 +384,6 @@
     <Folder Include="Areas\Master\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\InventoryManagementBll\InventoryManagementBll.csproj">
